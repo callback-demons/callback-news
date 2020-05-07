@@ -1,0 +1,34 @@
+{
+  "name": "callback-news",
+  "version": "1.0.0",
+  "description": "Daily online news, you can find over 50 pieces of news every day from different categories and sources.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilliamVelazquez/callback-news.git"
+  },
+  "keywords": [
+    "CallbackNews",
+    "News",
+    "OnlineNews",
+    "React",
+    "Next",
+    "PlatziMaster"
+  ],
+  "author": "William Velazquez <william.velazquez.a@gmail.com> (https://twitter.com/WilliamVlazquez)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WilliamVelazquez/callback-news/issues"
+  },
+  "homepage": "https://github.com/WilliamVelazquez/callback-news#readme",
+  "dependencies": {
+    "next": "9.3.6",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  }
+}

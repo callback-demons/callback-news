@@ -1,0 +1,9 @@
+node_modules
+.next
+
+### Others ###
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
