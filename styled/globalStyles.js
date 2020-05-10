@@ -7,11 +7,14 @@ const globalStyles = createGlobalStyle`
     background: ${(props) => props.theme.fontFamilyText};
     color: ${(props) => props.theme.colorText};
   }
-  * {
+  button {
     font-family: ${(props) => props.theme.fontFamilyText};
   }
   h1,h2,h3,h4 {
-    background: ${(props) => props.theme.fontFamilyTitle};
+    font-family: ${(props) => props.theme.fontFamilyTitle};
+  }
+  * {
+    /* border:1px solid hotpink; */
   }
 `
 
