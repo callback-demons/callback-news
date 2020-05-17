@@ -9,6 +9,7 @@ const posts = mockRSS.rss.channel.item
 const PostItemGrid = styled.div`
   display:grid;
   grid-template-columns:repeat(${(props) => props.qty || 1},1fr);
+  grid-gap:${(props) => props.theme.spacing};
   width:100%;
 `
 
@@ -30,6 +31,13 @@ function HomePage() {
       </Head>
       <Logo src="/callback-news-logo.png" alt="Callback News Logo" />
       <h1>Main Posts</h1>
+      <PostItemGrid qty={1}>
+        {
+          [1].map((index) => (
+            <PostItem post={posts[index]} />
+          ))
+        }
+      </PostItemGrid>
       <Hero>
         <PostItem post={posts[3]} />
         <PostItemGrid qty={1}>
