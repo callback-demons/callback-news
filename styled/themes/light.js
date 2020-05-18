@@ -9,6 +9,8 @@ const theme = {
   space: 8,
   size: 16,
   background: 'white',
+  skeletonBaseColor: '#ddd',
+  skeletonShineColor: '#e8e8e8',
 }
 
 export default theme

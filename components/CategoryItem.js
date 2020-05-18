@@ -1,10 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import { circle, circleGradientAnimation } from '../styled/mixins'
+import { circle, circleGradientAnimation, skeletonGradient } from '../styled/mixins'
+
+const SkeletonContainer = styled.div`
+  ${circle};
+  ${(p) => skeletonGradient(p.theme.skeletonBaseColor, p.theme.skeletonShineColor, '3s', '-200px')};
+  width: 200px;
+  height: 200px;
+`
 
 const ItemContainer = styled.div`
   ${circle};
-  ${(p) => circleGradientAnimation(p.theme.colorPrimaryLight, p.theme.colorPrimary, p.theme.colorSecondary, '1s')};
+  ${(p) => circleGradientAnimation(p.color, p.color, p.theme.colorSecondary, '0.6s')};
   padding: 8px;
   width: 200px;
   height: 200px;
@@ -18,9 +25,10 @@ const ImageContainer = styled.img`
 `
 
 const CategoryItem = (props) => {
-  const { srcImage } = props
+  const { srcImage, categoryColor = theme.colorPrimaryLight, isLoading } = props
+  if (isLoading) return <SkeletonContainer />
   return (
-    <ItemContainer>
+    <ItemContainer color={categoryColor}>
       <ImageContainer src={srcImage} />
     </ItemContainer>
   )

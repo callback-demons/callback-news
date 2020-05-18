@@ -13,6 +13,21 @@ export const transitions = `
   transition: 0.4s;
 `
 
+export const skeletonGradient = (baseColor, shineColor, animationDuration, skeletonOffset) => `
+  background-image: linear-gradient(90deg, ${baseColor} 0px, ${shineColor} 100px, ${baseColor} 200px);
+  background-size: 600px;
+  animation: shine ${animationDuration} infinite linear;
+  @keyframes shine{
+    0% {
+      background-position: -200px ${skeletonOffset};
+    }
+    40%, 100% {
+      background-position: 300px ${skeletonOffset};
+    }
+  }
+`
+
+
 export const circleGradientAnimation = (idleColor, initialColor, lastColor, transitionTime = 0) => `
   clip-path: circle(50% at 50% 50%);
   background-size: 100%;
@@ -20,7 +35,7 @@ export const circleGradientAnimation = (idleColor, initialColor, lastColor, tran
   position: relative;
   z-index: 100;
   &:before {
-    background-image: linear-gradient(${initialColor}, ${lastColor});
+    background-image: linear-gradient(to bottom right, ${initialColor}, ${lastColor});
     content: '';    
     display: block;
     height: 100%;
