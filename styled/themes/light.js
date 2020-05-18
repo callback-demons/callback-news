@@ -10,7 +10,8 @@ const theme = {
   size: 16,
   background: 'white',
   skeletonBaseColor: '#ddd',
-  skeletonShineColor: '#e8e8e8',
+  skeletonBaseColorDark: '#dcdcdc',
+  skeletonShineColor: '#efefef',
 }
 
 export default theme

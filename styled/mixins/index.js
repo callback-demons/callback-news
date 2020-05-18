@@ -27,7 +27,6 @@ export const skeletonGradient = (baseColor, shineColor, animationDuration, skele
   }
 `
 
-
 export const circleGradientAnimation = (idleColor, initialColor, lastColor, transitionTime = 0) => `
   clip-path: circle(50% at 50% 50%);
   background-size: 100%;
@@ -50,6 +49,11 @@ export const circleGradientAnimation = (idleColor, initialColor, lastColor, tran
     cursor: pointer;
     &:before {
       opacity: 1;
+      animation: ringRotateAnimation ${transitionTime};
     }
+  }
+  @keyframes ringRotateAnimation {
+    0% {transform:rotate(0deg);}
+    100% {transform:rotate(360deg);}
   }
 `

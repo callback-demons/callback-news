@@ -4,14 +4,22 @@ import { circle, circleGradientAnimation, skeletonGradient } from '../styled/mix
 
 const SkeletonContainer = styled.div`
   ${circle};
-  ${(p) => skeletonGradient(p.theme.skeletonBaseColor, p.theme.skeletonShineColor, '3s', '-200px')};
+  ${(p) => skeletonGradient(p.theme.skeletonBaseColorDark, p.theme.skeletonShineColor, '2s', '-200px')};
+  padding: 8px;
+  width: 200px;
+  height: 200px;
+`
+
+const SkeletonInnerContainer = styled.div`
+  ${circle};
+  ${(p) => skeletonGradient(p.theme.skeletonBaseColor, p.theme.skeletonShineColor, '2s', '-200px')};
   width: 200px;
   height: 200px;
 `
 
 const ItemContainer = styled.div`
   ${circle};
-  ${(p) => circleGradientAnimation(p.color, p.color, p.theme.colorSecondary, '0.6s')};
+  ${(p) => circleGradientAnimation(p.color, p.theme.colorPrimary, p.theme.colorSecondary, '0.6s')};
   padding: 8px;
   width: 200px;
   height: 200px;
@@ -26,7 +34,15 @@ const ImageContainer = styled.img`
 
 const CategoryItem = (props) => {
   const { srcImage, categoryColor = theme.colorPrimaryLight, isLoading } = props
-  if (isLoading) return <SkeletonContainer />
+
+  if (isLoading) {
+    return (
+      <SkeletonContainer>
+        <SkeletonInnerContainer />
+      </SkeletonContainer>
+    )
+  }
+
   return (
     <ItemContainer color={categoryColor}>
       <ImageContainer src={srcImage} />
