@@ -3,13 +3,13 @@ import styled, { ThemeProvider } from 'styled-components'
 import Head from 'next/head'
 import lightTheme from '../styled/themes/light'
 import GlobalStyles from '../styled/globalStyles'
+import Header from './Header'
 
-const Header = styled.header`
-  color: #fff;
-  background: #8756ca;
-  padding: 15px;
-  text-align: center;
+const Main = styled.main`
+  display:block;
+  padding-top:60px;
 `
+
 const Layout = ({ title, children }) => {
   return (
     <ThemeProvider theme={lightTheme}>
@@ -20,8 +20,10 @@ const Layout = ({ title, children }) => {
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;600;900&display=swap" rel="stylesheet" />
       </Head>
-      <Header>{title}</Header>
-      {children}
+      <Header title={title} />
+      <Main>
+        {children}
+      </Main>
     </ThemeProvider>
   )
 }
