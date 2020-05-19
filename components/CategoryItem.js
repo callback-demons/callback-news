@@ -2,27 +2,37 @@ import React from 'react'
 import styled from 'styled-components'
 import { circle, circleGradientAnimation, skeletonGradient } from '../styled/mixins'
 
+const CategoryContainer = styled.div`
+  display: grid;
+  justify-content: center;
+`
+
 const SkeletonContainer = styled.div`
   ${circle};
-  ${(p) => skeletonGradient(p.theme.skeletonBaseColorDark, p.theme.skeletonShineColor, '2s', '-200px')};
   padding: 8px;
   width: 200px;
-  height: 200px;
+  ${(p) => skeletonGradient(p.theme.skeletonBaseColorDark, p.theme.skeletonShineColor, '2s', '-200px')};
 `
 
 const SkeletonInnerContainer = styled.div`
   ${circle};
-  ${(p) => skeletonGradient(p.theme.skeletonBaseColor, p.theme.skeletonShineColor, '2s', '-200px')};
   width: 200px;
   height: 200px;
+  ${(p) => skeletonGradient(p.theme.skeletonBaseColor, p.theme.skeletonShineColor, '2s', '-200px')};
+`
+
+const TitleSkeletonContainer = styled.div`
+  margin: 8px;
+  height: ${(p) => p.theme.titleSize}px;
+  ${(p) => skeletonGradient(p.theme.skeletonBaseColor, p.theme.skeletonShineColor, '2s', '-200px')};
 `
 
 const ItemContainer = styled.div`
   ${circle};
-  ${(p) => circleGradientAnimation(p.color, p.theme.colorPrimary, p.theme.colorSecondary, '0.6s')};
   padding: 8px;
   width: 200px;
   height: 200px;
+  ${(p) => circleGradientAnimation(p.color, p.theme.colorPrimary, p.theme.colorSecondary, '0.6s')};
 `
 
 const ImageContainer = styled.img`
@@ -32,21 +42,37 @@ const ImageContainer = styled.img`
   height: 200px;
 `
 
+const CategoryTitle = styled.h2`
+  font-weight: bold;
+  text-align: center;
+  margin: ${(p) => p.theme.space}px;
+  font-size: ${(p) => p.theme.titleSize}px;
+`
+
 const CategoryItem = (props) => {
-  const { srcImage, categoryColor = theme.colorPrimaryLight, isLoading } = props
+  const { title, srcImage, categoryColor = theme.colorPrimaryLight, isLoading } = props
 
   if (isLoading) {
     return (
-      <SkeletonContainer>
-        <SkeletonInnerContainer />
-      </SkeletonContainer>
+      <CategoryContainer>
+        <SkeletonContainer>
+          <SkeletonInnerContainer />
+        </SkeletonContainer>
+        <TitleSkeletonContainer />
+      </CategoryContainer>
     )
   }
 
   return (
-    <ItemContainer color={categoryColor}>
-      <ImageContainer src={srcImage} />
-    </ItemContainer>
+    <CategoryContainer>
+      <ItemContainer color={categoryColor}>
+        <ImageContainer src={srcImage} />
+      </ItemContainer>
+      {
+        title &&
+        <CategoryTitle>{title}</CategoryTitle>
+      }
+    </CategoryContainer>
   )
 }
 

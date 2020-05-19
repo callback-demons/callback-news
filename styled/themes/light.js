@@ -8,6 +8,7 @@ const theme = {
   fontFamilyText: '"Nunito Sans", "Helvetica", "Arial", sans-serif;',
   space: 8,
   size: 16,
+  titleSize: 24,
   background: 'white',
   skeletonBaseColor: '#ddd',
   skeletonBaseColorDark: '#dcdcdc',
