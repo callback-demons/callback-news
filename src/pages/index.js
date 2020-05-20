@@ -1,21 +1,24 @@
-import Head from 'next/head'
 import styled from 'styled-components'
+import { useState } from 'react'
 import PostItemList from '../components/PostItemList'
 import Layout from '../components/Layout'
+import Hero from '../components/Hero'
+import mockRSS from '../utils/mocks/rss.json'
 
-const Logo = styled.img`
-  max-width:100%;
-`
+const posts = mockRSS.rss.channel.item
+const recentNews = [posts[0], posts[1], posts[2], posts[3], posts[4], posts[5]]
+const favoriteNews = [posts[6], posts[7], posts[8], posts[9], posts[10], posts[11]]
+
+const Title = styled.h1``
 
 function HomePage() {
+  const [title] = useState('Callback News - The daily technology newsletter')
   return (
-    <Layout>
-      <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-      </Head>
-      <Logo src="/callback-news-logo.png" alt="Callback News Logo" />
-      <PostItemList />
+    <Layout title={title}>
+      <Hero />
+      <Title>{title}</Title>
+      <PostItemList title="Recent news" posts={recentNews} />
+      <PostItemList title="Favorite news" posts={favoriteNews} />
     </Layout>
   )
 }

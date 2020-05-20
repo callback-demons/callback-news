@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import PostItem from './PostItem'
-import mockRSS from '../utils/mocks/rss.json'
+// import mockRSS from '../utils/mocks/rss.json'
 
-const posts = mockRSS.rss.channel.item
+// const posts = mockRSS.rss.channel.item
 
 const Container = styled.div`
   /* max-width:1024px; */
@@ -18,9 +18,15 @@ const Main = styled.div`
   grid-gap:${(props) => props.theme.space * 2}px;
 `
 
-const PostItemList = () => {
+const Title = styled.h2`
+  font-size:28px;
+  font-family:${(props) => props.theme.fontFamilyTitle};
+`
+
+const PostItemList = ({ posts, title }) => {
   return (
     <Container>
+      <Title>{title}</Title>
       <Main>
         {
           posts.map((post) => <PostItem post={post} />)
