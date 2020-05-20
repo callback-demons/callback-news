@@ -38,13 +38,6 @@ function HomePage() {
       </Head>
       <Logo src="/callback-news-logo.png" alt="Callback News Logo" />
       <h1>Main Posts</h1>
-      <PostItemGrid qty={1}>
-        {
-          [1].map((index) => (
-            <PostItem post={posts[index]} />
-          ))
-        }
-      </PostItemGrid>
       <Hero>
         <PostItem post={posts[3]} />
         <PostItemGrid qty={1}>
@@ -55,6 +48,13 @@ function HomePage() {
           }
         </PostItemGrid>
       </Hero>
+      <PostItemGrid qty={1}>
+        {
+          [1].map((index) => (
+            <PostItem post={posts[index]} />
+          ))
+        }
+      </PostItemGrid>
       <h2>Latest uploaded</h2>
       <PostItemGrid qty={3}>
         {
