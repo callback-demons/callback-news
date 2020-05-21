@@ -4,7 +4,7 @@ import { circle, circleGradientAnimation, skeletonGradient } from '../styled/mix
 
 const CategoryContainer = styled.div`
   display: grid;
-  justify-content: center;
+  justify-items: center;
 `
 
 const SkeletonContainer = styled.div`
@@ -43,8 +43,10 @@ const ImageContainer = styled.img`
 `
 
 const CategoryTitle = styled.h2`
+  max-width: 200px;
   font-weight: bold;
   text-align: center;
+  white-space: break-spaces;
   margin: ${(p) => p.theme.space}px;
   font-size: ${(p) => p.theme.titleSize}px;
 `
