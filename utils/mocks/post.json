@@ -1,0 +1,55 @@
+{
+  "title": "Hiring People With a Knack for Incident Management",
+  "link": "https://hackernoon.com/hiring-people-with-a-knack-for-incident-management-4e2f32qj?source=rss",
+  "guid": {
+    "-isPermaLink": "true",
+    "#text": "https://hackernoon.com/hiring-people-with-a-knack-for-incident-management-4e2f32qj?source=rss"
+  },
+  "category": [
+    "devops",
+    "incident-management",
+    "incident-responsiveness",
+    "incident-response",
+    "incident-response-plan",
+    "production-management",
+    "site-reliability-engineering",
+    "hrtech"
+  ],
+  "creator": "a.tsibulskaya@gmail.com",
+  "pubDate": "Fri, 08 May 2020 10:05:49 GMT",
+  "contents": [
+    {
+      "type":"p",
+      "content":"How much time do you spend thinking about soft skills when hiring engineers? Iâ€™m guessing Iâ€™m not the only one copy-pasting â€œgood communication skills, fast learner, stress resistanceâ€."
+    },
+    {
+      "type":"p",
+      "content":"Not because I was too lazy to think about it, but because I didnâ€™t think it matters. "
+    },
+    {
+      "type":"p",
+      "content":"I always thought that technical skills are important for any tech position and of course, the same applies to anyone who handles production incidents."
+    },
+    {
+      "type":"p",
+      "content":"If a person has been working with java for 15 years and some python service crashes in production â€” it would probably take her more time to fix than anyone who has experience with python."
+    },
+    {
+      "type":"p",
+      "content":"And timing is super important during incident handling, so we would be checking only CVs of people with relevant python experience. This sounds logical but is actually completely incorrect."
+    },
+    {
+      "type":"p",
+      "content":"Soft skills matter as much or even more than technical skills for incident management. "
+    },
+    {
+      "type":"p",
+      "content":"And in my opinion, theyâ€™re way more difficult to define in a job description, check during an interview and find in candidates. This post will help you address each of these difficulties."
+    },
+    {
+      "type":"a",
+      "href":"https://hackernoon.com/hiring-people-with-a-knack-for-incident-management-4e2f32qj?source=rss",
+      "content":"Read the full story"
+    }
+  ]
+}
