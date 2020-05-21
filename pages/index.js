@@ -4,18 +4,6 @@ import PostItemList from '../components/PostItemList'
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import mockRSS from '../utils/mocks/rss.json'
-import _CategoryItem from '../components/CategoryItem'
-
-const CategoryItem = styled(_CategoryItem)`
-  margin-right:10px;
-`
-
-const CategoryItemList = styled.div`
-  display:flex;
-  overflow: auto;
-  white-space: nowrap;
-  padding:${(props) => props.theme.space * 2}px 0;
-`
 
 const posts = mockRSS.rss.channel.item
 const recentNews = [posts[0], posts[1], posts[2], posts[3], posts[4], posts[5]]
@@ -29,11 +17,6 @@ function HomePage() {
     <Layout title={title}>
       <Hero />
       <Title>{title}</Title>
-      <CategoryItemList>
-        {
-          [0, 1, 2, 3, 4, 5, 6].map(() => <CategoryItem />)
-        }
-      </CategoryItemList>
       <PostItemList title="Recent news" posts={recentNews} />
       <PostItemList title="Favorite news" posts={favoriteNews} />
     </Layout>
