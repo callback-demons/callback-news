@@ -4,7 +4,7 @@ import { circle, circleGradientAnimation, skeletonGradient } from '../styled/mix
 
 const CategoryContainer = styled.div`
   display: grid;
-  justify-items: center;
+  justify-content: center;
 `
 
 const SkeletonContainer = styled.div`
