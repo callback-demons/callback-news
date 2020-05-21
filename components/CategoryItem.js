@@ -9,46 +9,90 @@ const CategoryContainer = styled.div`
 
 const SkeletonContainer = styled.div`
   ${circle};
-  padding: 8px;
-  width: 200px;
+  width: 100px;
+  padding: 6px;
   ${(p) => skeletonGradient(p.theme.skeleton.baseColorDark, p.theme.skeleton.shineColor, '2s', '-200px')};
+  @media screen and (min-width: 768px) {
+    width: 150px;
+    padding: 7px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 180px;
+    padding: 8px;
+  }
 `
 
 const SkeletonInnerContainer = styled.div`
   ${circle};
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   ${(p) => skeletonGradient(p.theme.skeleton.baseColor, p.theme.skeleton.shineColor, '2s', '-200px')};
+  @media screen and (min-width: 768px) {
+    width: 150px;
+    height: 150px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 180px;
+    height: 180px;
+  }
 `
 
 const TitleSkeletonContainer = styled.div`
   margin: 8px;
-  height: ${(p) => p.theme.titleSize}px;
+  height: ${(p) => p.theme.tabletSize}px;
   ${(p) => skeletonGradient(p.theme.skeleton.baseColor, p.theme.skeleton.shineColor, '2s', '-200px')};
+  @media screen and (min-width: 768px) {
+    height: ${(p) => p.theme.titleSize}px;
+  }
 `
 
 const ItemContainer = styled.div`
   ${circle};
-  padding: 8px;
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
+  padding: 6px;
   ${(p) => circleGradientAnimation(p.color, p.theme.colorPrimary, p.theme.colorSecondary, '0.6s')};
+  @media screen and (min-width: 768px) {
+    width: 150px;
+    height: 150px;
+    padding: 7px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 180px;
+    height: 180px;
+    padding: 8px;
+  }
 `
 
 const ImageContainer = styled.img`
   ${circle};
+  width: 100px;
+    height: 100px;
   background-image: url("${(p) => p.srcImage}");
-  width: 200px;
-  height: 200px;
+  @media screen and (min-width: 768px) {
+    width: 150px;
+    height: 150px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 180px;
+    height: 180px;
+  }
 `
 
 const CategoryTitle = styled.h2`
-  max-width: 200px;
+  max-width: 100px;
   font-weight: bold;
   text-align: center;
   white-space: break-spaces;
   margin: ${(p) => p.theme.space}px;
-  font-size: ${(p) => p.theme.titleSize}px;
+  font-size: ${(p) => p.theme.tabletSize}px;
+  @media screen and (min-width: 768px) {
+    max-width: 150px;
+    font-size: ${(p) => p.theme.titleSize}px;
+  }
+  @media screen and (min-width: 1024px) {
+    max-width: 180px;
+  }
 `
 
 const CategoryItem = (props) => {

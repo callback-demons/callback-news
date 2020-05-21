@@ -3,18 +3,18 @@ import styled from 'styled-components'
 import CategoryItem from './CategoryItem'
 
 const CategoryListContainer = styled.div`
+  z-index: 2;
   display: grid;
   grid-gap: 25px;
   overflow: auto;
   padding: 10px 20px;
+  position: relative;
   white-space: nowrap;
   grid-auto-flow: column;
 `
 
 const CategoryItemList = (props) => {
   const { data = [] } = props
-  console.log(props)
-  console.log(data.length)
   return (
     <CategoryListContainer>
       {
@@ -23,13 +23,9 @@ const CategoryItemList = (props) => {
             (item, index) => <CategoryItem title={item.title} srcImage={item.image} categoryColor={item.color} key={index} />,
           ) :
           <>
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
+            {
+              Array.from(Array(7).keys()).map(() => <CategoryItem />)
+            }
           </>
       }
     </CategoryListContainer>
