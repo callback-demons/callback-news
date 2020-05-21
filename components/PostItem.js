@@ -64,7 +64,7 @@ const Title = styled(ClampLines)`
   margin:0;
   & h3 {
     margin:0;
-    color: ${(props) => props.theme.colorSecondary};
+    color: ${(props) => props.theme.color.secondary};
     font-size:1.5rem;
   }
 `
