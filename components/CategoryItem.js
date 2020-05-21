@@ -11,20 +11,20 @@ const SkeletonContainer = styled.div`
   ${circle};
   padding: 8px;
   width: 200px;
-  ${(p) => skeletonGradient(p.theme.skeletonBaseColorDark, p.theme.skeletonShineColor, '2s', '-200px')};
+  ${(p) => skeletonGradient(p.theme.skeleton.baseColorDark, p.theme.skeleton.shineColor, '2s', '-200px')};
 `
 
 const SkeletonInnerContainer = styled.div`
   ${circle};
   width: 200px;
   height: 200px;
-  ${(p) => skeletonGradient(p.theme.skeletonBaseColor, p.theme.skeletonShineColor, '2s', '-200px')};
+  ${(p) => skeletonGradient(p.theme.skeleton.baseColor, p.theme.skeleton.shineColor, '2s', '-200px')};
 `
 
 const TitleSkeletonContainer = styled.div`
   margin: 8px;
   height: ${(p) => p.theme.titleSize}px;
-  ${(p) => skeletonGradient(p.theme.skeletonBaseColor, p.theme.skeletonShineColor, '2s', '-200px')};
+  ${(p) => skeletonGradient(p.theme.skeleton.baseColor, p.theme.skeleton.shineColor, '2s', '-200px')};
 `
 
 const ItemContainer = styled.div`
@@ -50,11 +50,11 @@ const CategoryTitle = styled.h2`
 `
 
 const CategoryItem = (props) => {
-  const { title, srcImage = '', categoryColor = '#428CD4', isLoading } = props
+  const { title, srcImage = '', categoryColor = '#428CD4', isLoading, className } = props
 
   if (isLoading || srcImage === '') {
     return (
-      <CategoryContainer>
+      <CategoryContainer className={className}>
         <SkeletonContainer>
           <SkeletonInnerContainer />
         </SkeletonContainer>
