@@ -4,7 +4,7 @@ import MobileMenu from './MobileMenu'
 
 const Container = styled.header`
   color: #fff;
-  background: ${(props) => props.theme.gradient};
+  background: ${(props) => props.theme.gradient.primary};
   padding: 15px;
   text-align: center;
   position:fixed;
