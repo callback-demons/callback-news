@@ -14,8 +14,6 @@ const theme = {
   blue,
   ultraBlack,
 
-  colorText: ultraBlack,
-
   fontFamilyTitle: quicksand,
   fontFamilyText: nunito,
 
@@ -23,6 +21,17 @@ const theme = {
   size: 16,
 
   background: white,
+
+  colorPrimary: '#004E9A',
+  colorPrimaryLight: '#428CD4',
+  colorSecondary: '#EA4492',
+  titleSize: 24,
+  skeleton: {
+    baseColor: '#ddd',
+    baseColorDark: '#dcdcdc',
+    shineColor: '#efefef',
+  },
+
   color: {
     primary: ultraBlue,
     primaryLight: blue,
@@ -41,6 +50,7 @@ const theme = {
     blue: `linear-gradient(142deg, ${ultraBlue} 0%, ${blue} 100%)`,
     darkBlue: `linear-gradient(142deg, ${ultraBlue} 0%, ${ultraBlack} 100%)`,
   },
+
 }
 
 export default theme
