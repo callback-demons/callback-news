@@ -50,9 +50,9 @@ const CategoryTitle = styled.h2`
 `
 
 const CategoryItem = (props) => {
-  const { title, srcImage, categoryColor = theme.colorPrimaryLight, isLoading } = props
+  const { title, srcImage = '', categoryColor = '#428CD4', isLoading } = props
 
-  if (isLoading) {
+  if (isLoading || srcImage === '') {
     return (
       <CategoryContainer>
         <SkeletonContainer>
