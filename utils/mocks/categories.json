@@ -1,0 +1,43 @@
+"categories": [{
+    title: "oracle",
+    id: "adjñlkasdfjlkñ1",
+    color: "#123",
+    image: "https://i.picsum.photos/id/1/200/200.jpg"
+  },
+  {
+    title: "webapps",
+    id: "adjñlkasdfjlkñ2",
+    color: "#123",
+    image: "https://i.picsum.photos/id/2/200/200.jpg"
+  },
+  {
+    title: "application-development",
+    id: "adjñlkasdfjlkñ3",
+    color: "#123",
+    image: "https://i.picsum.photos/id/3/200/200.jpg"
+  },
+  {
+    title: "oracle-database",
+    id: "adjñlkasdfjlkñ4",
+    color: "#123",
+    image: "https://i.picsum.photos/id/4/200/200.jpg"
+  },
+  {
+    title: "low-code",
+    id: "adjñlkasdfjlkñ5",
+    color: "#123",
+    image: "https://i.picsum.photos/id/5/200/200.jpg"
+  },
+  {
+    title: "low-code-platform",
+    id: "adjñlkasdfjlkñ6",
+    color: "#123",
+    image: "https://i.picsum.photos/id/6/200/200.jpg"
+  },
+  {
+    title: "development",
+    id: "adjñlkasdfjlkñ7",
+    color: "#123",
+    image: "https://i.picsum.photos/id/7/200/200.jpg"
+  }
+]
