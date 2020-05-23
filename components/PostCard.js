@@ -14,6 +14,11 @@ const Card = styled.div`
   width:calc(100% - 8px);
   box-sizing:border-box;
   padding:${(props) => props.theme.space * 2}px 30px;
+  max-width:1100px;
+  @media screen and (min-width:768px) {
+    padding-left:70px;
+    padding-right:70px;
+  }
 `
 const PostCard = ({ post }) => {
   return (
