@@ -20,7 +20,7 @@ const CategoryItemList = (props) => {
       {
         data.length > 0 ?
           data.map(
-            (item, index) => <CategoryItem title={item.title} srcImage={item.image} categoryColor={item.color} key={index} />,
+            (item, index) => <CategoryItem title={item.name} srcImage={item.picture} categoryColor={item.color} key={item.index} />,
           ) :
           <>
             {

@@ -13,7 +13,7 @@ const favoriteNews = [posts[6], posts[7], posts[8], posts[9], posts[10], posts[1
 
 const Title = styled.h1``
 
-const { categories = [] } = categoriesMock
+const categories = categoriesMock || []
 
 function HomePage() {
   const [title] = useState('Callback News - The daily technology newsletter')
