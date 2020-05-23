@@ -16,6 +16,9 @@ const globalStyles = createGlobalStyle`
   * {
     /* border:1px solid hotpink; */
   }
+  img {
+    max-width:100%;
+  }
 `
 
 export default globalStyles

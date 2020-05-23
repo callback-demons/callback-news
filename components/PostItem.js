@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import ClampLines from 'react-clamp-lines'
 import { card } from '../styled/mixins'
 import useWidth from '../hooks/useWidth'
+import InfoPost from './InfoPost'
 
 const Container = styled.div`
     ${card};
@@ -68,27 +69,6 @@ const Title = styled(ClampLines)`
     font-size:1.5rem;
   }
 `
-const Avatar = styled.img`
-  max-width:100%;
-  object-fit:cover;
-  border-radius:50%;
-`
-const Info = styled.div`
-  display:grid;
-  grid-template-columns:30px 1fr;
-  grid-column-gap:${(props) => props.theme.space}px;
-`
-const Meta = styled.div`
-  grid-column-start:2;
-  & span {
-    margin-right:${(props) => props.theme.space * 3}px;
-  }
-`
-const Author = styled.p`
-  font-size:1.3rem;
-  margin:0;
-  padding:0;
-`
 const Footer = styled.div`
   grid-area:footer;
 `
@@ -119,14 +99,7 @@ const PostItem = ({ post = {} }) => {
         buttons={false}
       />
       <Footer>
-        <Info>
-          <Avatar src={`https://robohash.org/callback-${Math.floor(Math.random() * 1000)}`} />
-          <Author>David Behar Lombrozo</Author>
-          <Meta>
-            <span>20 min read</span>
-            <span>Posted: 28/04/20</span>
-          </Meta>
-        </Info>
+        <InfoPost />
       </Footer>
     </Container>
   )

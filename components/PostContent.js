@@ -1,22 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
+import Markdown from './Markdown'
+import InfoPost from './InfoPost'
 
 const Container = styled.div``
 
-const PostContent = ({ contents }) => {
+const Title = styled.h1``
+
+const PostContent = ({ post }) => {
+  const { content, title } = post
+  console.log(post)
   return (
     <Container>
-      {
-        contents.map((node) => {
-          console.log(node)
-          switch (node.type) {
-            case 'p':
-              return <p>{node.content}</p>
-            case 'a':
-              return <a href={node.href}>{node.content}</a>
-          }
-        })
-      }
+      <Title>{title}</Title>
+      <InfoPost />
+      <Markdown text={decodeURIComponent(content)} />
     </Container>
   )
 }
