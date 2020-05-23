@@ -4,18 +4,8 @@ import PostItemList from '../components/PostItemList'
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import mockRSS from '../utils/mocks/rss.json'
-import _CategoryItem from '../components/CategoryItem'
-
-const CategoryItem = styled(_CategoryItem)`
-  margin-right:10px;
-`
-
-const CategoryItemList = styled.div`
-  display:flex;
-  overflow: auto;
-  white-space: nowrap;
-  padding:${(props) => props.theme.space * 2}px 0;
-`
+import categoriesMock from '../utils/mocks/categories.json'
+import CategoryItemList from '../components/CategoryItemList'
 
 const posts = mockRSS.rss.channel.item
 const recentNews = [posts[0], posts[1], posts[2], posts[3], posts[4], posts[5]]
@@ -23,17 +13,15 @@ const favoriteNews = [posts[6], posts[7], posts[8], posts[9], posts[10], posts[1
 
 const Title = styled.h1``
 
+const { categories = [] } = categoriesMock
+
 function HomePage() {
   const [title] = useState('Callback News - The daily technology newsletter')
   return (
     <Layout title={title}>
       <Hero />
       <Title>{title}</Title>
-      <CategoryItemList>
-        {
-          [0, 1, 2, 3, 4, 5, 6].map(() => <CategoryItem />)
-        }
-      </CategoryItemList>
+      <CategoryItemList data={categories} />
       <PostItemList title="Recent news" posts={recentNews} />
       <PostItemList title="Favorite news" posts={favoriteNews} />
     </Layout>

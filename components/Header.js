@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import MobileMenu from './MobileMenu'
 
 const Container = styled.header`
+  z-index: 10;
   color: #fff;
   background: ${(props) => props.theme.gradient.primary};
   padding: 15px;
