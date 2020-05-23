@@ -7,8 +7,7 @@ const Container = styled.div`
   padding-top: ${(props) => props.theme.space * 2}px;
 `
 const Title = styled.h1``
-const Labels = styled.div`
-`
+const Labels = styled.div``
 const Label = styled.div`
   border-radius:5px;
   background:${(props) => props.theme.color.primary};
@@ -31,7 +30,7 @@ const PostContent = ({ post }) => {
         }
       </Labels>
       <Title>{post.title}</Title>
-      <InfoPost />
+      <InfoPost post={post} />
       <Markdown text={decodeURIComponent(post.content)} />
     </Container>
   )

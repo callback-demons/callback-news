@@ -83,7 +83,7 @@ const PostItem = ({ post = {} }) => {
           {post.category[0]}
         </LabelElement>
       </Label>
-      <Image src={`https://i.picsum.photos/id/${Math.round(Math.random() * 150) + 1}/200/200.jpg`} />
+      <Image src={post.imgSrc} />
       <Title
         text={post.title}
         lines={3}
@@ -99,7 +99,7 @@ const PostItem = ({ post = {} }) => {
         buttons={false}
       />
       <Footer>
-        <InfoPost />
+        <InfoPost post={post} />
       </Footer>
     </Container>
   )
