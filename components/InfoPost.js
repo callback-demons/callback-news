@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { parse, format } from 'date-fns'
 import styled from 'styled-components'
 
 import Heart from './Heart'
@@ -34,22 +35,28 @@ const Likes = styled.div`
   text-align:center;
 `
 
-const InfoPost = () => {
+const InfoPost = ({ post }) => {
   const [isLiked, setIsLiked] = useState(false)
   const handleLike = (event) => {
     setIsLiked(!isLiked)
   }
+  // Fri, 08 May 2020 10:05:49 GMT
+  const date = parse(post.pubDate, 'EEE, dd MMM yyyy HH:mm:ss', new Date())
   return (
     <Info>
-      <Avatar src={`https://robohash.org/callback-${Math.floor(Math.random() * 1000)}`} />
+      <Avatar src={post.avatar} />
       <Meta>
         <Author>David Behar Lombrozo</Author>
-        <span>20 min read</span>
-        <span>Posted: 28/04/20</span>
+        {/* <span>20 min read</span> */}
+        <span>
+          Posted:
+          {' '}
+          {format(date, 'MM/dd/yyyy')}
+        </span>
       </Meta>
       <LikeContainer>
         <Heart onClick={handleLike} isLiked={isLiked} />
-        <Likes>{20 + isLiked}</Likes>
+        <Likes>{post.likes + isLiked}</Likes>
       </LikeContainer>
     </Info>
   )
