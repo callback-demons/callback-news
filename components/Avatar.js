@@ -10,10 +10,10 @@ const CircleImage = styled.img`
   max-width: ${(props) => props.size};
   max-height: ${(props) => props.size};
   margin: ${(props) => props.theme.space}px;
-  ${(props) => props.withBorder && `border: 3px solid ${props.theme.color.primary}`};
+  ${(props) => props.withBorder && `border: ${props.borderSize}px solid ${props.theme.color.primary}`};
 `
 const Avatar = (props) => {
-  const { image = DEFAULT_IMAGE, size = '35px', margin = 8, withBorder, borderColor = '#004E9A', className } = props
+  const { image = DEFAULT_IMAGE, size = '35px', margin = 8, withBorder, borderColor = '#004E9A', borderSize = 3, className } = props
   return (
     <CircleImage
       src={image}
@@ -21,6 +21,7 @@ const Avatar = (props) => {
       margin={margin}
       className={className}
       withBorder={withBorder}
+      borderSize={borderSize}
       borderColor={borderColor}
     />
   )
