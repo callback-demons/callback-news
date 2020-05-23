@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import MobileMenu from './MobileMenu'
+import Avatar from './Avatar'
 
 const Container = styled.header`
   z-index: 10;
@@ -21,14 +22,10 @@ const Logo = styled.img``
 const Right = styled.div`
   display:flex;
 `
-const Avatar = styled.img`
-  max-width:30px;
-  max-height:30px;
-  background:white;
-  border-radius:50%;
-  margin-left:${(props) => props.theme.space * 2}px;
-  border:3px solid ${(props) => props.theme.color.primary};
-  box-sizing:border-box;
+
+const CustomAvatar = styled(Avatar)`
+  margin: 0px;
+  margin-left: 16px;
 `
 
 const Header = ({ title = '' }) => {
@@ -37,7 +34,7 @@ const Header = ({ title = '' }) => {
       <Logo src="https://storage.cloud.google.com/cbn-public/callback-news-logo-white.svg" />
       <Right>
         <MobileMenu />
-        <Avatar src={`https://robohash.org/callback-${Math.floor(Math.random() * 1000)}`} />
+        <CustomAvatar size="30px" withBorder src={`https://robohash.org/callback-${Math.floor(Math.random() * 1000)}`} />
       </Right>
     </Container>
   )
