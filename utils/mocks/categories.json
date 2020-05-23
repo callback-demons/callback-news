@@ -1,45 +1,50 @@
-{
-  "categories": [{
-    "title": "oracle",
-    "id": "adjñlkasdfjlkñ1",
-    "color": "#EA4492",
-    "image": "https://i.picsum.photos/id/1/200/200.jpg"
+[
+  {
+    "id": 1,
+    "name": "Programing",
+    "color": "#E752C4",
+    "picture": "https://storage.googleapis.com/cbn-public/mocks/images/programming.jpg"
   },
   {
-    "title": "webapps",
-    "id": "adjñlkasdfjlkñ2",
-    "color": "#004E9A",
-    "image": "https://i.picsum.photos/id/2/200/200.jpg"
+    "id": 2,
+    "name": "Artificial Intelligence",
+    "color": "#8050FC",
+    "picture": "https://storage.googleapis.com/cbn-public/mocks/images/artificial_intelligence.jpg"
   },
   {
-    "title": "application development",
-    "id": "adjñlkasdfjlkñ3",
-    "color": "#fffE9A",
-    "image": "https://i.picsum.photos/id/3/200/200.jpg"
+    "id": 3,
+    "name": "UX/UI",
+    "color": "#294AFC",
+    "picture": "https://storage.googleapis.com/cbn-public/mocks/images/ux_ui.png"
   },
   {
-    "title": "oracle database",
-    "id": "adjñlkasdfjlkñ4",
-    "color": "#123",
-    "image": "https://i.picsum.photos/id/4/200/200.jpg"
+    "id": 4,
+    "name": "Internet",
+    "color": "#4BBAFB",
+    "picture": "https://storage.googleapis.com/cbn-public/mocks/images/internet.jpg"
   },
   {
-    "title": "low code",
-    "id": "adjñlkasdfjlkñ5",
-    "color": "#33ff00",
-    "image": "https://i.picsum.photos/id/5/200/200.jpg"
+    "id": 5,
+    "name": "Robotic",
+    "color": "#77F9F5",
+    "picture": "https://storage.googleapis.com/cbn-public/mocks/images/robotic.jpg"
   },
   {
-    "title": "low code platform",
-    "id": "adjñlkasdfjlkñ6",
-    "color": "#ff0033",
-    "image": "https://i.picsum.photos/id/6/200/200.jpg"
+    "id": 6,
+    "name": "Gamer",
+    "color": "#072695",
+    "picture": "https://storage.googleapis.com/cbn-public/mocks/images/gamer.jpeg"
   },
   {
-    "title": "development",
-    "id": "adjñlkasdfjlkñ7",
-    "color": "#FF9CDA",
-    "image": "https://i.picsum.photos/id/7/200/200.jpg"
+    "id": 7,
+    "name": "Operating System",
+    "color": "#9AD4FC",
+    "picture": "https://storage.googleapis.com/cbn-public/mocks/images/operating_system.jpg"
+  },
+  {
+    "id": 8,
+    "name": "DevOps",
+    "color": "#1F537A",
+    "picture": "https://storage.googleapis.com/cbn-public/mocks/images/devops.jpg"
   }
-  ]
-}
+]
