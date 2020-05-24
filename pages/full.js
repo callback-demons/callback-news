@@ -7,9 +7,13 @@ import PostItem from '../components/PostItem'
 const posts = mockRSS.rss.channel.item
 
 const PostItemGrid = styled.div`
-  display:grid;
-  grid-template-columns:repeat(${(props) => props.qty || 1},1fr);
+  display:block;
   width:100%;
+  @media screen and (min-width:768px) {
+    display:grid;
+    grid-template-columns:repeat(${(props) => props.qty || 1},1fr);
+    grid-gap:${(props) => props.theme.spacing};
+  }
 `
 
 const Logo = styled.img`
@@ -17,8 +21,12 @@ const Logo = styled.img`
 `
 
 const Hero = styled.div`
-  display:grid;
-  grid-template-columns:70% 1fr;
+  display:block;
+  width:100%;
+  @media screen and (min-width:768px){
+    display:grid;
+    grid-template-columns:70% 1fr;
+  }
 `
 
 function HomePage() {
@@ -40,6 +48,13 @@ function HomePage() {
           }
         </PostItemGrid>
       </Hero>
+      <PostItemGrid qty={1}>
+        {
+          [1].map((index) => (
+            <PostItem post={posts[index]} />
+          ))
+        }
+      </PostItemGrid>
       <h2>Latest uploaded</h2>
       <PostItemGrid qty={3}>
         {
