@@ -4,7 +4,7 @@ const globalStyles = createGlobalStyle`
   body {
     margin: 0;
     font-family: ${(props) => props.theme.fontFamilyText};
-    background: ${(props) => props.theme.fontFamilyText};
+    background: ${(props) => props.theme.background};
     color: ${(props) => props.theme.colorText};
     font-size:18px;
   }
@@ -13,9 +13,6 @@ const globalStyles = createGlobalStyle`
   }
   h1,h2,h3,h4 {
     font-family: ${(props) => props.theme.fontFamilyTitle};
-  }
-  * {
-    /* border:1px solid hotpink; */
   }
   img {
     max-width:100%;
@@ -51,9 +48,8 @@ const globalStyles = createGlobalStyle`
   p {
     & img {
     display:block;
+    }
   }
-  }
-
 `
 
 export default globalStyles
