@@ -9,8 +9,11 @@
       "description": "How hackers start their afternoons.",
       "link": "http://github.com/dylang/node-rss",
       "generator": "RSS for Node",
-      "lastBuildDate": "Fri, 08 May 2020 16:00:10 GMT",
-      "pubDate": "Fri, 08 May 2020 16:00:09 GMT",
+      "lastBuildDate": "Fri, 08 May 2020 16:00:10",
+      "avatar":"https://robohash.org/callback-9",
+      "imgSrc":"https://i.picsum.photos/id/9/200/200.jpg",
+      "likes": 9,
+      "pubDate": "Fri, 08 May 2020 16:00:09",
       "item": [
         {
           "title": "Creating a Branch Process in Oracle Apex",
@@ -30,7 +33,10 @@
             "application"
           ],
           "creator": "pro.vinishkapoor@gmail.com",
-          "pubDate": "Fri, 08 May 2020 14:33:57 GMT",
+          "avatar":"https://robohash.org/callback-61",
+          "imgSrc":"https://i.picsum.photos/id/71/200/200.jpg",
+          "likes": 61,
+          "pubDate": "Fri, 08 May 2020 14:33:57",
           "contentEncoded": "In Oracle Apex, we create a Branch Process to open another page after submitting the current page. Because a Branch process executes on the page submit.<p><a href=\"https://hackernoon.com/creating-a-branch-process-in-oracle-apex-ch2c3yib?source=rss\">Read the full story</a></p>"
         },
         {
@@ -51,7 +57,10 @@
             "money"
           ],
           "creator": "Mark",
-          "pubDate": "Fri, 08 May 2020 13:19:50 GMT",
+          "avatar":"https://robohash.org/callback-18",
+          "imgSrc":"https://i.picsum.photos/id/78/200/200.jpg",
+          "likes": 18,
+          "pubDate": "Fri, 08 May 2020 13:19:50",
           "contentEncoded": "â€œThere areÂ decadesÂ where nothingÂ happens, and there areÂ weeksÂ whereÂ decades happen.â€<p><a href=\"https://hackernoon.com/financial-crises-and-bitcoin-why-youre-worrying-about-the-wrong-market-0e4h325g?source=rss\">Read the full story</a></p>"
         },
         {
@@ -72,7 +81,10 @@
             "distributed-version-control"
           ],
           "creator": "Sriram",
-          "pubDate": "Fri, 08 May 2020 13:17:32 GMT",
+          "avatar":"https://robohash.org/callback-83",
+          "imgSrc":"https://i.picsum.photos/id/73/200/200.jpg",
+          "likes": 83,
+          "pubDate": "Fri, 08 May 2020 13:17:32",
           "contentEncoded": "Hello World!<p><a href=\"https://hackernoon.com/a-beginners-guide-to-git-chapter-1-zu6932tk?source=rss\">Read the full story</a></p>"
         },
         {
@@ -93,7 +105,10 @@
             "good-company"
           ],
           "creator": "Andrew Magdy Kamal",
-          "pubDate": "Fri, 08 May 2020 13:05:40 GMT",
+          "avatar":"https://robohash.org/callback-11",
+          "imgSrc":"https://i.picsum.photos/id/71/200/200.jpg",
+          "likes": 11,
+          "pubDate": "Fri, 08 May 2020 13:05:40",
           "contentEncoded": "Covid19 taken the world by storm. People have been panicking and buying toilet paper like no tomorrow. Celebrities have been making sure to keep us caught up on latest videos of them eating cereal. Anxious teens and twenty year olds have been extra moody. <p><a href=\"https://hackernoon.com/i-went-on-a-big-data-spree-because-of-covid19-zubt32zt?source=rss\">Read the full story</a></p>"
         },
         {
@@ -114,7 +129,10 @@
             "startups"
           ],
           "creator": "Carlos Oliveira",
-          "pubDate": "Thu, 07 May 2020 12:15:54 GMT",
+          "avatar":"https://robohash.org/callback-77",
+          "imgSrc":"https://i.picsum.photos/id/77/200/200.jpg",
+          "likes": 77,
+          "pubDate": "Thu, 07 May 2020 12:15:54",
           "contentEncoded": "In the last post we looked at what strategy is and the false contradiction between planning for strategy and letting your product emerge through rapid experimentation and fast feedback loops, which often combine and compound in unforeseen ways. We talked at how writing it down can help you clarify your future thinking and crystallize your product definition and the strategy that underlies it.<p><a href=\"https://hackernoon.com/scale-economies-network-effects-branding-and-more-the-7-powers-of-product-strategy-part-ii-f4dj3ywd?source=rss\">Read the full story</a></p>"
         },
         {
@@ -135,7 +153,10 @@
             "hackernoon-top-story"
           ],
           "creator": "Carlos Oliveira",
-          "pubDate": "Sat, 02 May 2020 22:15:24 GMT",
+          "avatar":"https://robohash.org/callback-46",
+          "imgSrc":"https://i.picsum.photos/id/76/200/200.jpg",
+          "likes": 46,
+          "pubDate": "Sat, 02 May 2020 22:15:24",
           "contentEncoded": "Why do we so often ask teams to estimate in detail how much effort is required to build a product, and to that upfront? Thereâ€™s evidence that this lead us to output-oriented thinking, premature optimization, bloat and generally a commitment to suboptimal solutions that are designed with too many assumptions and a lack of clarity on the problem space.<p><a href=\"https://hackernoon.com/product-teams-stop-estimating-start-budgeting-ep1x32ug?source=rss\">Read the full story</a></p>"
         },
         {
@@ -156,7 +177,10 @@
             "technology"
           ],
           "creator": "Fulcrum  Rocks",
-          "pubDate": "Fri, 08 May 2020 10:08:01 GMT",
+          "avatar":"https://robohash.org/callback-79",
+          "imgSrc":"https://i.picsum.photos/id/79/200/200.jpg",
+          "likes": 79,
+          "pubDate": "Fri, 08 May 2020 10:08:01",
           "contentEncoded": "CDC officially recommends wearing face masks (even though not everyone complies). Meanwhile, governments in European countries like Spain, Ukraine, or certain regions in Italy require everyone, big or small, to wear masks all the time, when shopping, walking a dog, or plainly going outside. Breaking the requirements could result in a hefty fine.<p><a href=\"https://hackernoon.com/how-to-build-neural-network-that-recognizes-people-wearing-masks-rj5x32l2?source=rss\">Read the full story</a></p>"
         },
         {
@@ -177,7 +201,10 @@
             "hrtech"
           ],
           "creator": "a.tsibulskaya@gmail.com",
-          "pubDate": "Fri, 08 May 2020 10:05:49 GMT",
+          "avatar":"https://robohash.org/callback-81",
+          "imgSrc":"https://i.picsum.photos/id/71/200/200.jpg",
+          "likes": 81,
+          "pubDate": "Fri, 08 May 2020 10:05:49",
           "contentEncoded": "How much time do you spend thinking about soft skills when hiring engineers? Iâ€™m guessing Iâ€™m not the only one copy-pasting â€œgood communication skills, fast learner, stress resistanceâ€. Not because I was too lazy to think about it, but because I didnâ€™t think it matters. I always thought that technical skills are important for any tech position and of course, the same applies to anyone who handles production incidents. If a person has been working with java for 15 years and some python service crashes in production â€” it would probably take her more time to fix than anyone who has experience with python. And timing is super important during incident handling, so we would be checking only CVs of people with relevant python experience. This sounds logical but is actually completely incorrect. Soft skills matter as much or even more than technical skills for incident management. And in my opinion, theyâ€™re way more difficult to define in a job description, check during an interview and find in candidates. This post will help you address each of these difficulties.<p><a href=\"https://hackernoon.com/hiring-people-with-a-knack-for-incident-management-4e2f32qj?source=rss\">Read the full story</a></p>"
         },
         {
@@ -198,7 +225,10 @@
             "coronavirus-impact-on-business"
           ],
           "creator": "Bennat Berger",
-          "pubDate": "Fri, 08 May 2020 10:04:49 GMT",
+          "avatar":"https://robohash.org/callback-84",
+          "imgSrc":"https://i.picsum.photos/id/74/200/200.jpg",
+          "likes": 84,
+          "pubDate": "Fri, 08 May 2020 10:04:49",
           "contentEncoded": "Several months ago, saying that the â€œcureâ€ that facial recognition offers is worse than the ills it solves would have seemed hyperbolic. But now, the metaphor has become all too literal -- and the medicine it promises isnâ€™t quite so easy to reject when sickness is sweeping the globe.Â <p><a href=\"https://hackernoon.com/could-covid-19-kickstart-surveillance-culture-481e32vq?source=rss\">Read the full story</a></p>"
         },
         {
@@ -219,7 +249,10 @@
             "digital-culture"
           ],
           "creator": "Spruha Pandya",
-          "pubDate": "Fri, 08 May 2020 15:01:12 GMT",
+          "avatar":"https://robohash.org/callback-95",
+          "imgSrc":"https://i.picsum.photos/id/75/200/200.jpg",
+          "likes": 95,
+          "pubDate": "Fri, 08 May 2020 15:01:12",
           "contentEncoded": "With the COVID-19 pandemic, the world is facing an unprecedented crisis and are being forced to quickly adjust to a new way of working. All organisations â€” large and small are facing a trial by fire against drops in productivity with remote work tools as their arsenal.<p><a href=\"https://hackernoon.com/channeling-the-ripples-of-crisis-towards-mastering-remote-work-wk3v32p5?source=rss\">Read the full story</a></p>"
         },
         {
@@ -240,7 +273,10 @@
             "recognizing-speech-in-python"
           ],
           "creator": "Gaurav Kumar",
-          "pubDate": "Fri, 08 May 2020 09:57:12 GMT",
+          "avatar":"https://robohash.org/callback-15",
+          "imgSrc":"https://i.picsum.photos/id/75/200/200.jpg",
+          "likes": 15,
+          "pubDate": "Fri, 08 May 2020 09:57:12",
           "contentEncoded": "Install SpeechRecognition<p><a href=\"https://hackernoon.com/speech-recognition-using-python-n64o32ub?source=rss\">Read the full story</a></p>"
         },
         {
@@ -261,7 +297,10 @@
             "what-is-a-native-app"
           ],
           "creator": "Arslan",
-          "pubDate": "Fri, 08 May 2020 09:46:06 GMT",
+          "avatar":"https://robohash.org/callback-50",
+          "imgSrc":"https://i.picsum.photos/id/70/200/200.jpg",
+          "likes": 50,
+          "pubDate": "Fri, 08 May 2020 09:46:06",
           "contentEncoded": "Mobile app development has been on the rise for a recent couple of years with even small businesses trying to attain new clients through features offered in their smartphones. Many people prefer shopping online or receiving services on the fly, and mobile apps facilitate and accelerate the consumer decision journey.<p><a href=\"https://hackernoon.com/webapps-vs-native-apps-vs-cross-platform-apps-a-comparison-4sb132d7?source=rss\">Read the full story</a></p>"
         },
         {
@@ -282,7 +321,10 @@
             "create-linux-ssl-certificate"
           ],
           "creator": "Ryan Geddes",
-          "pubDate": "Fri, 08 May 2020 09:32:52 GMT",
+          "avatar":"https://robohash.org/callback-5",
+          "imgSrc":"https://i.picsum.photos/id/5/200/200.jpg",
+          "likes": 5,
+          "pubDate": "Fri, 08 May 2020 09:32:52",
           "contentEncoded": "This is a guide to creating self-signedÂ SSLÂ certificates usingÂ OpenSSL on Linux. It provides easy â€œcut and pasteâ€ code that you will need to generate your firstÂ RSAÂ key pair. After creating your first set of keys, you should have the confidence to create certificates for a variety of situations.Â RSAÂ keys are used everywhere these days and knowing how to generate them is an essential skill to posess for system admins, and an easy procedure for the hobbiest to pick up.<p><a href=\"https://hackernoon.com/how-to-create-a-self-signed-ssl-certificate-on-linux-hu2p323l?source=rss\">Read the full story</a></p>"
         },
         {
@@ -303,7 +345,10 @@
             "how-to-build-side-nav-panel"
           ],
           "creator": "Safa",
-          "pubDate": "Fri, 08 May 2020 09:28:34 GMT",
+          "avatar":"https://robohash.org/callback-83",
+          "imgSrc":"https://i.picsum.photos/id/73/200/200.jpg",
+          "likes": 83,
+          "pubDate": "Fri, 08 May 2020 09:28:34",
           "contentEncoded": "One of the best ways to handle navigation on small screens is to use sidenavs. When it comes to creating that nav, the best was is not the JavaScript all the time. <p><a href=\"https://hackernoon.com/creating-an-animated-sidenav-without-javascript-a-how-to-guide-wt6e32p3?source=rss\">Read the full story</a></p>"
         },
         {
@@ -324,7 +369,10 @@
             "amazon-affiliate-rate-drop"
           ],
           "creator": "Tech Peat",
-          "pubDate": "Fri, 08 May 2020 09:25:45 GMT",
+          "avatar":"https://robohash.org/callback-86",
+          "imgSrc":"https://i.picsum.photos/id/76/200/200.jpg",
+          "likes": 86,
+          "pubDate": "Fri, 08 May 2020 09:25:45",
           "contentEncoded": "Beginning April 21, Amazon partners, which incorporate publishers and influences, will see lower commissions from their affiliate link sales over a few product item categories.Â <p><a href=\"https://hackernoon.com/amazon-affiliate-new-commission-rates-from-21-april-2020-fq4532f6?source=rss\">Read the full story</a></p>"
         },
         {
@@ -345,7 +393,10 @@
             "we-building"
           ],
           "creator": "Nikolay Bilev",
-          "pubDate": "Fri, 08 May 2020 09:20:22 GMT",
+          "avatar":"https://robohash.org/callback-58",
+          "imgSrc":"https://i.picsum.photos/id/78/200/200.jpg",
+          "likes": 58,
+          "pubDate": "Fri, 08 May 2020 09:20:22",
           "contentEncoded": "Back in March my teammates and I switched from our regular tasks working on a travel platform to building a COVID-19 monitoring service. Here is what weâ€™ve managed to get done so far:<p><a href=\"https://hackernoon.com/we-built-a-coronavirus-map-with-covid-19-data-and-travel-restrictions-across-all-countries-pr6732ri?source=rss\">Read the full story</a></p>"
         },
         {
@@ -366,7 +417,10 @@
             "latest-tech-stories"
           ],
           "creator": "Dennis Lee",
-          "pubDate": "Fri, 08 May 2020 09:17:33 GMT",
+          "avatar":"https://robohash.org/callback-16",
+          "imgSrc":"https://i.picsum.photos/id/76/200/200.jpg",
+          "likes": 16,
+          "pubDate": "Fri, 08 May 2020 09:17:33",
           "contentEncoded": "InÂ thisÂ article,Â you'llÂ createÂ aÂ newÂ DigitalOceanÂ accountÂ usingÂ aÂ freeÂ credit link.Â Then,Â youÂ willÂ cloneÂ aÂ GitHubÂ repository,Â andÂ useÂ TerraformÂ codeÂ to initialize,Â planÂ andÂ applyÂ resourcesÂ toÂ yourÂ account,Â usingÂ aÂ preconfigured imageÂ fromÂ DigitalOceanÂ andÂ yourÂ customÂ domainÂ name.Â Finally,Â youÂ will accessÂ yourÂ accountÂ remotelyÂ viaÂ SSHÂ andÂ executeÂ twoÂ scriptsÂ toÂ configureÂ bothÂ yourÂ videoÂ conferenceÂ serverÂ andÂ Let'sÂ EncryptÂ SSLÂ toÂ enableÂ HTTPS.<p><a href=\"https://hackernoon.com/deploying-an-open-source-secure-video-conference-server-a-how-to-guide-t6843281?source=rss\">Read the full story</a></p>"
         },
         {
@@ -387,7 +441,10 @@
             "wellbeing"
           ],
           "creator": "Archie",
-          "pubDate": "Fri, 08 May 2020 09:11:23 GMT",
+          "avatar":"https://robohash.org/callback-37",
+          "imgSrc":"https://i.picsum.photos/id/77/200/200.jpg",
+          "likes": 37,
+          "pubDate": "Fri, 08 May 2020 09:11:23",
           "contentEncoded": "I just finished watching â€œThe Officeâ€. Funny on the surface, but very satirical and even dark once you go a layer below.<p><a href=\"https://hackernoon.com/office-inferno-why-arent-we-happy-at-work-mb7432ec?source=rss\">Read the full story</a></p>"
         },
         {
@@ -408,7 +465,10 @@
             "dotnet-core"
           ],
           "creator": "Graham Dyson",
-          "pubDate": "Fri, 08 May 2020 09:00:35 GMT",
+          "avatar":"https://robohash.org/callback-88",
+          "imgSrc":"https://i.picsum.photos/id/78/200/200.jpg",
+          "likes": 88,
+          "pubDate": "Fri, 08 May 2020 09:00:35",
           "contentEncoded": "The software development tool I've been working on calledÂ EuniceÂ started out with JavaScript analysis. Its designed to support multiple interchangeable analyzers, reusing the tool's measurement, graphical and interactive components. These other components were also written in JavaScript so they are cross-platform. In the earlier phases of development I thought it would be beneficial to follow the practice ofÂ dogfooding. To see how this looks you can view and interact with Eunice's analysis of itselfÂ here.<p><a href=\"https://hackernoon.com/should-i-build-an-analyzer-for-c-or-net-4f4c328x?source=rss\">Read the full story</a></p>"
         },
         {
@@ -429,7 +489,10 @@
             "latest-tech-stories"
           ],
           "creator": "Cam Secore",
-          "pubDate": "Fri, 08 May 2020 08:53:47 GMT",
+          "avatar":"https://robohash.org/callback-11",
+          "imgSrc":"https://i.picsum.photos/id/71/200/200.jpg",
+          "likes": 11,
+          "pubDate": "Fri, 08 May 2020 08:53:47",
           "contentEncoded": "Affiliate marketing has become the norm among review sites. I don't know if a review site exists without any affiliate links. On one side, people hate this because the reviews are poisoned by green. But, on the affiliate's side, why would they write something without getting compensation? <p><a href=\"https://hackernoon.com/affiliate-marketing-can-be-dangerous-but-is-it-always-bad-kw2k32nj?source=rss\">Read the full story</a></p>"
         }
       ]

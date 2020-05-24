@@ -16,6 +16,7 @@ const Container = styled.header`
   grid-template-columns:180px 120px;
   align-items: center;
   justify-content: space-between;
+  z-index: 10;
 `
 
 const Logo = styled.img``
