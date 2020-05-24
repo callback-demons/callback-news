@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import fetch from 'node-fetch'
 import PostItemList from '../components/PostItemList'
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
@@ -15,8 +16,20 @@ const Title = styled.h1``
 
 const categories = categoriesMock || []
 
-function HomePage() {
+function HomePage(props) {
+  useEffect(() => {
+    async function fetchData() {
+      console.log('hola mundo')
+      fetch('https://storage.cloud.google.com/cbn-public/mocks/data-json/categories.json').then((response) => {
+        console.log('object')
+      })
+      console.log('responseText')
+    }
+    fetchData()
+
+  }, [null])
   const [title] = useState('Callback News - The daily technology newsletter')
+  console.log(props)
   return (
     <Layout title={title}>
       <Hero />
