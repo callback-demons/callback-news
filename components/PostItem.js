@@ -74,38 +74,16 @@ const Footer = styled.div`
 `
 
 const PostItem = ({ post = {} }) => {
-
-  // author_name,
-  // content,
-  // created_at,
-  // day_posted,
-  // description,
-  // likes_number,
-  // title,
-  const [category, setCategory] = useState('')
-  useEffect(() => {
-    async function fetchData() {
-      const results = await fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/categories.json')
-      const categories = await results.json()
-      console.log(categories)
-      setCategory(categories[Math.round(Math.random() * 7)] || {})
-    }
-    fetchData()
-  }, [null])
-
   const { containerRef, width } = useWidth()
   const decodedContent = decodeURIComponent(post.content)
   return (
     <Container ref={containerRef} width={width}>
       <Label>
-        <LabelElement>
-          {category.name || ''}
-        </LabelElement>
+        {
+          post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
+        }
       </Label>
-      <Image
-      // src={post.imgSrc}
-        alt={post.title}
-      />
+      <Image alt={post.title} src={post.media[0].url} />
       <Title
         text={post.title}
         lines={3}

@@ -3,14 +3,8 @@ import { parse, format } from 'date-fns'
 import styled from 'styled-components'
 
 import Heart from './Heart'
+import Avatar from './Avatar'
 
-const Avatar = styled.img`
-  width:100%;
-  object-fit:cover;
-  border-radius:50%;
-  border:3px solid ${(props) => props.theme.color.primary};
-  box-sizing: border-box;
-`
 const Info = styled.div`
   display:grid;
   grid-template-columns:40px 1fr 20px;
@@ -36,13 +30,6 @@ const Likes = styled.div`
 `
 
 const InfoPost = ({ post }) => {
-  // author_name,
-  // content,
-  // created_at,
-  // day_posted,
-  // description,
-  // likes_number,
-  // title,
   const [isLiked, setIsLiked] = useState(false)
   const handleLike = (event) => {
     setIsLiked(!isLiked)
@@ -52,7 +39,7 @@ const InfoPost = ({ post }) => {
   const date = post.day_posted
   return (
     <Info>
-      {/* <Avatar src={post.avatar} /> */}
+      <Avatar withBorder />
       <Meta>
         <Author>{post.author_name}</Author>
         {/* <span>20 min read</span> */}
