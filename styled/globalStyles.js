@@ -3,10 +3,10 @@ import { createGlobalStyle } from 'styled-components'
 const globalStyles = createGlobalStyle`
   body {
     margin: 0;
-    font-family: ${(props) => props.theme.fontFamilyText};
-    background: ${(props) => props.theme.background};
-    color: ${(props) => props.theme.colorText};
     font-size:18px;
+    color: ${(props) => props.theme.colorText};
+    background: ${(props) => props.theme.background};
+    font-family: ${(props) => props.theme.fontFamilyText};
   }
   button {
     font-family: ${(props) => props.theme.fontFamilyText};
@@ -43,7 +43,8 @@ const globalStyles = createGlobalStyle`
     &:hover {
       cursor: pointer;
       font-weight:bold;
-      color:${(props) => props.theme.color.secondaryLight};
+      text-decoration:underline;
+      color:${(props) => props.theme.color.secondary};
     }
   }
   p {

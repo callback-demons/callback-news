@@ -26,6 +26,7 @@ const theme = {
   colorPrimaryLight: '#428CD4',
   colorSecondary: '#EA4492',
   mobileSize: 9,
+  mediumSize: 12,
   tabletSize: 16,
   titleSize: 22,
   skeleton: {

@@ -7,15 +7,6 @@ import Avatar from './Avatar'
 
 import useWidth from '../hooks/useWidth'
 
-// const Avatar = styled.img`
-//   width:100%;
-//   object-fit:cover;
-//   border-radius:50%;
-//   border:3px solid ${(props) => props.theme.color.primary};
-//   box-sizing: border-box;
-//   width:40px;
-//   margin-right:${(props) => props.theme.space}px;
-// `
 const Info = styled.div`
   display:grid;
   grid-template-columns:40px 1fr 20px;
@@ -53,22 +44,24 @@ const InfoPost = ({ post }) => {
     setIsLiked(!isLiked)
   }
   // Fri, 08 May 2020 10:05:49 GMT
-  const date = parse(post.pubDate, 'EEE, dd MMM yyyy HH:mm:ss', new Date())
+  // const date = parse(post.pubDate, 'EEE, dd MMM yyyy HH:mm:ss', new Date())
+  const date = post.day_posted
   return (
-    <Info ref={containerRef} width={width}>
-      <Avatar src={post.avatar} withBorder />
+    <Info>
+      <Avatar withBorder />
+
       <Meta>
-        <Author>David Behar Lombrozo</Author>
+        <Author>{post.author_name}</Author>
         {/* <span>20 min read</span> */}
         <span>
           Posted:
           {' '}
-          {format(date, 'MM/dd/yyyy')}
+          {date}
         </span>
       </Meta>
       <LikeContainer>
         <Heart onClick={handleLike} isLiked={isLiked} />
-        <Likes>{post.likes + isLiked}</Likes>
+        <Likes>{post.likes_number + isLiked}</Likes>
       </LikeContainer>
     </Info>
   )
