@@ -41,8 +41,10 @@ const globalStyles = createGlobalStyle`
     color:${(props) => props.theme.color.secondary};
     text-decoration:none;
     &:hover {
-      color:${(props) => props.theme.color.secondary};
+      cursor: pointer;
+      font-weight:bold;
       text-decoration:underline;
+      color:${(props) => props.theme.color.secondary};
     }
   }
   p {

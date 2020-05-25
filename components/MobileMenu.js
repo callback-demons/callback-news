@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import HamburgerButton from './Hamburger'
 
 const HamburgerWrapper = styled.div`
-  width: calc(100% - 25px);
-  position:relative;
+  z-index:12;
   display: grid;
   grid-gap: 20px;
+  position:relative;
   align-items: center;
   justify-items: right;
-  margin: 0;
-  z-index:12;
+  width: calc(100% - 25px);
+  margin: 0px 6px 0px -6px;
   @media  screen and (min-width: 720px) {
     display:none;
   }
