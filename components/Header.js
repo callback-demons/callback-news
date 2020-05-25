@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import MobileMenu from './MobileMenu'
-import Avatar from './Avatar'
+import UserMenu from './UserMenu'
 
 const Container = styled.header`
   z-index: 10;
@@ -24,18 +24,13 @@ const Right = styled.div`
   display:flex;
 `
 
-const CustomAvatar = styled(Avatar)`
-  margin: 0px;
-  margin-left: 16px;
-`
-
 const Header = ({ title = '' }) => {
   return (
     <Container>
       <Logo src="https://storage.cloud.google.com/cbn-public/callback-news-logo-white.svg" />
       <Right>
         <MobileMenu />
-        <CustomAvatar size="30px" withBorder src={`https://robohash.org/callback-${Math.floor(Math.random() * 1000)}`} />
+        <UserMenu username="William" />
       </Right>
     </Container>
   )
