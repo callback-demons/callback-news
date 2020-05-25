@@ -13,13 +13,17 @@ export const circle = `
 export const transitions = `
   transition: 0.4s;
 `
-
 export const boxShadow = `
   box-shadow: 6px 6px 18px -9px rgba(0,0,0,0.54);
 `
 
 export const bigBoxShadow = `
   box-shadow: 8px 8px 23px -6px rgba(0,0,0,0.54);
+`
+
+export const inputShadow = `
+  border: none;
+  box-shadow: 0px 0px 12px -6px rgba(0,0,0,0.54);
 `
 
 export const skeletonGradient = (baseColor, shineColor, animationDuration, skeletonOffset) => `
