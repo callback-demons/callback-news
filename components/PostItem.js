@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import ClampLines from 'react-clamp-lines'
 import { card } from '../styled/mixins'
@@ -74,16 +74,38 @@ const Footer = styled.div`
 `
 
 const PostItem = ({ post = {} }) => {
+
+  // author_name,
+  // content,
+  // created_at,
+  // day_posted,
+  // description,
+  // likes_number,
+  // title,
+  const [category, setCategory] = useState('')
+  useEffect(() => {
+    async function fetchData() {
+      const results = await fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/categories.json')
+      const categories = await results.json()
+      console.log(categories)
+      setCategory(categories[Math.round(Math.random() * 7)] || {})
+    }
+    fetchData()
+  }, [null])
+
   const { containerRef, width } = useWidth()
-  const decodedContent = decodeURIComponent(post.contentEncoded)
+  const decodedContent = decodeURIComponent(post.content)
   return (
     <Container ref={containerRef} width={width}>
       <Label>
         <LabelElement>
-          {post.category[0]}
+          {category.name || ''}
         </LabelElement>
       </Label>
-      <Image src={post.imgSrc} />
+      <Image
+      // src={post.imgSrc}
+        alt={post.title}
+      />
       <Title
         text={post.title}
         lines={3}

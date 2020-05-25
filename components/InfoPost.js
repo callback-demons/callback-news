@@ -36,27 +36,35 @@ const Likes = styled.div`
 `
 
 const InfoPost = ({ post }) => {
+  // author_name,
+  // content,
+  // created_at,
+  // day_posted,
+  // description,
+  // likes_number,
+  // title,
   const [isLiked, setIsLiked] = useState(false)
   const handleLike = (event) => {
     setIsLiked(!isLiked)
   }
   // Fri, 08 May 2020 10:05:49 GMT
-  const date = parse(post.pubDate, 'EEE, dd MMM yyyy HH:mm:ss', new Date())
+  // const date = parse(post.pubDate, 'EEE, dd MMM yyyy HH:mm:ss', new Date())
+  const date = post.day_posted
   return (
     <Info>
-      <Avatar src={post.avatar} />
+      {/* <Avatar src={post.avatar} /> */}
       <Meta>
-        <Author>David Behar Lombrozo</Author>
+        <Author>{post.author_name}</Author>
         {/* <span>20 min read</span> */}
         <span>
           Posted:
           {' '}
-          {format(date, 'MM/dd/yyyy')}
+          {date}
         </span>
       </Meta>
       <LikeContainer>
         <Heart onClick={handleLike} isLiked={isLiked} />
-        <Likes>{post.likes + isLiked}</Likes>
+        <Likes>{post.likes_number + isLiked}</Likes>
       </LikeContainer>
     </Info>
   )
