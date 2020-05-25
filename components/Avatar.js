@@ -7,7 +7,7 @@ const CircleImage = styled.img`
   box-sizing: border-box;
   max-width: ${(props) => props.size};
   max-height: ${(props) => props.size};
-  margin: ${(props) => props.theme.space}px;
+  /* margin: ${(props) => props.theme.space}px; */
   ${(props) => props.withBorder && `border: ${props.borderSize}px solid ${props.theme.color.primary}`};
 `
 const Avatar = (props) => {

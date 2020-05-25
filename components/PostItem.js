@@ -2,62 +2,63 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import ClampLines from 'react-clamp-lines'
-import { card } from '../styled/mixins'
 import useWidth from '../hooks/useWidth'
 import InfoPost from './InfoPost'
 
 const Container = styled.div`
-    ${card};
-    padding:${(p) => p.theme.space * 2}px ${(p) => p.theme.space * 3}px;
-    display: inline-grid;
-    grid-template: auto;
-    grid-auto-flow: row;
-    grid-template-columns:100px 1fr;
-    grid-template-areas: "label label"
-                          "image title"
-                          "description description"
-                          "footer footer";
-    grid-gap: 8px;
-    margin:0 16px;
-    ${(props) => props.width > 750 && `
-    grid-template-columns:1fr 550px;
-    grid-template-areas:"label label"
-                        "image title"
-                        "image description"
-                        "footer footer";
-    `}
+  box-shadow: 0 0 16px -8px rgba(0,0,0,0.55);
+  border-radius: 25px;
+  grid-gap: 8px;
+  margin:0 16px;
+  overflow:hidden;
+  ${(props) => props.width > 750 && `
+  grid-template-columns:1fr 550px;
+  grid-template-areas:"label label"
+                      "image title"
+                      "image description"
+                      "footer footer";
+  `}
 `
-const Label = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  grid-area:label;
-`
-const LabelElement = styled.div(
-  (props) => {
-    const { space } = props.theme
-    return `
-      background:#428CD4;
-      color:white;
-      padding:3px 15px;
-      border-radius:15px;
-      display:inline;
-      margin:${space}px 0;
-      margin-right:${space}px;
-      box-sizing:border-box;
-    `
-  },
-)
+
 const Image = styled.img`
   object-fit:cover;
   width:100%;
   grid-area:image;
   max-height:200px;
 `
+const Label = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  grid-area:label;
+  position: static;
+  margin-top:-45px;
+`
+
+const LabelElement = styled.div(
+  (props) => {
+    const { space, color } = props.theme
+    return `
+      background:${color.primary};
+      color:white;
+      padding:3px 30px;
+      border-radius:5px;
+      display:inline;
+      margin:${space}px 0;
+      text-align:center;
+      min-width:140px;
+    `
+  },
+)
+
+const Header = styled.div`
+  width:100%;
+`
+
 const Description = styled(ClampLines)`
   grid-area:description;
+  margin-bottom:${(props) => props.theme.space * 2}px;
   & div {
-    font-size:1.2em;
-    margin: ${(props) => props.theme.space * 2}px 0;
+    margin: ${(props) => props.theme.space * 1}px 0;
   }
 `
 const Title = styled(ClampLines)`
@@ -65,12 +66,19 @@ const Title = styled(ClampLines)`
   margin:0;
   & h3 {
     margin:0;
-    color: ${(props) => props.theme.color.secondary};
+    /* color: ${(props) => props.theme.color.secondary}; */
+    margin-bottom:${(props) => props.theme.space * 2}px;
     font-size:1.5rem;
   }
 `
 const Footer = styled.div`
   grid-area:footer;
+  padding:0 ${(props) => props.theme.space * 2}px;
+  bottom:0;
+  display:relative;
+`
+const Content = styled.div`
+  padding:0 ${(props) => props.theme.space * 2}px;
 `
 
 const PostItem = ({ post = {} }) => {

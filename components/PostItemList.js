@@ -15,7 +15,7 @@ const Container = styled.div`
 const Main = styled.div`
   display:grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-gap:${(props) => props.theme.space * 2}px;
+  grid-gap:${(props) => props.theme.space * 6}px ${(props) => props.theme.space * 1}px;
 `
 
 const Title = styled.h2`
