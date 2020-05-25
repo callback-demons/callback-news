@@ -26,11 +26,17 @@ const PostContent = ({ post }) => {
     <Container>
       <Labels>
         {
-          post.category.map((category) => <Label>{category}</Label>)
+          post.categories.map((category) => <Label key={category.id}>{category.name}</Label>)
         }
       </Labels>
       <Title>{post.title}</Title>
-      <InfoPost post={post} />
+      <InfoPost post={{
+        date: post.created_at,
+        author: post.author_name,
+        likes: post.likes_number,
+        avatar: null,
+      }}
+      />
       <Markdown text={decodeURIComponent(post.content)} />
     </Container>
   )

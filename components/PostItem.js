@@ -107,7 +107,13 @@ const PostItem = ({ post = {} }) => {
         buttons={false}
       />
       <Footer>
-        <InfoPost post={post} />
+        <InfoPost post={{
+          date: post.created_at,
+          author: post.author_name,
+          likes: post.likes_number,
+          avatar: null,
+        }}
+        />
       </Footer>
     </Container>
   )
