@@ -13,6 +13,13 @@ export const transitions = `
   transition: 0.4s;
 `
 
+export const inputShadow = `
+  border: none;
+  -webkit-box-shadow: 0px 0px 12px -6px rgba(0,0,0,0.54);
+  -moz-box-shadow: 0px 0px 12px -6px rgba(0,0,0,0.54);
+  box-shadow: 0px 0px 12px -6px rgba(0,0,0,0.54);
+`
+
 export const skeletonGradient = (baseColor, shineColor, animationDuration, skeletonOffset) => `
   background-image: linear-gradient(90deg, ${baseColor} 0px, ${shineColor} 100px, ${baseColor} 200px);
   background-size: 600px;
