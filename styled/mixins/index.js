@@ -15,14 +15,10 @@ export const transitions = `
 `
 
 export const boxShadow = `
-  -webkit-box-shadow: 6px 6px 18px -9px rgba(0,0,0,0.54);
-  -moz-box-shadow: 6px 6px 18px -9px rgba(0,0,0,0.54);
   box-shadow: 6px 6px 18px -9px rgba(0,0,0,0.54);
 `
 
 export const bigBoxShadow = `
-  -webkit-box-shadow: 8px 8px 23px -6px rgba(0,0,0,0.54);
-  -moz-box-shadow: 8px 8px 23px -6px rgba(0,0,0,0.54);
   box-shadow: 8px 8px 23px -6px rgba(0,0,0,0.54);
 `
 
