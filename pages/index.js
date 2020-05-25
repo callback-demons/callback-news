@@ -30,7 +30,7 @@ function HomePage({ categories, posts }) {
       <Title>{title}</Title>
       <CategoryItemList data={categories} />
       <PostItemList title="Recent news" posts={recentNews} />
-      {/* <PostItemList title="Favorite news" posts={favoriteNews} /> */}
+      <PostItemList title="Favorite news" posts={favoriteNews} />
     </Layout>
   )
 }

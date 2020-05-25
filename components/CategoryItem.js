@@ -67,7 +67,8 @@ const ItemContainer = styled.div`
 const ImageContainer = styled.img`
   ${circle};
   width: 100px;
-    height: 100px;
+  height: 100px;
+  object-fit: cover;
   background-image: url("${(p) => p.srcImage}");
   @media screen and (min-width: 768px) {
     width: 150px;
