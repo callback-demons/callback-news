@@ -26,7 +26,7 @@ const PostContent = ({ post }) => {
     <Container>
       <Labels>
         {
-          post.category.map((category) => <Label>{category}</Label>)
+          post.category.map((category, index) => <Label key={index}>{category}</Label>)
         }
       </Labels>
       <Title>{post.title}</Title>
