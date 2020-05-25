@@ -9,14 +9,20 @@ export const circle = `
   border-radius: 50%;
   box-shadow: 0 0 16px -8px rgba(0,0,0,0.25);
 `
+
 export const transitions = `
   transition: 0.4s;
+`
+export const boxShadow = `
+  box-shadow: 6px 6px 18px -9px rgba(0,0,0,0.54);
+`
+
+export const bigBoxShadow = `
+  box-shadow: 8px 8px 23px -6px rgba(0,0,0,0.54);
 `
 
 export const inputShadow = `
   border: none;
-  -webkit-box-shadow: 0px 0px 12px -6px rgba(0,0,0,0.54);
-  -moz-box-shadow: 0px 0px 12px -6px rgba(0,0,0,0.54);
   box-shadow: 0px 0px 12px -6px rgba(0,0,0,0.54);
 `
 
