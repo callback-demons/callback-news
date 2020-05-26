@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Link from 'next/link'
 import Avatar from './Avatar'
 
 const UserMenuContainer = styled.div`
@@ -25,13 +24,9 @@ const UserName = styled.p`
   margin: 0px 6px;
 `
 
-const LoginButton = styled.a`
+const LoginButton = styled.p`
   color: white;
   margin: 0px 12px;
-  &:hover {
-    color:${(props) => props.theme.color.primary};
-    color:white;
-  }
 `
 
 const DropdownList = styled.ul`
@@ -67,17 +62,12 @@ const ItemLink = styled.a`
 
 const UserMenu = (props) => {
   const { username = '' } = props
-  const handleLogout = () => {
-    console.log('logging out')
-  }
   return (
     <UserMenuContainer>
       <MenuContainer>
         {
           !username ?
-            <Link href="/login">
-              <LoginButton>Login</LoginButton>
-            </Link> :
+            <LoginButton>Login</LoginButton> :
             <>
               <CustomAvatar size="30px" withBorder src={`https://robohash.org/callback-${Math.floor(Math.random() * 1000)}`} />
               <UserName>{username}</UserName>
@@ -87,8 +77,8 @@ const UserMenu = (props) => {
       {
         username &&
         <DropdownList>
-          <Link href="/profile"><ListItem><ItemLink>Profile</ItemLink></ListItem></Link>
-          <ListItem onClick={handleLogout}><ItemLink>Logout</ItemLink></ListItem>
+          <ListItem><ItemLink>Profile</ItemLink></ListItem>
+          <ListItem><ItemLink>Logout</ItemLink></ListItem>
         </DropdownList>
       }
     </UserMenuContainer>
