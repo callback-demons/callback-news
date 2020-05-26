@@ -39,6 +39,7 @@ const Likes = styled.div`
 `
 
 const InfoPost = ({ post }) => {
+  const { date, author, likes, avatar } = post
   const { containerRef, width } = useWidth()
   const [isLiked, setIsLiked] = useState(false)
   const handleLike = (event) => {
@@ -46,14 +47,11 @@ const InfoPost = ({ post }) => {
   }
   // Fri, 08 May 2020 10:05:49 GMT
   // const date = parse(post.pubDate, 'EEE, dd MMM yyyy HH:mm:ss', new Date())
-  const date = post.day_posted
-  console.log(width)
   return (
     <Info ref={containerRef} width={width}>
-      <Avatar withBorder />
-
+      <Avatar src={avatar} withBorder />
       <Meta>
-        <Author>{post.author_name}</Author>
+        <Author>{author}</Author>
         {/* <span>20 min read</span> */}
         <span>
           Posted:
@@ -63,7 +61,7 @@ const InfoPost = ({ post }) => {
       </Meta>
       <LikeContainer>
         <Heart onClick={handleLike} isLiked={isLiked} />
-        <Likes>{post.likes_number + isLiked}</Likes>
+        <Likes>{likes + isLiked}</Likes>
       </LikeContainer>
     </Info>
   )

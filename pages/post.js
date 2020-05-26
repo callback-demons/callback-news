@@ -1,21 +1,22 @@
 import styled from 'styled-components'
-import mockPost from '../utils/mocks/post.json'
+import fetch from 'node-fetch'
 import Layout from '../components/Layout'
 import PostCard from '../components/PostCard'
 import CommentInput from '../components/CommentInput'
 
-const { imageSrc = '' } = mockPost
 const Image = styled.img`
   width: 100%;
   height: 260px;
   object-fit: cover;
 `
 
-export default function PostPage() {
+function PostPage({ post = {} }) {
+  const { media = {} } = post
+  const { url: imgSrc = '', title: imgTitle = '' } = media[0]
   return (
     <Layout>
-      <Image src={imageSrc} />
-      <PostCard post={mockPost} />
+      <Image src={imgSrc} alt={imgTitle} />
+      <PostCard post={post} />
       <CommentInput
         placeholder="Add your comment"
         rows={1}
@@ -26,3 +27,18 @@ export default function PostPage() {
   )
 }
 
+export async function getServerSideProps({ query, res }) {
+  // const { id } = query
+  try {
+    const resPost = await fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/new.json')
+    const post = await resPost.json()
+    res.statusCode = 200
+    return { props: { post, statusCode: res.statusCode } }
+  } catch (error) {
+    res.statusCode = 503
+    return { props: { statusCode: res.statusCode } }
+  }
+
+}
+
+export default PostPage
