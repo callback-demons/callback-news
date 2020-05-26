@@ -30,7 +30,7 @@ const Header = ({ title = '' }) => {
       <Logo src="https://storage.cloud.google.com/cbn-public/callback-news-logo-white.svg" />
       <Right>
         <MobileMenu />
-        <UserMenu username="William" />
+        <UserMenu />
       </Right>
     </Container>
   )
