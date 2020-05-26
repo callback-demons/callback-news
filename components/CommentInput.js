@@ -40,9 +40,10 @@ const TextArea = styled.textarea`
 `
 
 const CustomAvatar = styled(Avatar)`
+  margin: 0px 2px;
   max-width: 35px;
   max-height: 35px;
-  margin-top: 20px;
+  margin-top: 10px;
   align-self: start;
   @media screen and (min-width: 768px) {
     margin: 8px;
