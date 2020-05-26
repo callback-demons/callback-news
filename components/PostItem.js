@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import ClampLines from 'react-clamp-lines'
 import useWidth from '../hooks/useWidth'
@@ -86,26 +86,30 @@ const PostItem = ({ post = {} }) => {
   const decodedContent = decodeURIComponent(post.content)
   return (
     <Container ref={containerRef} width={width}>
-      <Label>
-        {
-          post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
-        }
-      </Label>
-      <Image alt={post.title} src={post.media[0].url} />
-      <Title
-        text={post.title}
-        lines={3}
-        ellipsis="..."
-        innerElement="h3"
-        buttons={false}
-      />
-      <Description
-        text={decodedContent}
-        lines={4}
-        ellipsis="..."
-        innerElement="div"
-        buttons={false}
-      />
+      <Header>
+        <Image alt={post.title} src={post.media[0].url} />
+        <Label>
+          {
+            post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
+          }
+        </Label>
+      </Header>
+      <Content>
+        <Title
+          text={post.title}
+          lines={2}
+          ellipsis="..."
+          innerElement="h3"
+          buttons={false}
+        />
+        <Description
+          text={decodedContent}
+          lines={3}
+          ellipsis="..."
+          innerElement="div"
+          buttons={false}
+        />
+      </Content>
       <Footer>
         <InfoPost post={{
           date: post.created_at,

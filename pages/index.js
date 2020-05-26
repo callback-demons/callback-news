@@ -6,8 +6,6 @@ import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import CategoryItemList from '../components/CategoryItemList'
 
-// const posts = mockRSS.rss.channel.item
-
 const Title = styled.h1``
 
 function HomePage({ categories, posts }) {
@@ -35,9 +33,9 @@ export async function getServerSideProps({ query, res }) {
 
     const categories = await resCategories.json()
     const posts = await resPosts.json()
-
     res.statusCode = 200
     return { props: { categories, posts, statusCode: res.statusCode } }
+
   } catch (error) {
     res.statusCode = 503
     return { props: { statusCode: res.statusCode } }
