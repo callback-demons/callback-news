@@ -3,12 +3,20 @@ import fetch from 'node-fetch'
 import Layout from '../components/Layout'
 import PostCard from '../components/PostCard'
 import CommentInput from '../components/CommentInput'
+import Comment from '../components/Comment'
 
 const Image = styled.img`
   width: 100%;
   height: 260px;
   object-fit: cover;
 `
+
+const Title = styled.h2`
+  margin: 40px 60px;
+  font-size: 28px;
+  font-family: ${(props) => props.theme.fontFamilyTitle};
+`
+const testComment = "Comentario de Prueba - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley"
 
 function PostPage({ post = {} }) {
   const { media = {} } = post
@@ -17,12 +25,16 @@ function PostPage({ post = {} }) {
     <Layout>
       <Image src={imgSrc} alt={imgTitle} />
       <PostCard post={post} />
+      <Title>Comments</Title>
       <CommentInput
         placeholder="Add your comment"
-        rows={1}
+        rows={2}
         handleClick={null}
         buttonText="Comment"
       />
+      {
+        Array.from(Array(5).keys()).map(() => <Comment text={testComment} />)
+      }
     </Layout>
   )
 }
