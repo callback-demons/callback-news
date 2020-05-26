@@ -9,9 +9,10 @@ import useWidth from '../hooks/useWidth'
 
 const Info = styled.div`
   display:grid;
+  width:100%;
   grid-template-columns:40px 1fr 20px;
   grid-gap:${(props) => props.theme.space}px;
-  ${(props) => props.width > 750 && `
+  ${(props) => props.width > 600 && `
     padding:${props.theme.space * 0.5}px ${props.theme.space}px;
     margin-bottom:${props.theme.space * 2}px;
     display:flex;
@@ -46,8 +47,9 @@ const InfoPost = ({ post }) => {
   // Fri, 08 May 2020 10:05:49 GMT
   // const date = parse(post.pubDate, 'EEE, dd MMM yyyy HH:mm:ss', new Date())
   const date = post.day_posted
+  console.log(width)
   return (
-    <Info>
+    <Info ref={containerRef} width={width}>
       <Avatar withBorder />
 
       <Meta>
