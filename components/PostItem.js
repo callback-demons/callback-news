@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/no-danger */
 import Link from 'next/link'
 import React from 'react'
@@ -58,10 +59,6 @@ const LabelElement = styled.div(
   },
 )
 
-const Header = styled.div`
-  width:100%;
-`
-
 const Description = styled(ClampLines)`
   grid-area:description;
   margin-bottom:${(props) => props.theme.space * 2}px;
@@ -85,16 +82,12 @@ const Footer = styled.div`
   bottom:0;
   display:relative;
 `
-const Content = styled.div`
-  padding:0 ${(props) => props.theme.space * 2}px;
-`
 
 const PostItem = ({ post = {} }) => {
   const { containerRef, width } = useWidth()
   const decodedContent = decodeURIComponent(post.content)
   return (
     <Container ref={containerRef} width={width}>
-
       <Label>
         {
           post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
@@ -106,7 +99,7 @@ const PostItem = ({ post = {} }) => {
             <Image alt={post.title} src={post.media[0].url} />
             <Title
               text={post.title}
-              lines={3}
+              lines={2}
               ellipsis="..."
               innerElement="h3"
               buttons={false}
@@ -114,16 +107,21 @@ const PostItem = ({ post = {} }) => {
           </a>
         </Link>
       </>
-
       <Description
         text={decodedContent}
-        lines={4}
+        lines={3}
         ellipsis="..."
         innerElement="div"
         buttons={false}
       />
       <Footer>
-        <InfoPost post={post} />
+        <InfoPost post={{
+          date: post.created_at,
+          author: post.author_name,
+          likes: post.likes_number,
+          avatar: null,
+        }}
+        />
       </Footer>
     </Container>
 
