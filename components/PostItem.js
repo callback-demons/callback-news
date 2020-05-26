@@ -1,133 +1,92 @@
-/* eslint-disable react/no-danger */
-import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
-import ClampLines from 'react-clamp-lines'
-import useWidth from '../hooks/useWidth'
-import InfoPost from './InfoPost'
+import Avatar from './Avatar'
 
-const Container = styled.div`
-  & a {
-    color:${(props) => props.theme.color.ultraBlack};
-    &:hover {
-      text-decoration:none;
-      color:${(props) => props.theme.color.secondary};
-    }
+const UserMenuContainer = styled.div`
+  margin: 0px;
+  @media  screen and (min-width: 768px) {
+    margin: 0px 16px;
   }
-  box-shadow: 0 0 16px -8px rgba(0,0,0,0.55);
-  border-radius: 25px;
-  grid-gap: 8px;
-  margin:0 16px;
-  overflow:hidden;
-  ${(props) => props.width > 750 && `
-  grid-template-columns:1fr 550px;
-  grid-template-areas:"label label"
-                      "image title"
-                      "image description"
-                      "footer footer";
-  `}
 `
 
-const Image = styled.img`
-  object-fit:cover;
-  width:100%;
-  grid-area:image;
-  max-height:200px;
-`
-const Label = styled.div`
+const MenuContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
-  grid-area:label;
-  position: static;
-  margin-top:-45px;
+  cursor: pointer;
+  align-items: center;
 `
 
-const LabelElement = styled.div(
-  (props) => {
-    const { space, color } = props.theme
-    return `
-      background:${color.primary};
-      color:white;
-      padding:3px 30px;
-      border-radius:5px;
-      display:inline;
-      margin:${space}px 0;
-      text-align:center;
-      min-width:140px;
-    `
-  },
-)
-
-const Header = styled.div`
-  width:100%;
+const CustomAvatar = styled(Avatar)`
+  margin: 0px;
 `
 
-const Description = styled(ClampLines)`
-  grid-area:description;
-  margin-bottom:${(props) => props.theme.space * 2}px;
-  & div {
-    margin: ${(props) => props.theme.space * 1}px 0;
+const UserName = styled.p`
+  color: white;
+  margin: 0px 6px;
+`
+
+const LoginButton = styled.p`
+  color: white;
+  margin: 0px 12px;
+  &:hover {
+    color:${(props) => props.theme.color.primary};
+    color:white;
   }
 `
-const Title = styled(ClampLines)`
-  grid-area:title;
-  margin:0;
-  & h3 {
-    margin:0;
-    /* color: ${(props) => props.theme.color.secondary}; */
-    margin-bottom:${(props) => props.theme.space * 2}px;
-    font-size:1.5rem;
+
+const DropdownList = styled.ul`
+  margin: 0px;
+  display: none;
+  list-style: none;
+  text-align: right;
+  padding-right: 16px;
+  position: absolute;
+  border-radius: 8px;
+  background-color: #c14593;
+  @media  screen and (min-width: 768px) {
+    background-color: ${(props) => props.theme.color.secondary};
+  }
+  ${UserMenuContainer}:hover &, &:hover&:hover{
+    display: block;
   }
 `
-const Footer = styled.div`
-  grid-area:footer;
-  padding:0 ${(props) => props.theme.space * 2}px;
-  bottom:0;
-  display:relative;
-`
-const Content = styled.div`
-  padding:0 ${(props) => props.theme.space * 2}px;
+
+const ListItem = styled.li`
+  margin: 10px 0px;
 `
 
-const PostItem = ({ post = {} }) => {
-  const { containerRef, width } = useWidth()
-  const decodedContent = decodeURIComponent(post.content)
+const ItemLink = styled.a`
+  color: white;
+  text-decoration: none;
+  &:hover{
+    color: white;
+    font-weight: normal;
+    text-decoration: underline;
+  }
+`
+
+const UserMenu = (props) => {
+  const { username = '' } = props
   return (
-    <Container ref={containerRef} width={width}>
-
-      <Label>
+    <UserMenuContainer>
+      <MenuContainer>
         {
-          post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
+          !username ?
+            <LoginButton>Login</LoginButton> :
+            <>
+              <CustomAvatar size="30px" withBorder src={`https://robohash.org/callback-${Math.floor(Math.random() * 1000)}`} />
+              <UserName>{username}</UserName>
+            </>
         }
-      </Label>
-      <>
-        <Link href={`/post/${post.id}`}>
-          <a>
-            <Image alt={post.title} src={post.media[0].url} />
-            <Title
-              text={post.title}
-              lines={3}
-              ellipsis="..."
-              innerElement="h3"
-              buttons={false}
-            />
-          </a>
-        </Link>
-      </>
-
-      <Description
-        text={decodedContent}
-        lines={4}
-        ellipsis="..."
-        innerElement="div"
-        buttons={false}
-      />
-      <Footer>
-        <InfoPost post={post} />
-      </Footer>
-    </Container>
-
+      </MenuContainer>
+      {
+        username &&
+        <DropdownList>
+          <ListItem><ItemLink>Profile</ItemLink></ListItem>
+          <ListItem><ItemLink>Logout</ItemLink></ListItem>
+        </DropdownList>
+      }
+    </UserMenuContainer>
   )
 }
 
-export default PostItem
+export default UserMenu
