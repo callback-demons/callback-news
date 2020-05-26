@@ -1,11 +1,19 @@
 /* eslint-disable react/no-danger */
-import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import React from 'react'
 import styled from 'styled-components'
 import ClampLines from 'react-clamp-lines'
 import useWidth from '../hooks/useWidth'
 import InfoPost from './InfoPost'
 
 const Container = styled.div`
+  & a {
+    color:${(props) => props.theme.color.ultraBlack};
+    &:hover {
+      text-decoration:none;
+      color:${(props) => props.theme.color.secondary};
+    }
+  }
   box-shadow: 0 0 16px -8px rgba(0,0,0,0.55);
   border-radius: 25px;
   grid-gap: 8px;
@@ -86,19 +94,27 @@ const PostItem = ({ post = {} }) => {
   const decodedContent = decodeURIComponent(post.content)
   return (
     <Container ref={containerRef} width={width}>
+
       <Label>
         {
           post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
         }
       </Label>
-      <Image alt={post.title} src={post.media[0].url} />
-      <Title
-        text={post.title}
-        lines={3}
-        ellipsis="..."
-        innerElement="h3"
-        buttons={false}
-      />
+      <>
+        <Link href={`/post/${post.id}`}>
+          <a>
+            <Image alt={post.title} src={post.media[0].url} />
+            <Title
+              text={post.title}
+              lines={3}
+              ellipsis="..."
+              innerElement="h3"
+              buttons={false}
+            />
+          </a>
+        </Link>
+      </>
+
       <Description
         text={decodedContent}
         lines={4}
@@ -110,6 +126,7 @@ const PostItem = ({ post = {} }) => {
         <InfoPost post={post} />
       </Footer>
     </Container>
+
   )
 }
 

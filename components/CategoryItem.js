@@ -1,10 +1,15 @@
 import React from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 import { circle, circleGradientAnimation, skeletonGradient } from '../styled/mixins'
 
-const CategoryContainer = styled.div`
+const CategoryContainer = styled.a`
   display: grid;
   justify-content: center;
+  color:${(props) => props.theme.color.ultraBlack};
+  &:hover {
+    text-decoration:none;
+  }
 `
 
 const SkeletonContainer = styled.div`
@@ -97,7 +102,7 @@ const CategoryTitle = styled.h2`
 `
 
 const CategoryItem = (props) => {
-  const { title, srcImage = '', categoryColor = '#428CD4', isLoading, className } = props
+  const { title, srcImage = '', categoryColor = '#428CD4', isLoading, className, id = '1' } = props
 
   if (isLoading || srcImage === '') {
     return (
@@ -111,15 +116,17 @@ const CategoryItem = (props) => {
   }
 
   return (
-    <CategoryContainer>
-      <ItemContainer color={categoryColor}>
-        <ImageContainer src={srcImage} />
-      </ItemContainer>
-      {
-        title &&
-        <CategoryTitle>{title}</CategoryTitle>
-      }
-    </CategoryContainer>
+    <Link href={`/category/${id}`}>
+      <CategoryContainer>
+        <ItemContainer color={categoryColor}>
+          <ImageContainer src={srcImage} />
+        </ItemContainer>
+        {
+          title &&
+          <CategoryTitle>{title}</CategoryTitle>
+        }
+      </CategoryContainer>
+    </Link>
   )
 }
 
