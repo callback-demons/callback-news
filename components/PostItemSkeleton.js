@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import useWidth from '../hooks/useWidth'
 import InfoPost from './InfoPostSkeleton'
 import { skeletonGradient } from '../styled/mixins'
+import SkeletonParagraph from './SkeletonParagraph'
 
 const Container = styled.div`
   & a {
@@ -37,14 +38,14 @@ const Image = styled.div`
   height:155px;
 `
 
-const Description = styled.div`
+const Description = styled(SkeletonParagraph)`
   grid-area:description;
   margin-bottom:${(props) => props.theme.space * 2}px;
   & div {
     margin: ${(props) => props.theme.space * 1}px 0;
   }
 `
-const Title = styled.div`
+const Title = styled(SkeletonParagraph)`
   grid-area:title;
   margin:0;
   & h3 {
@@ -67,11 +68,14 @@ const PostItemSkeleton = () => {
       <Image />
       <Title
         lines={2}
-        height="12px"
+        height="1em"
+        minSize="70%"
+        maxSize="96%"
       />
       <Description
-        lines={3}
-        height="14px"
+        lines={2}
+        height=".6em"
+        maxSize="96%"
       />
       <Footer>
         <InfoPost />
