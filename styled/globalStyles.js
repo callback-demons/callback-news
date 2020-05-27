@@ -42,7 +42,6 @@ const globalStyles = createGlobalStyle`
     text-decoration:none;
     &:hover {
       cursor: pointer;
-      font-weight:bold;
       text-decoration:underline;
       color:${(props) => props.theme.color.secondary};
     }

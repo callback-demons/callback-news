@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Avatar from './Avatar'
+import Modal from './Modal'
+import useModal from '../hooks/useModal'
 
 const UserMenuContainer = styled.div`
   margin: 0px;
@@ -62,12 +64,14 @@ const ItemLink = styled.a`
 
 const UserMenu = (props) => {
   const { username = '' } = props
+  const {isOpen, toggle} = useModal();
+  
   return (
     <UserMenuContainer>
       <MenuContainer>
         {
           !username ?
-            <LoginButton>Login</LoginButton> :
+            <LoginButton onClick={toggle}>Login</LoginButton> :
             <>
               <CustomAvatar size="30px" withBorder src={`https://robohash.org/callback-${Math.floor(Math.random() * 1000)}`} />
               <UserName>{username}</UserName>
@@ -81,6 +85,7 @@ const UserMenu = (props) => {
           <ListItem><ItemLink>Logout</ItemLink></ListItem>
         </DropdownList>
       }
+      <Modal isOpen={isOpen} close={toggle}/>
     </UserMenuContainer>
   )
 }

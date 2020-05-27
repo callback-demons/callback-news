@@ -1,4 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/no-danger */
+import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
 import ClampLines from 'react-clamp-lines'
@@ -6,6 +8,13 @@ import useWidth from '../hooks/useWidth'
 import InfoPost from './InfoPost'
 
 const Container = styled.div`
+  & a {
+    color:${(props) => props.theme.color.ultraBlack};
+    &:hover {
+      text-decoration:none;
+      color:${(props) => props.theme.color.secondary};
+    }
+  }
   box-shadow: 0 0 16px -8px rgba(0,0,0,0.55);
   border-radius: 25px;
   grid-gap: 8px;
@@ -50,10 +59,6 @@ const LabelElement = styled.div(
   },
 )
 
-const Header = styled.div`
-  width:100%;
-`
-
 const Description = styled(ClampLines)`
   grid-area:description;
   margin-bottom:${(props) => props.theme.space * 2}px;
@@ -77,39 +82,38 @@ const Footer = styled.div`
   bottom:0;
   display:relative;
 `
-const Content = styled.div`
-  padding:0 ${(props) => props.theme.space * 2}px;
-`
 
 const PostItem = ({ post = {} }) => {
   const { containerRef, width } = useWidth()
   const decodedContent = decodeURIComponent(post.content)
   return (
     <Container ref={containerRef} width={width}>
-      <Header>
-        <Image alt={post.title} src={post.media[0].url} />
-        <Label>
-          {
-            post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
-          }
-        </Label>
-      </Header>
-      <Content>
-        <Title
-          text={post.title}
-          lines={2}
-          ellipsis="..."
-          innerElement="h3"
-          buttons={false}
-        />
-        <Description
-          text={decodedContent}
-          lines={3}
-          ellipsis="..."
-          innerElement="div"
-          buttons={false}
-        />
-      </Content>
+      <Label>
+        {
+          post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
+        }
+      </Label>
+      <>
+        <Link href={`/post/${post.id}`}>
+          <a>
+            <Image alt={post.title} src={post.media[0].url} />
+            <Title
+              text={post.title}
+              lines={2}
+              ellipsis="..."
+              innerElement="h3"
+              buttons={false}
+            />
+          </a>
+        </Link>
+      </>
+      <Description
+        text={decodedContent}
+        lines={3}
+        ellipsis="..."
+        innerElement="div"
+        buttons={false}
+      />
       <Footer>
         <InfoPost post={{
           date: post.created_at,
@@ -120,6 +124,7 @@ const PostItem = ({ post = {} }) => {
         />
       </Footer>
     </Container>
+
   )
 }
 
