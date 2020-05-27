@@ -25,11 +25,13 @@ const Box = styled.div`
 `
 
 const CloseButton = styled.span`
+  z-index: 10;
   float: right;
   cursor: pointer;
   font-size: 24px;
   color: lightgray;
   font-weight: bold;
+  position: relative;
   ${(p) => p.withImage && 'padding-right: 0.5em;'}
   &:hover{
     color: darkgray;
@@ -39,20 +41,35 @@ const CloseButton = styled.span`
 const BoxWithImage = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  position: absolute;
 `
+
 const ImageContainer = styled.div`
   width: 50%;
   height: 100%;
-  border-radius: 15px;
   display: none;
+  border-radius: 13px 0px 0px 13px;
+  background-color: #1a507f;
+  /* background-color: #1a2d4f; */
   @media screen and (min-width: 768px) {
     display: block;
   }
 `
 const Image = styled.img`
+  width: 100%;
   height: 100%;
+  max-width: 100%;
   object-fit: cover;
   border-radius: 13px 0px 0px 13px;
+`
+
+const RigthContent = styled.div`
+  width: 50%;
+  display: flex;
+  overflow: auto;
+  position: relative;
+  align-items: center;
 `
 
 const BoxContent = styled.div`
@@ -66,31 +83,29 @@ const BoxContent = styled.div`
 `
 
 const Modal = ({ isOpen, close, lateralImage = '', children }) => {
+  if (!isOpen) return null
   return (
-    <>
-      {
-        isOpen ? (
-          <ClientPortal selector="#modal">
-            <Backdrop>
-              <Box withImage={!lateralImage}>
-                <CloseButton onClick={close} withImage={!!lateralImage}>&times;</CloseButton>
-                {
-                  lateralImage ?
-                    <BoxWithImage>
-                      <ImageContainer>
-                        <Image src={lateralImage} />
-                      </ImageContainer>
-                    </BoxWithImage> :
-                    <BoxContent>
-                      {children}
-                    </BoxContent>
-                }
-              </Box>
-            </Backdrop>
-          </ClientPortal>
-        ) : null
-      }
-    </>
+    <ClientPortal selector="#modal">
+      <Backdrop>
+        <Box withImage={!lateralImage}>
+          <CloseButton onClick={close} withImage={!!lateralImage}>&times;</CloseButton>
+          {
+            lateralImage ?
+              <BoxWithImage>
+                <ImageContainer>
+                  <Image src={lateralImage} />
+                </ImageContainer>
+                <RigthContent>
+                  {children}
+                </RigthContent>
+              </BoxWithImage> :
+              <BoxContent>
+                {children}
+              </BoxContent>
+          }
+        </Box>
+      </Backdrop>
+    </ClientPortal>
   )
 }
 
