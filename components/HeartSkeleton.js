@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import * as React from 'react'
 import styled from 'styled-components'
-import { skeletonGradient } from '../styled/mixins'
 
 const Svg = styled.svg`
   width:100%;

@@ -7,6 +7,8 @@ import ClampLines from 'react-clamp-lines'
 import useWidth from '../hooks/useWidth'
 import InfoPost from './InfoPost'
 import PostItemSkeleton from './PostItemSkeleton'
+import AsyncImage from './AsyncImage'
+import useLoading from '../hooks/useLoading'
 
 const Container = styled.div`
   & a {
@@ -30,7 +32,7 @@ const Container = styled.div`
   `}
 `
 
-const Image = styled.img`
+const Image = styled(AsyncImage)`
   object-fit:cover;
   width:100%;
   grid-area:image;
@@ -84,53 +86,66 @@ const Footer = styled.div`
   display:relative;
 `
 
-const PostItem = ({ post = {}, isLoading }) => {
+const PostItem = ({ post = {} }) => {
+  const [isLoading, setIsLoading] = useLoading()
   const { containerRef, width } = useWidth()
-  if (isLoading || !post.id) {
+  if (!post.id) {
     return <PostItemSkeleton />
   }
 
-  const decodedContent = post ? decodeURIComponent(post.content) : ''
-  return (
-    <Container ref={containerRef} width={width}>
-      <Label>
-        {
-          post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
-        }
-      </Label>
-      <>
-        <Link href={`/post/${post.id}`}>
-          <a>
-            <Image alt={post.title} src={post.media[0].url} />
-            <Title
-              text={post.title}
-              lines={2}
-              ellipsis="..."
-              innerElement="h3"
-              buttons={false}
-            />
-          </a>
-        </Link>
-      </>
-      <Description
-        text={decodedContent}
-        lines={3}
-        ellipsis="..."
-        innerElement="div"
-        buttons={false}
-      />
-      <Footer>
-        <InfoPost post={{
-          date: post.created_at,
-          author: post.author_name,
-          likes: post.likes_number,
-          avatar: null,
-        }}
-        />
-      </Footer>
-    </Container>
+  if (post.id) {
 
-  )
+    const decodedContent = post ? decodeURIComponent(post.content) : ''
+
+    if (isLoading) {
+      return <PostItemSkeleton />
+    }
+
+    return (
+      <Container ref={containerRef} width={width}>
+        <Label>
+          {
+            post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
+          }
+        </Label>
+        <>
+          <Link href={`/post/${post.id}`}>
+            <a>
+              <Image
+                onLoaded={() => { setIsLoading(false) }}
+                alt={post.title}
+                src={post.media[0].url}
+              />
+              <Title
+                text={post.title}
+                lines={2}
+                ellipsis="..."
+                innerElement="h3"
+                buttons={false}
+              />
+            </a>
+          </Link>
+        </>
+        <Description
+          text={decodedContent}
+          lines={3}
+          ellipsis="..."
+          innerElement="div"
+          buttons={false}
+        />
+        <Footer>
+          <InfoPost post={{
+            date: post.created_at,
+            author: post.author_name,
+            likes: post.likes_number,
+            avatar: null,
+          }}
+          />
+        </Footer>
+      </Container>
+
+    )
+  }
 }
 
 export default PostItem
