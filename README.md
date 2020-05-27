@@ -46,10 +46,13 @@ npm run start
 
 ### ✒️ Authors
 
+* **Erik Sanchez** - [eriksape](https://github.com/eriksape)
+* **David Behar** - [behagoras](https://github.com/behagoras)
+* **Iraida Mercedes** - [iraida07](https://github.com/iraida07)
 * **William Velazquez** - [WilliamVelazquez](https://github.com/WilliamVelazquez)
-* **Alberto Camarena** - [alberthor47](https://github.com/Alberthor47)
+* **Gerardo Marquez** - [GerardoMarquezC]https://github.com/GerardoMarquezC)
 
-If you want to know about the insights [click here!](https://github.com/callback-demons/callback-news/pulse/monthly).
+If you want to know about the insights [click here!](https://github.com/callback-demons/callback-news/pulse/monthly)
 
 ### 🎁 Contribute
 
