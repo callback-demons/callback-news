@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import ClampLines from 'react-clamp-lines'
 import useWidth from '../hooks/useWidth'
 import InfoPost from './InfoPost'
+import PostItemSkeleton from './PostItemSkeleton'
 
 const Container = styled.div`
   & a {
@@ -83,9 +84,13 @@ const Footer = styled.div`
   display:relative;
 `
 
-const PostItem = ({ post = {} }) => {
+const PostItem = ({ post = {}, isLoading }) => {
   const { containerRef, width } = useWidth()
-  const decodedContent = decodeURIComponent(post.content)
+  if (isLoading || !post.id) {
+    return <PostItemSkeleton />
+  }
+
+  const decodedContent = post ? decodeURIComponent(post.content) : ''
   return (
     <Container ref={containerRef} width={width}>
       <Label>
