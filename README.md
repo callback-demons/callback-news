@@ -26,7 +26,7 @@ npm install
 npm run dev
 ```
 
->This project runs on **http://localhost:3800**
+>This project runs on **http://localhost:3000**
 
 **Production Environment**
 
@@ -50,7 +50,7 @@ npm run start
 * **David Behar** - [behagoras](https://github.com/behagoras)
 * **Iraida Mercedes** - [iraida07](https://github.com/iraida07)
 * **William Velazquez** - [WilliamVelazquez](https://github.com/WilliamVelazquez)
-* **Gerardo Marquez** - [GerardoMarquezC]https://github.com/GerardoMarquezC)
+* **Gerardo Marquez** - [GerardoMarquezC](https://github.com/GerardoMarquezC)
 
 If you want to know about the insights [click here!](https://github.com/callback-demons/callback-news/pulse/monthly)
 
