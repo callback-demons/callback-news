@@ -66,11 +66,14 @@ const Image = styled.img`
 `
 
 const RigthContent = styled.div`
-  width: 50%;
+  width: 100%;
   display: flex;
   overflow: auto;
   position: relative;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    width: 50%;
+  }
 `
 
 const BoxContent = styled.div`

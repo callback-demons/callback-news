@@ -13,23 +13,40 @@ const MainContainer = styled.div`
 
 const Form = styled.form`
   display: grid;
-  grid-gap: 25px;
+  grid-gap: 16px;
 `
 
-const LoginForm = ({ onSubmit = null }) => {
+const LinkText = styled.p`
+  margin: 0px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  color: ${(p) => p.theme.color.secondary};
+  font-size: ${(p) => p.theme.mediumSize}px;
+  &:hover {
+    text-decoration: underline;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+`
+
+const LoginForm = ({ handleSubmit = null, handleForgetPassword = null, handleCreateAccount = null }) => {
   return (
     <MainContainer>
       <Avatar withBorder size="100px" />
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={handleSubmit}>
         <LabelInput
           label="Username"
-          placeholder="Username"
+          // placeholder="Username"
         />
         <LabelInput
           label="Password"
-          placeholder="Password"
+          // placeholder="Password"
         />
-        <Button text="Login" />
+        <LinkText onClick={handleForgetPassword}>Did you forget your password?</LinkText>
+        <Button text="Login" handleClick={handleSubmit} />
+        <LinkText onClick={handleCreateAccount}>Don't have an account? Create one</LinkText>
       </Form>
     </MainContainer>
   )

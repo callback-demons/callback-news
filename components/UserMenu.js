@@ -91,7 +91,11 @@ const UserMenu = (props) => {
         close={toggleModal}
         lateralImage="https://storage.cloud.google.com/cbn-public/modal-background.png"
       >
-        <LoginForm />
+        <LoginForm
+          handleSubmit={(event) => event.preventDefault()}
+          handleForgetPassword={null}
+          handleCreateAccount={null}
+        />
       </Modal>
     </UserMenuContainer>
   )
