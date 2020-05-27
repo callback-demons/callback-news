@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { circle, circleGradientAnimation, skeletonGradient } from '../styled/mixins'
+import { circle, circleGradientAnimation } from '../styled/mixins'
+import CategoryItemSkeleton from './CategoryItemSkeleton'
 
 const CategoryContainer = styled.a`
   display: grid;
@@ -9,45 +10,6 @@ const CategoryContainer = styled.a`
   color:${(props) => props.theme.color.ultraBlack};
   &:hover {
     text-decoration:none;
-  }
-`
-
-const SkeletonContainer = styled.div`
-  ${circle};
-  width: 100px;
-  padding: 6px;
-  ${(p) => skeletonGradient(p.theme.skeleton.baseColorDark, p.theme.skeleton.shineColor, '2s', '-200px')};
-  @media screen and (min-width: 768px) {
-    width: 150px;
-    padding: 7px;
-  }
-  @media screen and (min-width: 1024px) {
-    width: 180px;
-    padding: 8px;
-  }
-`
-
-const SkeletonInnerContainer = styled.div`
-  ${circle};
-  width: 100px;
-  height: 100px;
-  ${(p) => skeletonGradient(p.theme.skeleton.baseColor, p.theme.skeleton.shineColor, '2s', '-200px')};
-  @media screen and (min-width: 768px) {
-    width: 150px;
-    height: 150px;
-  }
-  @media screen and (min-width: 1024px) {
-    width: 180px;
-    height: 180px;
-  }
-`
-
-const TitleSkeletonContainer = styled.div`
-  margin: 8px;
-  height: ${(p) => p.theme.tabletSize}px;
-  ${(p) => skeletonGradient(p.theme.skeleton.baseColor, p.theme.skeleton.shineColor, '2s', '-200px')};
-  @media screen and (min-width: 768px) {
-    height: ${(p) => p.theme.titleSize}px;
   }
 `
 
@@ -107,10 +69,7 @@ const CategoryItem = (props) => {
   if (isLoading || srcImage === '') {
     return (
       <CategoryContainer className={className}>
-        <SkeletonContainer>
-          <SkeletonInnerContainer />
-        </SkeletonContainer>
-        <TitleSkeletonContainer />
+        <CategoryItemSkeleton />
       </CategoryContainer>
     )
   }
@@ -121,10 +80,7 @@ const CategoryItem = (props) => {
         <ItemContainer color={categoryColor}>
           <ImageContainer src={srcImage} />
         </ItemContainer>
-        {
-          title &&
-          <CategoryTitle>{title}</CategoryTitle>
-        }
+        { title && <CategoryTitle>{title}</CategoryTitle>}
       </CategoryContainer>
     </Link>
   )

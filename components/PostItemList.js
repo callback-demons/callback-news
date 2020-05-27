@@ -1,12 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import PostItem from './PostItem'
-// import mockRSS from '../utils/mocks/rss.json'
-
-// const posts = mockRSS.rss.channel.item
 
 const Container = styled.div`
-  /* max-width:1024px; */
   margin: auto;
   width: calc(100% - 32px);
   box-sizing:content-box;
