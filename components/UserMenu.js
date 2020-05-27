@@ -64,14 +64,14 @@ const ItemLink = styled.a`
 
 const UserMenu = (props) => {
   const { username = '' } = props
-  const {isOpen, toggle} = useModal();
-  
+  const { isOpen, toggleModal } = useModal()
+
   return (
     <UserMenuContainer>
       <MenuContainer>
         {
           !username ?
-            <LoginButton onClick={toggle}>Login</LoginButton> :
+            <LoginButton onClick={toggleModal}>Login</LoginButton> :
             <>
               <CustomAvatar size="30px" withBorder src={`https://robohash.org/callback-${Math.floor(Math.random() * 1000)}`} />
               <UserName>{username}</UserName>
@@ -85,7 +85,7 @@ const UserMenu = (props) => {
           <ListItem><ItemLink>Logout</ItemLink></ListItem>
         </DropdownList>
       }
-      <Modal isOpen={isOpen} close={toggle}/>
+      <Modal isOpen={isOpen} close={toggleModal} />
     </UserMenuContainer>
   )
 }

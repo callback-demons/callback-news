@@ -19,7 +19,10 @@ const Container = styled.header`
   z-index: 10;
 `
 
-const Logo = styled.img``
+const Logo = styled.img`
+  height: 30px;
+`
+
 const Right = styled.div`
   display:flex;
 `
