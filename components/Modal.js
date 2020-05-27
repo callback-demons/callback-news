@@ -17,7 +17,7 @@ const Box = styled.div`
   right: 10%;
   bottom: 10%;
   left: 10%;
-  padding: 0.8em;
+  ${(p) => p.withImage && 'padding: 0.8em;'}
   padding-top: 0px;
   position: absolute;
   border-radius: 15px;
@@ -30,9 +30,29 @@ const CloseButton = styled.span`
   font-size: 24px;
   color: lightgray;
   font-weight: bold;
+  ${(p) => p.withImage && 'padding-right: 0.5em;'}
   &:hover{
     color: darkgray;
   }
+`
+
+const BoxWithImage = styled.div`
+  width: 100%;
+  height: 100%;
+`
+const ImageContainer = styled.div`
+  width: 50%;
+  height: 100%;
+  border-radius: 15px;
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+`
+const Image = styled.img`
+  height: 100%;
+  object-fit: cover;
+  border-radius: 13px 0px 0px 13px;
 `
 
 const BoxContent = styled.div`
@@ -45,18 +65,26 @@ const BoxContent = styled.div`
   max-height: calc(100% - 40px);
 `
 
-const Modal = ({ isOpen, close, children }) => {
+const Modal = ({ isOpen, close, lateralImage = '', children }) => {
   return (
     <>
       {
         isOpen ? (
           <ClientPortal selector="#modal">
             <Backdrop>
-              <Box>
-                <CloseButton onClick={close}>&times;</CloseButton>
-                <BoxContent>
-                  {children}
-                </BoxContent>
+              <Box withImage={!lateralImage}>
+                <CloseButton onClick={close} withImage={!!lateralImage}>&times;</CloseButton>
+                {
+                  lateralImage ?
+                    <BoxWithImage>
+                      <ImageContainer>
+                        <Image src={lateralImage} />
+                      </ImageContainer>
+                    </BoxWithImage> :
+                    <BoxContent>
+                      {children}
+                    </BoxContent>
+                }
               </Box>
             </Backdrop>
           </ClientPortal>

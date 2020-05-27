@@ -85,7 +85,7 @@ const UserMenu = (props) => {
           <ListItem><ItemLink>Logout</ItemLink></ListItem>
         </DropdownList>
       }
-      <Modal isOpen={isOpen} close={toggleModal} />
+      <Modal isOpen={isOpen} close={toggleModal} lateralImage="https://storage.cloud.google.com/cbn-public/modal-background.png" />
     </UserMenuContainer>
   )
 }
