@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Avatar from './Avatar'
 import Modal from './Modal'
 import useModal from '../hooks/useModal'
+import LoginForm from './LoginForm'
 
 const UserMenuContainer = styled.div`
   margin: 0px;
@@ -85,7 +86,13 @@ const UserMenu = (props) => {
           <ListItem><ItemLink>Logout</ItemLink></ListItem>
         </DropdownList>
       }
-      <Modal isOpen={isOpen} close={toggleModal} lateralImage="https://storage.cloud.google.com/cbn-public/modal-background.png" />
+      <Modal
+        isOpen={isOpen}
+        close={toggleModal}
+        lateralImage="https://storage.cloud.google.com/cbn-public/modal-background.png"
+      >
+        <LoginForm />
+      </Modal>
     </UserMenuContainer>
   )
 }
