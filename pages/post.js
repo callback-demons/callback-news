@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import fetch from 'node-fetch'
 import Layout from '../components/Layout'
 import PostCard from '../components/PostCard'
-import CommentInput from '../components/CommentInput'
+import CommentsSection from '../components/CommentsSection'
 
 const Image = styled.img`
   width: 100%;
@@ -17,12 +17,7 @@ function PostPage({ post = {} }) {
     <Layout>
       <Image src={imgSrc} alt={imgTitle} />
       <PostCard post={post} />
-      <CommentInput
-        placeholder="Add your comment"
-        rows={1}
-        handleClick={null}
-        buttonText="Comment"
-      />
+      <CommentsSection />
     </Layout>
   )
 }
@@ -38,7 +33,6 @@ export async function getServerSideProps({ query, res }) {
     res.statusCode = 503
     return { props: { statusCode: res.statusCode } }
   }
-
 }
 
 export default PostPage
