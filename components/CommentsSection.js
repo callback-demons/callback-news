@@ -13,7 +13,7 @@ const Title = styled.h2`
 `
 const testComment = "Comentario de Prueba - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley"
 
-function CommentsSection({ comments = {} }) {
+function CommentsSection({ comments = [{ id: 1, text: testComment }] }) {
   return (
     <>
       <Title>Comments</Title>
@@ -24,7 +24,7 @@ function CommentsSection({ comments = {} }) {
         buttonText="Comment"
       />
       {
-        Array.from(Array(5).keys()).map(() => <Comment text={testComment} />)
+        comments.map((comment) => <Comment text={comment.text} key={comment.id} />)
       }
     </>
   )
