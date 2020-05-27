@@ -9,7 +9,6 @@ const MainContainer = styled.div`
   display: grid;
   grid-gap: 30px;
   justify-items: center;
-  justify-content: center;
 `
 
 const Form = styled.form`
@@ -17,20 +16,20 @@ const Form = styled.form`
   grid-gap: 25px;
 `
 
-const LoginForm = ( {onSubmit=null} ) => {
+const LoginForm = ({ onSubmit = null }) => {
   return (
     <MainContainer>
-      <Avatar withBorder size='100px'/>
+      <Avatar withBorder size="100px" />
       <Form onSubmit={onSubmit}>
-        <LabelInput 
-          label='Username'
-          placeholder='Username'
+        <LabelInput
+          label="Username"
+          placeholder="Username"
         />
-        <LabelInput 
-          label='Password'
-          placeholder='Password'
+        <LabelInput
+          label="Password"
+          placeholder="Password"
         />
-        <Button text='Login' />
+        <Button text="Login" />
       </Form>
     </MainContainer>
   )

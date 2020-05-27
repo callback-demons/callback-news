@@ -43,6 +43,7 @@ const BoxWithImage = styled.div`
   height: 100%;
   display: flex;
   position: absolute;
+  justify-content: center;
 `
 
 const ImageContainer = styled.div`
