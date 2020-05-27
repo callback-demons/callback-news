@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import MobileMenu from './MobileMenu'
-import UserMenu from './UserMenu'
+// import MobileMenu from '../../../components/MobileMenu'
+// import UserMenu from '../../../components/UserMenu'
 
 const Container = styled.header`
   z-index: 10;
   color: #fff;
-  background: ${(props) => props.theme.gradient.primary};
+  background: red;
   padding: 15px;
   text-align: center;
   position:fixed;
@@ -18,20 +18,18 @@ const Container = styled.header`
   justify-content: space-between;
   z-index: 10;
 `
-
 const Logo = styled.img``
 const Right = styled.div`
   display:flex;
 `
 
 const Header = ({ title = '' }) => {
-  return <div>hola</div>
   return (
     <Container>
       <Logo src="https://storage.cloud.google.com/cbn-public/callback-news-logo-white.svg" />
       <Right>
-        <MobileMenu />
-        <UserMenu />
+        {/* <MobileMenu />
+        <UserMenu /> */}
       </Right>
     </Container>
   )
