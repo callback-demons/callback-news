@@ -50,6 +50,7 @@ const RegisterForm = ({ handleSubmit = null, handleLogin = null }) => {
         />
         <LabelInput
           label="Confirm Password"
+          type="password"
         />
         <Button text="Create Account" handleClick={handleSubmit} />
         <LinkText onClick={handleLogin}>Do you have an account? Login</LinkText>
