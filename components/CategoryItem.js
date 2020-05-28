@@ -1,48 +1,15 @@
 import React from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
-import { circle, circleGradientAnimation, skeletonGradient } from '../styled/mixins'
+import { circle, circleGradientAnimation } from '../styled/mixins'
+import CategoryItemSkeleton from './CategoryItemSkeleton'
 
-const CategoryContainer = styled.div`
+const CategoryContainer = styled.a`
   display: grid;
   justify-content: center;
-`
-
-const SkeletonContainer = styled.div`
-  ${circle};
-  width: 100px;
-  padding: 6px;
-  ${(p) => skeletonGradient(p.theme.skeleton.baseColorDark, p.theme.skeleton.shineColor, '2s', '-200px')};
-  @media screen and (min-width: 768px) {
-    width: 150px;
-    padding: 7px;
-  }
-  @media screen and (min-width: 1024px) {
-    width: 180px;
-    padding: 8px;
-  }
-`
-
-const SkeletonInnerContainer = styled.div`
-  ${circle};
-  width: 100px;
-  height: 100px;
-  ${(p) => skeletonGradient(p.theme.skeleton.baseColor, p.theme.skeleton.shineColor, '2s', '-200px')};
-  @media screen and (min-width: 768px) {
-    width: 150px;
-    height: 150px;
-  }
-  @media screen and (min-width: 1024px) {
-    width: 180px;
-    height: 180px;
-  }
-`
-
-const TitleSkeletonContainer = styled.div`
-  margin: 8px;
-  height: ${(p) => p.theme.tabletSize}px;
-  ${(p) => skeletonGradient(p.theme.skeleton.baseColor, p.theme.skeleton.shineColor, '2s', '-200px')};
-  @media screen and (min-width: 768px) {
-    height: ${(p) => p.theme.titleSize}px;
+  color:${(props) => props.theme.color.ultraBlack};
+  &:hover {
+    text-decoration:none;
   }
 `
 
@@ -67,7 +34,8 @@ const ItemContainer = styled.div`
 const ImageContainer = styled.img`
   ${circle};
   width: 100px;
-    height: 100px;
+  height: 100px;
+  object-fit: cover;
   background-image: url("${(p) => p.srcImage}");
   @media screen and (min-width: 768px) {
     width: 150px;
@@ -96,29 +64,25 @@ const CategoryTitle = styled.h2`
 `
 
 const CategoryItem = (props) => {
-  const { title, srcImage = '', categoryColor = '#428CD4', isLoading, className } = props
+  const { title, srcImage = '', categoryColor = '#428CD4', isLoading, className, id = '1' } = props
 
   if (isLoading || srcImage === '') {
     return (
       <CategoryContainer className={className}>
-        <SkeletonContainer>
-          <SkeletonInnerContainer />
-        </SkeletonContainer>
-        <TitleSkeletonContainer />
+        <CategoryItemSkeleton />
       </CategoryContainer>
     )
   }
 
   return (
-    <CategoryContainer>
-      <ItemContainer color={categoryColor}>
-        <ImageContainer src={srcImage} />
-      </ItemContainer>
-      {
-        title &&
-        <CategoryTitle>{title}</CategoryTitle>
-      }
-    </CategoryContainer>
+    <Link href={`/category/${id}`}>
+      <CategoryContainer>
+        <ItemContainer color={categoryColor}>
+          <ImageContainer src={srcImage} />
+        </ItemContainer>
+        { title && <CategoryTitle>{title}</CategoryTitle>}
+      </CategoryContainer>
+    </Link>
   )
 }
 

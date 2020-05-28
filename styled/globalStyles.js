@@ -3,19 +3,16 @@ import { createGlobalStyle } from 'styled-components'
 const globalStyles = createGlobalStyle`
   body {
     margin: 0;
-    font-family: ${(props) => props.theme.fontFamilyText};
-    background: ${(props) => props.theme.fontFamilyText};
-    color: ${(props) => props.theme.colorText};
     font-size:18px;
+    color: ${(props) => props.theme.colorText};
+    background: ${(props) => props.theme.background};
+    font-family: ${(props) => props.theme.fontFamilyText};
   }
   button {
     font-family: ${(props) => props.theme.fontFamilyText};
   }
   h1,h2,h3,h4 {
     font-family: ${(props) => props.theme.fontFamilyTitle};
-  }
-  * {
-    /* border:1px solid hotpink; */
   }
   img {
     max-width:100%;
@@ -44,16 +41,16 @@ const globalStyles = createGlobalStyle`
     color:${(props) => props.theme.color.secondary};
     text-decoration:none;
     &:hover {
-      color:${(props) => props.theme.color.secondaryLight};
-      font-weight:bold;
+      cursor: pointer;
+      text-decoration:underline;
+      color:${(props) => props.theme.color.secondary};
     }
   }
   p {
     & img {
     display:block;
+    }
   }
-  }
-
 `
 
 export default globalStyles
