@@ -37,11 +37,14 @@ const LoginForm = ({ handleSubmit = null, handleForgetPassword = null, handleCre
       <Avatar withBorder size="100px" />
       <Form onSubmit={handleSubmit}>
         <LabelInput
-          label="Username"
+          label="Email"
+          type="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
           // placeholder="Username"
         />
         <LabelInput
           label="Password"
+          type="password"
           // placeholder="Password"
         />
         <LinkText onClick={handleForgetPassword}>Did you forget your password?</LinkText>

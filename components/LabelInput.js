@@ -8,7 +8,7 @@ const MainContainer = styled.div`
 
 const Label = styled.span`
   margin-bottom: 4px;
-  font-size: ${(p) => p.theme.mobileSize}px;
+  font-size: ${(p) => p.theme.mediumSize}px;
   @media screen and (min-width: 768px) {
     font-size: ${(p) => p.theme.mediumSize}px;
   }
@@ -24,14 +24,17 @@ const Input = styled.input`
   }
 `
 
-const LabelInput = ({ label = '', autoComplete = null, placeholder }) => {
+const LabelInput = ({ label = '', name, type = null, autoComplete = null, pattern = null, placeholder = '' }) => {
   if (!label) return null
   return (
     <MainContainer>
       <Label>{label}</Label>
       <Input
+        name={name || label}
+        type={type}
         autoComplete={autoComplete}
-        placeholder={placeholder || ''}
+        placeholder={placeholder}
+        pattern={pattern}
       />
     </MainContainer>
   )
