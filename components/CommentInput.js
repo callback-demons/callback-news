@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { inputShadow, transitions } from '../styled/mixins'
+import { inputShadow } from '../styled/mixins'
 import Avatar from './Avatar'
+import Button from './Button'
 
 const MainContainer = styled.div`
   margin: 0px auto;
@@ -53,24 +54,6 @@ const CustomAvatar = styled(Avatar)`
   }
 `
 
-const CommentButton = styled.button`
-  ${transitions}
-  color: white;
-  cursor: pointer;
-  font-weight: 600;
-  padding: 8px 30px;
-  border-radius: 6px;
-  font-size: ${(p) => p.theme.mediumSize}px;
-  border: 2px solid ${(props) => props.theme.color.primary};
-  background-color: ${(props) => props.theme.color.primaryLight};
-  &:hover{
-    background-color: ${(props) => props.theme.color.primary};
-  }
-  @media screen and (min-width: 768px) {
-    font-size: ${(p) => p.theme.tabletSize}px;
-  }
-`
-
 const CommentInput = (props) => {
   const { placeholder = '', rows = 3, handleClick = null, buttonText = 'Comment', className } = props
   return (
@@ -80,7 +63,7 @@ const CommentInput = (props) => {
           <CustomAvatar withBorder />
           <TextArea placeholder={placeholder} rows={rows} />
         </CommentInputContainer>
-        <CommentButton onClick={handleClick}>{buttonText}</CommentButton>
+        <Button handleClick={handleClick} text={buttonText} />
       </MainContainer>
     </>
   )
