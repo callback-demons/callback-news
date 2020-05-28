@@ -13,7 +13,7 @@ const MainContainer = styled.div`
 
 const Form = styled.form`
   display: grid;
-  grid-gap: 16px;
+  grid-gap: 20px;
 `
 
 const LinkText = styled.p`
@@ -31,28 +31,32 @@ const LinkText = styled.p`
   }
 `
 
-const LoginForm = ({ handleSubmit = null, handleForgetPassword = null, handleCreateAccount = null }) => {
+const RegisterForm = ({ handleSubmit = null, handleLogin = null }) => {
   return (
     <MainContainer>
-      <Avatar withBorder size="100px" />
+      <Avatar withBorder size="60px" />
       <Form onSubmit={handleSubmit}>
+        <LabelInput
+          label="Full Name"
+        />
         <LabelInput
           label="Email"
           type="email"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
-          // placeholder="Username"
         />
         <LabelInput
           label="Password"
           type="password"
-          // placeholder="Password"
         />
-        <LinkText onClick={handleForgetPassword}>Did you forget your password?</LinkText>
-        <Button text="Login" handleClick={handleSubmit} />
-        <LinkText onClick={handleCreateAccount}>Don't have an account? Create one</LinkText>
+        <LabelInput
+          label="Confirm Password"
+          type="password"
+        />
+        <Button text="Create Account" handleClick={handleSubmit} />
+        <LinkText onClick={handleLogin}>Do you have an account? Login</LinkText>
       </Form>
     </MainContainer>
   )
 }
 
-export default LoginForm
+export default RegisterForm
