@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ClientPortal from './ClientPortal'
+import { transitions } from '../styled/mixins'
 
 const Backdrop = styled.div`
   top: 0;
@@ -13,15 +14,22 @@ const Backdrop = styled.div`
 `
 
 const Box = styled.div`
-  top: 10%;
-  right: 10%;
-  bottom: 10%;
-  left: 10%;
+  ${transitions}
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  left: 5%;
   ${(p) => p.withImage && 'padding: 0.8em;'}
   padding-top: 0px;
   position: absolute;
   border-radius: 15px;
   background-color: white;
+  @media  screen and (min-width: 568px) {
+    top: 10%;
+    right: 10%;
+    bottom: 10%;
+    left: 10%;
+  }
 `
 
 const CloseButton = styled.span`
