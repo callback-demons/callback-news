@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import HamburgerButton from './Hamburger'
+import Hamburger from './Hamburger'
 
 const HamburgerWrapper = styled.div`
   z-index:12;
@@ -12,8 +12,10 @@ const HamburgerWrapper = styled.div`
   width: calc(100% - 25px);
   margin: 0px 6px 0px -6px;
   @media  screen and (min-width: 720px) {
-    display:none;
+    /* If isActive should display the menu to close It */
+    ${(props) => !props.isActive && 'display:none;'}
   }
+  ${(props) => props.isActive && 'display:block;'}
 `
 
 const Menu = styled.nav`
@@ -45,11 +47,15 @@ export default function MobileMenu() {
     event.preventDefault()
     setIsActive(!isActive)
   }
-
+  console.log(isActive)
   return (
     <>
-      <HamburgerWrapper>
-        <HamburgerButton onClick={handleHamburgerClick} isActive={isActive} color="white" />
+      <HamburgerWrapper isActive={isActive}>
+        <Hamburger
+          onClick={handleHamburgerClick}
+          isActive={isActive}
+          color="white"
+        />
       </HamburgerWrapper>
       <Menu isActive={isActive}>
         <MenuList>
