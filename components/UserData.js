@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Avatar from './Avatar'
 import LabelInput from './LabelInput'
 import Button from './Button'
+import useToggle from '../hooks/useToggle'
 
 const MainContainer = styled.div`
   width: 100%;
@@ -35,15 +36,11 @@ const Form = styled.form`
 `
 
 const UserData = () => {
-  const [isEditing, setIsEditing] = useState(false)
+  const [isEditing, toggleEditing] = useToggle(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log('Saving data...')
-  }
-
-  const toggleEditing = () => {
-    setIsEditing(!isEditing)
   }
 
   return (

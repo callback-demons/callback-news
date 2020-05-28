@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 import MobileMenu from './MobileMenu'
 import UserMenu from './UserMenu'
 
@@ -30,7 +32,11 @@ const Right = styled.div`
 const Header = ({ title = '' }) => {
   return (
     <Container>
-      <Logo src="https://storage.cloud.google.com/cbn-public/callback-news-logo-white.svg" />
+      <Link href="/">
+        <a>
+          <Logo src="https://storage.cloud.google.com/cbn-public/callback-news-logo-white.svg" />
+        </a>
+      </Link>
       <Right>
         <MobileMenu />
         <UserMenu />
