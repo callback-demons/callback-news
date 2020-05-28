@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Avatar from './Avatar'
 import Modal from './Modal'
 import useModal from '../hooks/useModal'
 import LoginForm from './LoginForm'
+import RegisterForm from './RegisterForm'
 
 const UserMenuContainer = styled.div`
   margin: 0px;
@@ -66,6 +67,21 @@ const ItemLink = styled.a`
 const UserMenu = (props) => {
   const { username = '' } = props
   const { isOpen, toggleModal } = useModal()
+  const [isLogging, setIsLogging] = useState(true)
+
+  const handleLogin = (event) => {
+    event.preventDefault()
+    console.log('Login')
+  }
+  
+  const handleRegister = (event) => {
+    event.preventDefault()
+    console.log('Register')
+  }
+
+  const toggleForm = () => {
+    setIsLogging(!isLogging)
+  }
 
   return (
     <UserMenuContainer>
@@ -91,11 +107,18 @@ const UserMenu = (props) => {
         close={toggleModal}
         lateralImage="https://storage.cloud.google.com/cbn-public/modal-background.png"
       >
-        <LoginForm
-          handleSubmit={(event) => event.preventDefault()}
-          handleForgetPassword={null}
-          handleCreateAccount={null}
-        />
+        {
+          isLogging ?
+            <LoginForm
+              handleSubmit={handleLogin}
+              handleForgetPassword={null}
+              handleCreateAccount={toggleForm}
+            /> :
+            <RegisterForm
+              handleSubmit={handleRegister}
+              handleLogin={toggleForm}
+            />
+        }
       </Modal>
     </UserMenuContainer>
   )
