@@ -4,6 +4,7 @@ import Head from 'next/head'
 import lightTheme from '../styled/themes/light'
 import GlobalStyles from '../styled/globalStyles'
 import Header from './Header'
+import Footer from './Footer'
 
 const Main = styled.main`
   display:block;
@@ -26,6 +27,7 @@ const Layout = ({ title, children }) => {
       <Main>
         {children}
       </Main>
+      <Footer />
     </ThemeProvider>
   )
 }
