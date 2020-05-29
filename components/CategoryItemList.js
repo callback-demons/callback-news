@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import CategoryItem from './CategoryItem'
 
-const CategoryListContainer = styled.div`
+const Container = styled.div`
   z-index: 2;
   display: grid;
   grid-gap: 25px;
@@ -16,7 +16,7 @@ const CategoryListContainer = styled.div`
 const CategoryItemList = (props) => {
   const { data = [] } = props
   return (
-    <CategoryListContainer>
+    <Container>
       {
         data.length > 0 ?
           data.map(
@@ -28,7 +28,7 @@ const CategoryItemList = (props) => {
             }
           </>
       }
-    </CategoryListContainer>
+    </Container>
   )
 }
 
