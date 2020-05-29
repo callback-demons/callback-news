@@ -9,6 +9,13 @@ import Footer from './Footer'
 const Main = styled.main`
   display:block;
   padding-top:60px;
+  min-height:100%;
+  width:100%;
+  margin-bottom: ${(props) => props.theme.space * 2}px;
+`
+
+const Container = styled.div`
+  min-height:100vh;
 `
 
 const Layout = ({ title, children }) => {
@@ -24,10 +31,12 @@ const Layout = ({ title, children }) => {
 
       </Head>
       <Header />
-      <Main>
-        {children}
-      </Main>
-      <Footer />
+      <Container>
+        <Main>
+          {children}
+        </Main>
+        <Footer />
+      </Container>
     </ThemeProvider>
   )
 }

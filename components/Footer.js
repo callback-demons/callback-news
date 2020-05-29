@@ -9,6 +9,10 @@ const Container = styled.footer`
   text-align: center;
   width:100%;
   z-index: 10;
+  bottom: 0;
+  position: relative;
+  box-sizing: border-box;
+}
 `
 
 const Footer = () => {
