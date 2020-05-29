@@ -23,9 +23,12 @@ const Input = styled.input`
   @media screen and (min-width: 768px) {
     font-size: ${(p) => p.theme.titleSize}px;
   }
+  &:disabled {
+    cursor: not-allowed;
+  }
 `
 
-const LabelInput = ({ label = '', name, type = null, autoComplete = null, pattern = null, placeholder = '', required = null }) => {
+const LabelInput = ({ label = '', name, type = null, value = '', autoComplete = null, pattern = null, placeholder = '', required = null, disabled = null }) => {
   if (!label) return null
   return (
     <MainContainer>
@@ -33,10 +36,12 @@ const LabelInput = ({ label = '', name, type = null, autoComplete = null, patter
       <Input
         name={name || label}
         type={type}
+        value={value}
         autoComplete={autoComplete}
         placeholder={placeholder}
         pattern={pattern}
         required={required}
+        disabled={disabled}
       />
     </MainContainer>
   )

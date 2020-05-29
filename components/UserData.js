@@ -1,3 +1,4 @@
+// import { useState } from 'react'
 import styled from 'styled-components'
 import Avatar from './Avatar'
 import LabelInput from './LabelInput'
@@ -34,13 +35,19 @@ const Form = styled.form`
   }
 `
 
-const UserData = () => {
+const UserData = ({ data = [] }) => {
   const [isEditing, toggleEditing] = useToggle(false)
+  // const [userData, setUserData] = userState(data)
 
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log('Saving data...')
+    // toggleEditing()
   }
+
+  // const changeData = (val) => {
+  //   console.log('Saving data...')
+  // }
 
   return (
     <MainContainer>
@@ -48,23 +55,31 @@ const UserData = () => {
       <Form onSubmit={handleSubmit}>
         <LabelInput
           label="Full Name"
+          value={data.name}
+          disabled={!isEditing}
+          // onChange={(e) => changeData(e.target.value)}
         />
         <LabelInput
           label="Email"
           type="email"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+          value={data.email}
+          disabled={!isEditing}
         />
         <LabelInput
           label="Current Password"
           type="password"
+          disabled={!isEditing}
         />
         <LabelInput
           label="New Password"
           type="password"
+          disabled={!isEditing}
         />
         <LabelInput
           label="Confirm Password"
           type="password"
+          disabled={!isEditing}
         />
         {
           isEditing ?
