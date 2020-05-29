@@ -10,7 +10,7 @@ const Container = styled.div`
 
 const Main = styled.div`
   display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(${(props) => props.maxWidth || '400px'}, 1fr));
   grid-gap:${(props) => props.theme.space * 6}px ${(props) => props.theme.space * 1}px;
 `
 
@@ -19,11 +19,11 @@ const Title = styled.h2`
   font-family:${(props) => props.theme.fontFamilyTitle};
 `
 
-const PostItemList = ({ posts, title }) => {
+const PostItemList = ({ posts, title, maxWidth, className }) => {
   return (
-    <Container>
+    <Container className={className}>
       <Title>{title}</Title>
-      <Main>
+      <Main maxWidth={maxWidth}>
         {
           posts.map((post) => <PostItem post={post} />)
         }

@@ -18,6 +18,7 @@ const Container = styled.div`
       color:${(props) => props.theme.color.secondary};
     }
   }
+  width: 100%;
   box-shadow: 0 0 16px -8px rgba(0,0,0,0.55);
   border-radius: 25px;
   display: grid;
@@ -103,7 +104,7 @@ const Content = styled.div`
   grid-area:content;
 `
 
-const PostItem = ({ post = {} }) => {
+const PostItem = ({ post = {}, className }) => {
   const [isLoading, setIsLoading] = useLoading()
   const { containerRef, width } = useWidth()
   if (!post.id) {
@@ -119,7 +120,7 @@ const PostItem = ({ post = {} }) => {
     }
 
     return (
-      <Container ref={containerRef} width={width}>
+      <Container className={className} ref={containerRef} width={width}>
         <Header>
           <Label>
             {
