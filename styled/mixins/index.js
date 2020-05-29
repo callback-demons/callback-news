@@ -45,7 +45,7 @@ export const circleGradientAnimation = (idleColor, initialColor, lastColor, tran
   background-size: 100%;
   background-image: linear-gradient(${idleColor}, ${idleColor});
   position: relative;
-  z-index: 100;
+  z-index: 9;
   &:before {
     background-image: linear-gradient(to bottom right, ${initialColor}, ${lastColor});
     content: '';    
@@ -55,7 +55,7 @@ export const circleGradientAnimation = (idleColor, initialColor, lastColor, tran
     top: 0; left: 0;
     opacity: 0;
     width: 100%;
-    z-index: -100;
+    z-index: 8;
     transition: opacity ${transitionTime};
   }
   &:hover {

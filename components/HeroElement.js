@@ -11,7 +11,7 @@ const PostOverlay = styled.article`
   margin:0;
   position: absolute;
   bottom:0;
-  z-index:10;
+  z-index:8;
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: 1fr 24px 40px;
@@ -36,7 +36,7 @@ const Image = styled(AsyncImage)`
   position: absolute;
   top: 0;
   bottom: 0;
-  z-index: 0;
+  z-index: 7;
   object-fit: cover;
   width: 100%;
   height: 100%;

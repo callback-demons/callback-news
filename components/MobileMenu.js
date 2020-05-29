@@ -22,7 +22,7 @@ const Menu = styled.nav`
   display:${(props) => (props.isActive ? 'block' : 'none')};
   position:fixed;
   background:${(props) => props.theme.color.primary};
-  z-index:3;
+  z-index:11;
   font-size:2em;
   right: ${(props) => (props.isActive ? '0%' : '-100%')};
   top:0;
