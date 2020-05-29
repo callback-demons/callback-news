@@ -48,7 +48,7 @@ const Error = ({ categories, posts, statusCode }) => {
     },
     {
       code: 503,
-      description: 'Internal Server Error.',
+      description: 'We are having troubles now.',
       message: 'Please try again later',
       displayPosts: false,
       displayHome: false,
