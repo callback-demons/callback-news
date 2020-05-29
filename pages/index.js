@@ -11,10 +11,11 @@ const Title = styled.h1``
 function HomePage({ categories, posts }) {
   const recentNews = posts ? [posts[0], posts[1], posts[2], posts[3], posts[4], posts[5]] : []
   const favoriteNews = posts ? [posts[6], posts[7], posts[8], posts[9], posts[10], posts[11]] : []
+  const heroNews = posts ? [posts[1], posts[2], posts[3]] : []
   const [title] = useState('Callback News - The daily technology newsletter')
   return (
     <Layout title={title}>
-      <Hero />
+      <Hero posts={heroNews} />
       <Title>{title}</Title>
       <CategoryItemList data={categories} />
       <PostItemList title="Recent news" posts={recentNews} />
