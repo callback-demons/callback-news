@@ -20,10 +20,17 @@ const MainButton = styled.button`
   }
 `
 
-const Button = ({ text = '', handleClick = null, className, background }) => {
+const Button = ({
+  text = '',
+  type = 'button',
+  handleClick = null,
+  className,
+  background,
+}) => {
   if (!text) return null
   return (
     <MainButton
+      type={type}
       onClick={handleClick}
       className={className}
       background={background}
