@@ -12,7 +12,6 @@ const Title = styled.h1`
 function ProfilePage({ userData = {}, posts = {} }) {
   const favoriteNews = posts ? [posts[0], posts[1], posts[3], posts[4], posts[18]] : []
   const [title] = useState('Profile Data')
-  console.log('--->', userData)
   return (
     <Layout title={title}>
       <Title>{title}</Title>
