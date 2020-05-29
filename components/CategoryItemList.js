@@ -11,6 +11,7 @@ const Container = styled.div`
   position: relative;
   white-space: nowrap;
   grid-auto-flow: column;
+  /* width:calc(100% - 40px); */
 `
 
 const CategoryItemList = (props) => {

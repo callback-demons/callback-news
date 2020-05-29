@@ -30,8 +30,8 @@ const Layout = ({ title, children }) => {
         <link rel="icon" type="image/svg+xml" href="https://storage.cloud.google.com/cbn-public/favicon.svg" sizes="any" />
 
       </Head>
-      <Header />
       <Container>
+        <Header />
         <Main>
           {children}
         </Main>
