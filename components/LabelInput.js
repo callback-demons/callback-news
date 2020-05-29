@@ -28,12 +28,13 @@ const Input = styled.input`
   }
 `
 
-const LabelInput = ({ label = '', name, type = null, value = '', autoComplete = null, pattern = null, placeholder = '', required = null, disabled = null }) => {
+const LabelInput = ({ id = null, label = '', name, type = null, value = '', autoComplete = null, pattern = null, placeholder = '', onChange = null, required = null, disabled = null }) => {
   if (!label) return null
   return (
     <MainContainer>
       <Label>{label}</Label>
       <Input
+        id={id || name || label}
         name={name || label}
         type={type}
         value={value}
@@ -42,6 +43,7 @@ const LabelInput = ({ label = '', name, type = null, value = '', autoComplete = 
         pattern={pattern}
         required={required}
         disabled={disabled}
+        onChange={onChange}
       />
     </MainContainer>
   )

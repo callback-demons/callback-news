@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import Avatar from './Avatar'
 import LabelInput from './LabelInput'
@@ -24,11 +24,9 @@ const Form = styled.form`
   display: grid;
   align-items: end;
   grid-gap: 20px 40px;
-  /* grid-gap: 20px 25%; */
   grid-template-columns: 1fr;
   justify-items: center;
   @media  screen and (min-width: 768px) {
-    /* padding: 15px; */
     justify-items: right;
     justify-self: flex-start;
     grid-template-columns: 1fr 1fr;
@@ -37,49 +35,69 @@ const Form = styled.form`
 
 const UserData = ({ data = [] }) => {
   const [isEditing, toggleEditing] = useToggle(false)
-  // const [userData, setUserData] = userState(data)
+  const [userData, setUserData] = useState({
+    ...data,
+    password: '',
+    newPassword: '',
+    newPasswordConfirmation: '',
+  })
 
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log('Saving data...')
-    // toggleEditing()
+    toggleEditing()
   }
 
-  // const changeData = (val) => {
-  //   console.log('Saving data...')
-  // }
+  const handleChange = event => {
+    setUserData({
+      ...userData,
+      [event.target.id]: event.target.value
+    });
+  };
 
   return (
     <MainContainer>
       <Avatar withBorder size="140px" />
       <Form onSubmit={handleSubmit}>
         <LabelInput
+          id="name"
           label="Full Name"
-          value={data.name}
+          value={userData.name}
           disabled={!isEditing}
-          // onChange={(e) => changeData(e.target.value)}
+          onChange={(e) => handleChange(e)}
         />
         <LabelInput
+          id="email"
           label="Email"
           type="email"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
-          value={data.email}
+          value={userData.email}
           disabled={!isEditing}
+          onChange={(e) => handleChange(e)}
         />
         <LabelInput
+          id="password"
           label="Current Password"
           type="password"
+          value={userData.password}
           disabled={!isEditing}
+          onChange={(e) => handleChange(e)}
         />
         <LabelInput
+          id="newPassword"
           label="New Password"
           type="password"
+          value={userData.newPassword}
           disabled={!isEditing}
+          onChange={(e) => handleChange(e)}
         />
         <LabelInput
+          id="newPasswordConfirmation"
           label="Confirm Password"
           type="password"
+          value={userData.newPasswordConfirmation}
           disabled={!isEditing}
+          onChange={(e) => handleChange(e)}
         />
         {
           isEditing ?
