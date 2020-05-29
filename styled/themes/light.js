@@ -3,6 +3,7 @@ const pink = '#FF9CDA'
 const ultraBlue = '#004E9A'
 const blue = '#428CD4'
 const ultraBlack = '#041B2D'
+const ultraGray = '#7A8C99'
 const white = '#fff'
 const quicksand = '"Quicksand", "Helvetica", "Arial", sans-serif'
 const nunito = '"Nunito Sans", "Helvetica", "Arial", sans-serif;'
@@ -13,6 +14,7 @@ const theme = {
   ultraBlue,
   blue,
   ultraBlack,
+  ultraGray,
 
   fontFamilyTitle: quicksand,
   fontFamilyText: nunito,
@@ -41,6 +43,7 @@ const theme = {
     secondary: ultraPink,
     secondaryLight: pink,
     ultraBlack,
+    ultraGray,
     pink,
     ultraPink,
     ultraBlue,
