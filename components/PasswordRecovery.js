@@ -1,20 +1,26 @@
 import styled from 'styled-components'
-import Avatar from './Avatar'
 import LabelInput from './LabelInput'
 import Button from './Button'
-import useToggle from '../hooks/useToggle'
 
 const MainContainer = styled.div`
   width: 100%;
   display: grid;
   grid-gap: 30px 5px;
-  padding: 30px 0px;
+  padding: 0px;
   align-items: center;
   justify-items: center;
   grid-template-columns: 1fr;
   @media  screen and (min-width: 568px) {
+    padding: 30px 0px;
     grid-template-columns: 1fr 2fr;
   }
+`
+
+const Image = styled.img`
+  width: 100%;
+  object-fit: cover;
+  min-width: 150px;
+  max-width: 300px;
 `
 
 const Form = styled.form`
@@ -23,20 +29,11 @@ const Form = styled.form`
   display: grid;
   align-items: end;
   grid-gap: 20px 40px;
-  /* grid-gap: 20px 25%; */
-  grid-template-columns: 1fr;
   justify-items: center;
-  @media  screen and (min-width: 768px) {
-    /* padding: 15px; */
-    justify-items: right;
-    justify-self: flex-start;
-    grid-template-columns: 1fr 1fr;
-  }
+  grid-template-columns: 1fr;
 `
 
-const UserData = () => {
-  const [isEditing, toggleEditing] = useToggle(false)
-
+const PasswordRecovery = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log('Saving data...')
@@ -44,36 +41,36 @@ const UserData = () => {
 
   return (
     <MainContainer>
-      <Avatar withBorder size="140px" />
+      <Image
+        alt="Password Recovery"
+        src="https://storage.googleapis.com/cbn-public/password.png"
+      />
       <Form onSubmit={handleSubmit}>
-        <LabelInput
-          label="Full Name"
-        />
         <LabelInput
           label="Email"
           type="email"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+          required
         />
         <LabelInput
           label="Current Password"
           type="password"
+          required
         />
         <LabelInput
           label="New Password"
           type="password"
+          required
         />
         <LabelInput
           label="Confirm Password"
           type="password"
+          required
         />
-        {
-          isEditing ?
-            <Button text="Save" handleClick={handleSubmit} /> :
-            <Button text="Edit" handleClick={toggleEditing} />
-        }
+        <Button text="Save" handleClick={handleSubmit} />
       </Form>
     </MainContainer>
   )
 }
 
-export default UserData
+export default PasswordRecovery

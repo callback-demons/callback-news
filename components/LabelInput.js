@@ -25,7 +25,7 @@ const Input = styled.input`
   }
 `
 
-const LabelInput = ({ label = '', name, type = null, autoComplete = null, pattern = null, placeholder = '' }) => {
+const LabelInput = ({ label = '', name, type = null, autoComplete = null, pattern = null, placeholder = '', required = null }) => {
   if (!label) return null
   return (
     <MainContainer>
@@ -36,6 +36,7 @@ const LabelInput = ({ label = '', name, type = null, autoComplete = null, patter
         autoComplete={autoComplete}
         placeholder={placeholder}
         pattern={pattern}
+        required={required}
       />
     </MainContainer>
   )

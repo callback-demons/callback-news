@@ -38,19 +38,23 @@ const RegisterForm = ({ handleSubmit = null, handleLogin = null }) => {
       <Form onSubmit={handleSubmit}>
         <LabelInput
           label="Full Name"
+          required
         />
         <LabelInput
           label="Email"
           type="email"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+          required
         />
         <LabelInput
           label="Password"
           type="password"
+          required
         />
         <LabelInput
           label="Confirm Password"
           type="password"
+          required
         />
         <Button text="Create Account" handleClick={handleSubmit} />
         <LinkText onClick={handleLogin}>Do you have an account? Login</LinkText>
