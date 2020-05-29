@@ -2,8 +2,10 @@ import React from 'react'
 import Carousel from 're-carousel'
 import styled from 'styled-components'
 import HeroElement from './HeroElement'
+import HeroElementSkeleton from './HeroElementSkeleton'
 import IndicatorDots from './carousel/IndicatorDots'
 import CarouselButtons from './carousel/CarouselButtons'
+import useLoading from '../hooks/useLoading'
 
 const CustomHeroElement = styled(HeroElement)`
   height:500px;
@@ -13,6 +15,11 @@ const Container = styled.div`
 `
 
 const Hero = ({ className, posts = [] }) => {
+  const [isLoading, setIsLoading] = useLoading()
+
+  if (isLoading) {
+    return <HeroElementSkeleton />
+  }
   return (
     <Container styles={{ height: '500px' }}>
       <Carousel
@@ -23,6 +30,7 @@ const Hero = ({ className, posts = [] }) => {
       >
         {posts.map(
           (post) => <CustomHeroElement
+            onLoaded={() => { setIsLoading(false) }}
             styles={{ height: '500px' }}
             key={post.id}
             post={post}
