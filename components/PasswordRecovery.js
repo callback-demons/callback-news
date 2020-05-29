@@ -47,16 +47,25 @@ const PasswordRecovery = () => {
       />
       <Form onSubmit={handleSubmit}>
         <LabelInput
+          label="Email"
+          type="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+          required
+        />
+        <LabelInput
           label="Current Password"
           type="password"
+          required
         />
         <LabelInput
           label="New Password"
           type="password"
+          required
         />
         <LabelInput
           label="Confirm Password"
           type="password"
+          required
         />
         <Button text="Save" handleClick={handleSubmit} />
       </Form>
