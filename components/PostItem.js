@@ -28,6 +28,7 @@ const Container = styled.div`
                       "footer";
   grid-gap: 8px;
   overflow:hidden;
+  padding-bottom:${(props) => props.theme.space * 2}px;
   ${(props) => props.width > 750 && `
   grid-template-columns:1fr 550px;
   grid-template-areas:"label label"
