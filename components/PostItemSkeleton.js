@@ -17,9 +17,15 @@ const Container = styled.div`
   }
   box-shadow: 0 0 16px -8px rgba(0,0,0,0.55);
   border-radius: 25px;
-  grid-gap: 8px;
   margin:0 16px;
   overflow:hidden;
+  display: grid;
+  grid-template-columns:1fr;
+  grid-template-rows:200px 150px 45px;
+  grid-template-areas:"image"
+                      "content"
+                      "footer";
+  grid-gap: 8px;
   ${(props) => props.width > 750 && `
   grid-template-columns:1fr 550px;
   grid-template-areas:"label label"
@@ -35,7 +41,6 @@ const Image = styled.div`
   width:100%;
   grid-area:image;
   height:200px;
-  height:155px;
 `
 
 const Description = styled(SkeletonParagraph)`
@@ -61,22 +66,28 @@ const Footer = styled.div`
   display:relative;
 `
 
+const Content = styled.div`
+  grid-area:content;
+`
+
 const PostItemSkeleton = () => {
   const { containerRef, width } = useWidth()
   return (
     <Container ref={containerRef} width={width}>
       <Image />
-      <Title
-        lines={2}
-        height="1em"
-        minSize="70%"
-        maxSize="96%"
-      />
-      <Description
-        lines={2}
-        height=".6em"
-        maxSize="96%"
-      />
+      <Content>
+        <Title
+          lines={2}
+          height="1em"
+          minSize="70%"
+          maxSize="96%"
+        />
+        <Description
+          lines={2}
+          height=".6em"
+          maxSize="96%"
+        />
+      </Content>
       <Footer>
         <InfoPost />
       </Footer>
