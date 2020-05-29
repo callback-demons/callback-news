@@ -56,7 +56,7 @@ const RegisterForm = ({ handleSubmit = null, handleLogin = null }) => {
           type="password"
           required
         />
-        <Button text="Create Account" handleClick={handleSubmit} />
+        <Button text="Create Account" onClick={handleSubmit} />
         <LinkText onClick={handleLogin}>Do you have an account? Login</LinkText>
       </Form>
     </MainContainer>

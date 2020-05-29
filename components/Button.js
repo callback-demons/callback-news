@@ -23,7 +23,7 @@ const MainButton = styled.button`
 const Button = ({
   text = '',
   type = 'button',
-  handleClick = null,
+  onClick = null,
   className,
   background,
 }) => {
@@ -31,7 +31,7 @@ const Button = ({
   return (
     <MainButton
       type={type}
-      onClick={handleClick}
+      onClick={onClick}
       className={className}
       background={background}
     >
