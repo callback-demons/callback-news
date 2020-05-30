@@ -19,8 +19,7 @@ const SearchContainer = styled.div`
   }
 `
 
-function CategoryPage({ posts = {} }) {
-  const favoriteNews = posts ? [posts[0], posts[1], posts[3], posts[4], posts[18]] : []
+function CategoryPage({ posts = [] }) {
   const [title] = useState('Robotic | Callback News')
   // const handleSubmit = (event) => {
   //   event.preventDefault()
@@ -33,7 +32,7 @@ function CategoryPage({ posts = {} }) {
       </SearchContainer>
       <Title>{title}</Title>
       <DottedLine />
-      <PostItemList posts={favoriteNews} />
+      <PostItemList posts={posts} />
     </Layout>
   )
 }
@@ -41,7 +40,8 @@ function CategoryPage({ posts = {} }) {
 export async function getServerSideProps({ query, res }) {
   try {
     const [resPosts] = await Promise.all([
-      fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/news.json'),
+      fetch(`https://api.callback-news.com/categories/${query.id}/news/`),
+      // fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/news.json'),
     ])
 
     const posts = await resPosts.json()

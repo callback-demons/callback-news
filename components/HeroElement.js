@@ -62,21 +62,21 @@ const HeroElement = ({ className, post = {}, onLoaded = null }) => {
   return (
     <Container>
       <Image
-        alt="alt"
-        src={media && media[0].url}
+        alt={title || 'defaultImage'}
+        src={media[0] ? media[0].url : 'https://storage.googleapis.com/cbn-public/default-backgroud.jpg'}
         onLoaded={onLoaded}
       />
       <PostOverlay>
         <ContentWrapper>
           <Title
-            text={title || ''}
+            text={title || 'Title not available'}
             lines={2}
             ellipsis="..."
             innerElement="h2"
             buttons={false}
           />
           <Content
-            text={description || ''}
+            text={description || 'Description not available'}
             lines={3}
             ellipsis="..."
             innerElement="div"

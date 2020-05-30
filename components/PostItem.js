@@ -112,9 +112,6 @@ const PostItem = ({ post = {}, className }) => {
   }
 
   if (post.id) {
-
-    const decodedContent = post ? decodeURIComponent(post.content) : ''
-
     if (isLoading) {
       return <PostItemSkeleton />
     }
@@ -123,20 +120,21 @@ const PostItem = ({ post = {}, className }) => {
       <Container className={className} ref={containerRef} width={width}>
         <Header>
           <Label>
-            {
+            <LabelElement>{post.category.name || ''}</LabelElement>
+            {/* {
               post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
-            }
+            } */}
           </Label>
           <>
             <Link href={`/post/${post.id}`}>
               <a>
                 <Image
                   onLoaded={() => { setIsLoading(false) }}
-                  alt={post.title}
-                  src={post.media[0].url}
+                  alt={post.title || 'defaultImage'}
+                  src={post.media[0] ? post.media[0].url : 'https://storage.googleapis.com/cbn-public/default-backgroud.jpg'}
                 />
                 <Title
-                  text={post.title}
+                  text={post.title || 'Title not available'}
                   lines={2}
                   ellipsis="..."
                   innerElement="h3"
@@ -148,7 +146,7 @@ const PostItem = ({ post = {}, className }) => {
         </Header>
         <Content>
           <Description
-            text={decodedContent}
+            text={post.description || 'Description not available'}
             lines={3}
             ellipsis="..."
             innerElement="div"
@@ -157,9 +155,9 @@ const PostItem = ({ post = {}, className }) => {
         </Content>
         <Footer>
           <InfoPost post={{
-            date: post.created_at,
-            author: post.author_name,
-            likes: post.likes_number,
+            date: post.date_posted,
+            author: post.author,
+            likes: post.likes,
             avatar: null,
           }}
           />
