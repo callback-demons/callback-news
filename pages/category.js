@@ -3,44 +3,34 @@ import styled from 'styled-components'
 import fetch from 'node-fetch'
 import Layout from '../components/Layout'
 import DottedLine from '../components/DottedLine'
-import LabelInput from '../components/LabelInput'
 import PostItemList from '../components/PostItemList'
+import SearchBar from '../components/SearchBar'
 
 const Title = styled.h1`
   margin: 20px;
   margin-bottom: 0px;
 `
 
-const Form = styled.form`
-  width: 70%;
-  padding: 0px;
-  display: grid;
-  align-items: end;
-  margin-top: 20px;
-  margin-left: 20px;
-  grid-gap: 20px 40px;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  @media  screen and (min-width: 768px) {
-    justify-items: right;
-    justify-self: flex-start;
+const SearchContainer = styled.div`
+  width:80%;
+  padding: 20px;
+  @media screen and (min-width: 768px) {
+    width: 50%;
   }
 `
 
 function CategoryPage({ posts = {} }) {
   const favoriteNews = posts ? [posts[0], posts[1], posts[3], posts[4], posts[18]] : []
   const [title] = useState('Robotic | Callback News')
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    console.log('Searching news...')
-  }
+  // const handleSubmit = (event) => {
+  //   event.preventDefault()
+  //   console.log('Searching news...')
+  // }
   return (
     <Layout title={title}>
-      <Form onSubmit={handleSubmit}>
-        <LabelInput
-          label="Search news"
-        />
-      </Form>
+      <SearchContainer>
+        <SearchBar />
+      </SearchContainer>
       <Title>{title}</Title>
       <DottedLine />
       <PostItemList posts={favoriteNews} />
