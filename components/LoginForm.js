@@ -40,15 +40,15 @@ const LoginForm = ({ handleSubmit = null, handleForgetPassword = null, handleCre
           label="Email"
           type="email"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
-          // placeholder="Username"
+          required
         />
         <LabelInput
           label="Password"
           type="password"
-          // placeholder="Password"
+          required
         />
         <LinkText onClick={handleForgetPassword}>Did you forget your password?</LinkText>
-        <Button text="Login" handleClick={handleSubmit} />
+        <Button text="Login" onClick={handleSubmit} />
         <LinkText onClick={handleCreateAccount}>Don't have an account? Create one</LinkText>
       </Form>
     </MainContainer>

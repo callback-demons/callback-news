@@ -8,7 +8,7 @@ const Backdrop = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 15;
+  z-index: 13;
   position: fixed;
   background-color: rgba(0, 0, 0, 0.7);
 `
@@ -33,7 +33,7 @@ const Box = styled.div`
 `
 
 const CloseButton = styled.span`
-  z-index: 10;
+  z-index: 12;
   float: right;
   cursor: pointer;
   font-size: 24px;

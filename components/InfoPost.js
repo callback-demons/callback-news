@@ -38,7 +38,7 @@ const Likes = styled.div`
   text-align:center;
 `
 
-const InfoPost = ({ post }) => {
+const InfoPost = ({ post, className }) => {
   const { date, author, likes, avatar } = post
   const { containerRef, width } = useWidth()
   const [isLiked, setIsLiked] = useState(false)
@@ -48,7 +48,7 @@ const InfoPost = ({ post }) => {
   // Fri, 08 May 2020 10:05:49 GMT
   // const date = parse(post.pubDate, 'EEE, dd MMM yyyy HH:mm:ss', new Date())
   return (
-    <Info ref={containerRef} width={width}>
+    <Info className={className} ref={containerRef} width={width}>
       <Avatar src={avatar} withBorder />
       <Meta>
         <Author>{author}</Author>

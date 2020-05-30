@@ -11,7 +11,7 @@ const MainButton = styled.button`
   padding: 8px 30px;
   border-radius: 6px;
   font-size: ${(p) => p.theme.mediumSize}px;
-  background-color: ${(props) => props.theme.color.primaryLight};
+  background: ${(props) => props.background || props.theme.color.primaryLight};
   &:hover{
     background-color: ${(props) => props.theme.color.primary};
   }
@@ -20,11 +20,20 @@ const MainButton = styled.button`
   }
 `
 
-const Button = ({ text = '', handleClick = null }) => {
+const Button = ({
+  text = '',
+  type = 'button',
+  onClick = null,
+  className,
+  background,
+}) => {
   if (!text) return null
   return (
     <MainButton
-      onClick={handleClick}
+      type={type}
+      onClick={onClick}
+      className={className}
+      background={background}
     >
       {text}
     </MainButton>

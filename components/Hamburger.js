@@ -29,6 +29,7 @@ const Wrapper = styled.div`
         transform:${(props) => (props.isActive ? 'translateY(-8px) rotate(-45deg)' : '')};
     }
 `
+const Line = styled.span``
 
 const HamburgerButton = (props) => {
   const { color, onClick, isActive } = props
@@ -36,13 +37,12 @@ const HamburgerButton = (props) => {
     <Wrapper
       isActive={isActive}
       onClick={onClick}
-      className="menu-toggle"
-      id="mobile-menu"
+      className={props.className}
       color={color}
     >
-      <span />
-      <span />
-      <span />
+      <Line />
+      <Line />
+      <Line />
     </Wrapper>
   )
 }

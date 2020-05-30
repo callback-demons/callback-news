@@ -1,10 +1,12 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 import MobileMenu from './MobileMenu'
 import UserMenu from './UserMenu'
 
 const Container = styled.header`
-  z-index: 10;
+  z-index: 9;
   color: #fff;
   background: ${(props) => props.theme.gradient.primary};
   padding: 15px;
@@ -16,7 +18,7 @@ const Container = styled.header`
   grid-template-columns:180px 120px;
   align-items: center;
   justify-content: space-between;
-  z-index: 10;
+  z-index: 9;
 `
 
 const Logo = styled.img`
@@ -30,7 +32,11 @@ const Right = styled.div`
 const Header = ({ title = '' }) => {
   return (
     <Container>
-      <Logo src="https://storage.cloud.google.com/cbn-public/callback-news-logo-white.svg" />
+      <Link href="/">
+        <a>
+          <Logo src="https://storage.cloud.google.com/cbn-public/callback-news-logo-white.svg" />
+        </a>
+      </Link>
       <Right>
         <MobileMenu />
         <UserMenu />

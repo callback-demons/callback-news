@@ -18,11 +18,18 @@ const Container = styled.div`
       color:${(props) => props.theme.color.secondary};
     }
   }
+  width: 100%;
   box-shadow: 0 0 16px -8px rgba(0,0,0,0.55);
   border-radius: 25px;
+  display: grid;
+  grid-template-columns:1fr;
+  grid-template-rows:260px 96px 45px;
+  grid-template-areas:"header"
+                      "content"
+                      "footer";
   grid-gap: 8px;
-  margin:0 16px;
   overflow:hidden;
+  padding-bottom:${(props) => props.theme.space * 2}px;
   ${(props) => props.width > 750 && `
   grid-template-columns:1fr 550px;
   grid-template-areas:"label label"
@@ -37,6 +44,7 @@ const Image = styled(AsyncImage)`
   width:100%;
   grid-area:image;
   max-height:200px;
+  border-radius:25px 25px 0 0;
 `
 const Label = styled.div`
   display: flex;
@@ -62,6 +70,11 @@ const LabelElement = styled.div(
   },
 )
 
+const Header = styled.div`
+  width:100%;
+  grid-area:header;
+`
+
 const Description = styled(ClampLines)`
   grid-area:description;
   margin-bottom:${(props) => props.theme.space * 2}px;
@@ -77,6 +90,7 @@ const Title = styled(ClampLines)`
     /* color: ${(props) => props.theme.color.secondary}; */
     margin-bottom:${(props) => props.theme.space * 2}px;
     font-size:1.5rem;
+    padding:0 ${(props) => props.theme.space * 2}px;
   }
 `
 const Footer = styled.div`
@@ -85,8 +99,12 @@ const Footer = styled.div`
   bottom:0;
   display:relative;
 `
+const Content = styled.div`
+  padding:0 ${(props) => props.theme.space * 2}px;
+  grid-area:content;
+`
 
-const PostItem = ({ post = {} }) => {
+const PostItem = ({ post = {}, className }) => {
   const [isLoading, setIsLoading] = useLoading()
   const { containerRef, width } = useWidth()
   if (!post.id) {
@@ -102,37 +120,41 @@ const PostItem = ({ post = {} }) => {
     }
 
     return (
-      <Container ref={containerRef} width={width}>
-        <Label>
-          {
-            post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
-          }
-        </Label>
-        <>
-          <Link href={`/post/${post.id}`}>
-            <a>
-              <Image
-                onLoaded={() => { setIsLoading(false) }}
-                alt={post.title}
-                src={post.media[0].url}
-              />
-              <Title
-                text={post.title}
-                lines={2}
-                ellipsis="..."
-                innerElement="h3"
-                buttons={false}
-              />
-            </a>
-          </Link>
-        </>
-        <Description
-          text={decodedContent}
-          lines={3}
-          ellipsis="..."
-          innerElement="div"
-          buttons={false}
-        />
+      <Container className={className} ref={containerRef} width={width}>
+        <Header>
+          <Label>
+            {
+              post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
+            }
+          </Label>
+          <>
+            <Link href={`/post/${post.id}`}>
+              <a>
+                <Image
+                  onLoaded={() => { setIsLoading(false) }}
+                  alt={post.title}
+                  src={post.media[0].url}
+                />
+                <Title
+                  text={post.title}
+                  lines={2}
+                  ellipsis="..."
+                  innerElement="h3"
+                  buttons={false}
+                />
+              </a>
+            </Link>
+          </>
+        </Header>
+        <Content>
+          <Description
+            text={decodedContent}
+            lines={3}
+            ellipsis="..."
+            innerElement="div"
+            buttons={false}
+          />
+        </Content>
         <Footer>
           <InfoPost post={{
             date: post.created_at,

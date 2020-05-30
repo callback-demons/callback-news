@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Avatar from './Avatar'
 import Modal from './Modal'
-import useModal from '../hooks/useModal'
+import useToggle from '../hooks/useToggle'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 
@@ -66,14 +66,14 @@ const ItemLink = styled.a`
 
 const UserMenu = (props) => {
   const { username = '' } = props
-  const { isOpen, toggleModal } = useModal()
+  const [isOpen, toggleModal] = useToggle(false)
   const [isLogging, setIsLogging] = useState(true)
 
   const handleLogin = (event) => {
     event.preventDefault()
     console.log('Login')
   }
-  
+
   const handleRegister = (event) => {
     event.preventDefault()
     console.log('Register')
@@ -105,7 +105,8 @@ const UserMenu = (props) => {
       <Modal
         isOpen={isOpen}
         close={toggleModal}
-        lateralImage="https://storage.cloud.google.com/cbn-public/modal-background.png"
+        lateralImage="https://storage.googleapis.com/cbn-public/modal-back.png"
+        // lateralImage="https://storage.cloud.google.com/cbn-public/modal-background.png"
       >
         {
           isLogging ?
