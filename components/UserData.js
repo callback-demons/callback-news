@@ -4,6 +4,7 @@ import Avatar from './Avatar'
 import LabelInput from './LabelInput'
 import Button from './Button'
 import useToggle from '../hooks/useToggle'
+import useForm from '../hooks/useForm'
 
 const MainContainer = styled.div`
   width: 100%;
@@ -35,7 +36,7 @@ const Form = styled.form`
 
 const UserData = ({ data = [] }) => {
   const [isEditing, toggleEditing] = useToggle(false)
-  const [userData, setUserData] = useState({
+  const [userData, handleChange, handleData] = useForm({
     ...data,
     password: '',
     newPassword: '',
@@ -43,17 +44,10 @@ const UserData = ({ data = [] }) => {
   })
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    console.log('Saving data...')
     toggleEditing()
+    const finalData = handleData(event)
+    console.log('finalData --> ', finalData)
   }
-
-  const handleChange = event => {
-    setUserData({
-      ...userData,
-      [event.target.id]: event.target.value
-    });
-  };
 
   return (
     <MainContainer>
@@ -64,16 +58,16 @@ const UserData = ({ data = [] }) => {
           label="Full Name"
           value={userData.name}
           disabled={!isEditing}
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange}
         />
         <LabelInput
           id="email"
           label="Email"
           type="email"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+          pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,5}$"
           value={userData.email}
           disabled={!isEditing}
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange}
         />
         <LabelInput
           id="password"
@@ -81,7 +75,7 @@ const UserData = ({ data = [] }) => {
           type="password"
           value={userData.password}
           disabled={!isEditing}
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange}
         />
         <LabelInput
           id="newPassword"
@@ -89,7 +83,7 @@ const UserData = ({ data = [] }) => {
           type="password"
           value={userData.newPassword}
           disabled={!isEditing}
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange}
         />
         <LabelInput
           id="newPasswordConfirmation"
@@ -97,7 +91,7 @@ const UserData = ({ data = [] }) => {
           type="password"
           value={userData.newPasswordConfirmation}
           disabled={!isEditing}
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange}
         />
         {
           isEditing ?
