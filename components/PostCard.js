@@ -10,12 +10,13 @@ const Card = styled.div`
   background:white;
   position: relative;
   margin: auto;
-  margin-top: -100px;
-  width:calc(100% - 8px);
+  width:100%;
   box-sizing:border-box;
-  padding:${(props) => props.theme.space * 2}px 30px;
+  padding:${(props) => props.theme.space}px 30px;
   max-width:1100px;
-  @media screen and (min-width:768px) {
+  margin-top: -30px;
+  @media screen and (min-width:1100px) {
+    margin-top: -100px;
     padding-left:70px;
     padding-right:70px;
   }
