@@ -34,7 +34,7 @@ const Header = ({ title = '' }) => {
     <Container>
       <Link href="/">
         <a>
-          <Logo src="https://storage.cloud.google.com/cbn-public/callback-news-logo-white.svg" />
+          <Logo src="https://storage.googleapis.com/cbn-public/callback-news-logo-white-2.svg" />
         </a>
       </Link>
       <Right>
