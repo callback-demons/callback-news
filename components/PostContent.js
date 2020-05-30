@@ -25,15 +25,13 @@ const PostContent = ({ post }) => {
   return (
     <Container>
       <Labels>
-        {
-          post.categories.map((category) => <Label key={category.id}>{category.name}</Label>)
-        }
+        <Label key={post.category.id}>{post.category.name}</Label>
       </Labels>
       <Title>{post.title}</Title>
       <InfoPost post={{
-        date: post.created_at,
-        author: post.author_name,
-        likes: post.likes_number,
+        date: post.created,
+        author: post.author,
+        likes: post.likes,
         avatar: null,
       }}
       />
