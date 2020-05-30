@@ -13,7 +13,7 @@ const Image = styled.img`
 function PostPage({ post = {}, mockPost = {} }) {
 
   const media = post.media[0] ? post.media : [{}]
-  const { url = '', title = '' } = media[0]
+  const { url = 'https://storage.googleapis.com/cbn-public/default-backgroud.jpg', title = 'Callback news image' } = media[0]
   return (
     <Layout>
       <Image src={url} alt={title} />

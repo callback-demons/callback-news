@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import styled from 'styled-components'
 import Avatar from './Avatar'
 import LabelInput from './LabelInput'

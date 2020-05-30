@@ -35,6 +35,7 @@ const MenuList = styled.ul`
   display:grid;
   align-content: space-evenly;
   height: 100vh;
+  padding: 0;
 `
 
 const MenuElement = styled.li`
