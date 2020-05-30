@@ -111,12 +111,9 @@ const UserMenu = (props) => {
         {
           isLogging ?
             <LoginForm
-              handleSubmit={handleLogin}
-              handleForgetPassword={null}
               handleCreateAccount={toggleForm}
             /> :
             <RegisterForm
-              handleSubmit={handleRegister}
               handleLogin={toggleForm}
             />
         }

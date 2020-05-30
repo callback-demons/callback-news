@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Avatar from './Avatar'
 import LabelInput from './LabelInput'
 import Button from './Button'
+import useForm from '../hooks/useForm'
 
 const MainContainer = styled.div`
   width: 100%;
@@ -31,27 +32,45 @@ const LinkText = styled.p`
   }
 `
 
-const RegisterForm = ({ handleSubmit = null, handleLogin = null }) => {
+const RegisterForm = ({ handleLogin = null }) => {
+  const [data, handleChange, handleSubmit] = useForm({
+    name: '',
+    email: '',
+    password: '',
+    passwordConfirmation: '',
+  })
   return (
     <MainContainer>
       <Avatar withBorder size="60px" />
       <Form onSubmit={handleSubmit}>
         <LabelInput
+          value={data.name}
+          onChange={handleChange}
+          id="name"
           label="Full Name"
           required
         />
         <LabelInput
+          value={data.email}
+          onChange={handleChange}
+          id="email"
           label="Email"
           type="email"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+          pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,5}$"
           required
         />
         <LabelInput
+          value={data.password}
+          onChange={handleChange}
+          id="password"
           label="Password"
           type="password"
           required
         />
         <LabelInput
+          value={data.passwordConfirmation}
+          onChange={handleChange}
+          id="passwordConfirmation"
           label="Confirm Password"
           type="password"
           required

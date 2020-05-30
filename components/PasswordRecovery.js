@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import LabelInput from './LabelInput'
 import Button from './Button'
+import useForm from '../hooks/useForm'
 
 const MainContainer = styled.div`
   width: 100%;
@@ -34,11 +35,12 @@ const Form = styled.form`
 `
 
 const PasswordRecovery = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    console.log('Saving data...')
-  }
-
+  const [data, handleChange, handleSubmit] = useForm({
+    email: '',
+    currentPassword: '',
+    newPassword: '',
+    newPasswordConfirmation: '',
+  })
   return (
     <MainContainer>
       <Image
@@ -47,22 +49,34 @@ const PasswordRecovery = () => {
       />
       <Form onSubmit={handleSubmit}>
         <LabelInput
+          value={data.email}
+          onChange={handleChange}
+          id="email"
           label="Email"
           type="email"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+          pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,5}$"
           required
         />
         <LabelInput
+          value={data.password}
+          onChange={handleChange}
+          id="password"
           label="Current Password"
           type="password"
           required
         />
         <LabelInput
+          value={data.newPassword}
+          onChange={handleChange}
+          id="newPassword"
           label="New Password"
           type="password"
           required
         />
         <LabelInput
+          value={data.newPasswordConfirmation}
+          onChange={handleChange}
+          id="newPasswordConfirmation"
           label="Confirm Password"
           type="password"
           required
