@@ -38,8 +38,8 @@ const Header = ({ title = '' }) => {
         </a>
       </Link>
       <Right>
-        <MobileMenu />
         <UserMenu />
+        <MobileMenu />
       </Right>
     </Container>
   )
