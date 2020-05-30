@@ -14,6 +14,12 @@ const globalStyles = createGlobalStyle`
   h1,h2,h3,h4 {
     font-family: ${(props) => props.theme.fontFamilyTitle};
   }
+  h1 {
+    padding-top:${(props) => props.theme.space * 2}px;
+  }
+  h2 {
+    padding-top:${(props) => props.theme.space * 2}px;
+  }
   img {
     max-width:100%;
   }

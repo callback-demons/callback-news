@@ -20,6 +20,9 @@ const Main = styled.div`
 const Title = styled.h2`
   font-size:28px;
   font-family:${(props) => props.theme.fontFamilyTitle};
+  padding:0 ${(props) => props.theme.space * 3}px;
+  padding-top:${(props) => props.theme.space * 2}px;
+
 `
 
 const PostItemList = ({ posts, title, maxWidth, className }) => {
