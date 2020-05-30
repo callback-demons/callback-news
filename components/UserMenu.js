@@ -105,7 +105,8 @@ const UserMenu = (props) => {
       <Modal
         isOpen={isOpen}
         close={toggleModal}
-        lateralImage="https://storage.cloud.google.com/cbn-public/modal-background.png"
+        lateralImage="https://storage.googleapis.com/cbn-public/modal-back.png"
+        // lateralImage="https://storage.cloud.google.com/cbn-public/modal-background.png"
       >
         {
           isLogging ?
