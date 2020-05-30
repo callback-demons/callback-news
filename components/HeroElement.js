@@ -10,8 +10,8 @@ const ContentWrapper = styled.div``
 const PostOverlay = styled.article`
   margin:0;
   position: absolute;
+  z-index:8;
   bottom:0;
-  /* z-index:8; */
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: 1fr 24px 40px;
