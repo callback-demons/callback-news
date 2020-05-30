@@ -7,7 +7,7 @@ import SearchBar from '../components/SearchBar'
 
 const Container = styled.div`
   max-width:1032px;
-  margin:auto;
+  margin:0 auto;
   padding:${(props) => props.theme.space * 2}px;
 
 `
@@ -45,13 +45,12 @@ const Error = ({ categories, posts, statusCode }) => {
       message: 'Maybe it’s out there, somewhere...',
       displayPosts: true,
       displayHome: true,
+      displaySearch: true,
     },
     {
       code: 503,
       description: 'We are having troubles now.',
       message: 'Please try again later',
-      displayPosts: false,
-      displayHome: false,
     },
   ]
   const error = errors
@@ -68,9 +67,13 @@ const Error = ({ categories, posts, statusCode }) => {
               error.description
             }
           </ErrorDescription>
-          <Search>
-            <SearchBar />
-          </Search>
+          {
+            error.displaySearch && (
+              <Search>
+                <SearchBar />
+              </Search>
+            )
+          }
           <Paragraph>{error.message}</Paragraph>
           {
             error.displayHome && (

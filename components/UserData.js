@@ -101,8 +101,8 @@ const UserData = ({ data = [] }) => {
         />
         {
           isEditing ?
-            <Button text="Save" handleClick={handleSubmit} /> :
-            <Button text="Edit" handleClick={toggleEditing} />
+            <Button text="Save" onClick={handleSubmit} /> :
+            <Button text="Edit" onClick={toggleEditing} />
         }
       </Form>
     </MainContainer>

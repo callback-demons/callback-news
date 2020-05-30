@@ -12,6 +12,8 @@ const CustomHeroElement = styled(HeroElement)`
 `
 const Container = styled.div`
   height:500px;
+  z-index:1;
+  position: relative;
 `
 
 const Hero = ({ className, posts = [] }) => {

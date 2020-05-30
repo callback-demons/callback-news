@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const Svg = styled.svg`
   width:100%;
+  cursor: pointer;
 `
 
 const Path = styled.path`

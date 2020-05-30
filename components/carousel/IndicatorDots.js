@@ -15,7 +15,7 @@ const Dot = styled.span`
 const Wrapper = styled.div`
   position: absolute;
   width: 100%;
-  z-index: 100;
+  z-index: 9;
   text-align: center;
   bottom: ${(props) => props.theme.space * 2}px;
   @media screen and(min-width:720px) {

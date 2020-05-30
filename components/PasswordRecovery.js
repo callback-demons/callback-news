@@ -67,7 +67,7 @@ const PasswordRecovery = () => {
           type="password"
           required
         />
-        <Button text="Save" handleClick={handleSubmit} />
+        <Button text="Save" onClick={handleSubmit} />
       </Form>
     </MainContainer>
   )

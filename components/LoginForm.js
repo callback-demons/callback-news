@@ -48,7 +48,7 @@ const LoginForm = ({ handleSubmit = null, handleForgetPassword = null, handleCre
           required
         />
         <LinkText onClick={handleForgetPassword}>Did you forget your password?</LinkText>
-        <Button text="Login" handleClick={handleSubmit} />
+        <Button text="Login" onClick={handleSubmit} />
         <LinkText onClick={handleCreateAccount}>Don't have an account? Create one</LinkText>
       </Form>
     </MainContainer>

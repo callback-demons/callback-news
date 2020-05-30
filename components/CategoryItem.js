@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { circle, circleGradientAnimation } from '../styled/mixins'
 import CategoryItemSkeleton from './CategoryItemSkeleton'
 
-const CategoryContainer = styled.a`
+const Container = styled.a`
   display: grid;
   justify-content: center;
   color:${(props) => props.theme.color.ultraBlack};
@@ -13,7 +13,7 @@ const CategoryContainer = styled.a`
   }
 `
 
-const ItemContainer = styled.div`
+const Item = styled.div`
   ${circle};
   width: 100px;
   height: 100px;
@@ -31,12 +31,14 @@ const ItemContainer = styled.div`
   }
 `
 
-const ImageContainer = styled.img`
+const Image = styled.img`
   ${circle};
   width: 100px;
   height: 100px;
   object-fit: cover;
   background-image: url("${(p) => p.srcImage}");
+  z-index:9;
+  position:relative;
   @media screen and (min-width: 768px) {
     width: 150px;
     height: 150px;
@@ -68,20 +70,20 @@ const CategoryItem = (props) => {
 
   if (isLoading || srcImage === '') {
     return (
-      <CategoryContainer className={className}>
+      <Container className={className}>
         <CategoryItemSkeleton />
-      </CategoryContainer>
+      </Container>
     )
   }
 
   return (
     <Link href={`/category/${id}`}>
-      <CategoryContainer>
-        <ItemContainer color={categoryColor}>
-          <ImageContainer src={srcImage} />
-        </ItemContainer>
+      <Container>
+        <Item color={categoryColor}>
+          <Image src={srcImage} />
+        </Item>
         { title && <CategoryTitle>{title}</CategoryTitle>}
-      </CategoryContainer>
+      </Container>
     </Link>
   )
 }

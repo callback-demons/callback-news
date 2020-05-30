@@ -6,6 +6,7 @@ const Container = styled.div`
   margin: auto;
   width: calc(100% - 32px);
   box-sizing:content-box;
+  width:100%;
 `
 
 const Main = styled.div`

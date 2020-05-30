@@ -63,7 +63,7 @@ const CommentInput = (props) => {
           <CustomAvatar withBorder />
           <TextArea placeholder={placeholder} rows={rows} />
         </CommentInputContainer>
-        <Button handleClick={handleClick} text={buttonText} />
+        <Button onClick={handleClick} text={buttonText} />
       </MainContainer>
     </>
   )
