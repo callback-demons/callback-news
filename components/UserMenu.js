@@ -69,16 +69,6 @@ const UserMenu = (props) => {
   const [isOpen, toggleModal] = useToggle(false)
   const [isLogging, setIsLogging] = useState(true)
 
-  const handleLogin = (event) => {
-    event.preventDefault()
-    console.log('Login')
-  }
-
-  const handleRegister = (event) => {
-    event.preventDefault()
-    console.log('Register')
-  }
-
   const toggleForm = () => {
     setIsLogging(!isLogging)
   }

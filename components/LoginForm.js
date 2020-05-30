@@ -63,7 +63,7 @@ const LoginForm = ({ handleCreateAccount = null }) => {
           <LinkText>Did you forget your password?</LinkText>
         </Link>
         <Button text="Login" onClick={handleSubmit} />
-        <LinkText onClick={handleCreateAccount}>Don't have an account? Create one</LinkText>
+        <LinkText onClick={handleCreateAccount}>Don&#39;t have an account? Create one</LinkText>
       </Form>
     </MainContainer>
   )
