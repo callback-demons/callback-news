@@ -29,7 +29,7 @@ const Form = styled.form`
 
 function CategoryPage({ posts = {} }) {
   const favoriteNews = posts ? [posts[0], posts[1], posts[3], posts[4], posts[18]] : []
-  const [title] = useState('Robotic')
+  const [title] = useState('Robotic | Callback News')
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log('Searching news...')
