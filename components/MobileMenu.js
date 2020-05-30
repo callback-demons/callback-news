@@ -47,7 +47,6 @@ export default function MobileMenu() {
     event.preventDefault()
     setIsActive(!isActive)
   }
-  console.log(isActive)
   return (
     <>
       <HamburgerWrapper isActive={isActive}>
