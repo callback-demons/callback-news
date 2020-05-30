@@ -108,7 +108,7 @@ const Error = ({ categories, posts, statusCode }) => {
   )
 }
 
-export async function getServerSideProps({ query, res, err }) {
+export async function getStaticProps({ query, res, err }) {
   const statusCode = res ? res.statusCode : err ? err.statusCode : 404
 
   try {
