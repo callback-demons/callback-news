@@ -48,12 +48,12 @@ const UserData = ({ data = [] }) => {
     toggleEditing()
   }
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setUserData({
       ...userData,
-      [event.target.id]: event.target.value
-    });
-  };
+      [event.target.id]: event.target.value,
+    })
+  }
 
   return (
     <MainContainer>
