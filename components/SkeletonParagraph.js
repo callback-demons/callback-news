@@ -12,11 +12,12 @@ const SkeletonParagraph = ({
   return (
     <>
       {
-        Array.from(Array(longLines).keys()).map(() => (
+        Array.from(Array(longLines).keys()).map((_, i) => (
           <SkeletonText
             textSize={maxSize}
             animationDuration={animationDuration}
             height={height}
+            key={i}
           />
         ))
       }

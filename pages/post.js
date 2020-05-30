@@ -10,12 +10,13 @@ const Image = styled.img`
   object-fit: cover;
 `
 
-function PostPage({ post = {} }) {
-  const { media = {} } = post
-  const { url: imgSrc = '', title: imgTitle = '' } = media[0]
+function PostPage({ post = {}, mockPost = {} }) {
+
+  const media = post.media[0] ? post.media : [{}]
+  const { url = '', title = '' } = media[0]
   return (
     <Layout>
-      <Image src={imgSrc} alt={imgTitle} />
+      <Image src={url} alt={title} />
       <PostCard post={post} />
       <CommentsSection />
     </Layout>
@@ -23,16 +24,21 @@ function PostPage({ post = {} }) {
 }
 
 export async function getServerSideProps({ query, res }) {
-  // const { id } = query
+  const { id } = query
   try {
-    const resPost = await fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/new.json')
+    const [resMockPost, resPost] = await Promise.all([
+      fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/new.json'),
+      fetch(`https://api.callback-news.com/news/${id}/`),
+    ])
     const post = await resPost.json()
+    const mockPost = await resMockPost.json()
     res.statusCode = 200
-    return { props: { post, statusCode: res.statusCode } }
+    return { props: { post, mockPost, statusCode: res.statusCode } }
   } catch (error) {
     res.statusCode = 503
     return { props: { statusCode: res.statusCode } }
   }
+
 }
 
 export default PostPage
