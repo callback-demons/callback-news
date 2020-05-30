@@ -11,7 +11,7 @@ const Container = styled.div`
 
 const Main = styled.div`
   display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(${(props) => props.maxWidth || '400px'}, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(${(props) => props.maxWidth || 'min(350px,100%)'}, 1fr));
   grid-gap:${(props) => props.theme.space * 3}px;
   padding:0 ${(props) => props.theme.space * 3}px;
   /* justify-content:space-around; */
@@ -22,7 +22,6 @@ const Title = styled.h2`
   font-family:${(props) => props.theme.fontFamilyTitle};
   padding:0 ${(props) => props.theme.space * 3}px;
   padding-top:${(props) => props.theme.space * 2}px;
-
 `
 
 const PostItemList = ({ posts, title, maxWidth, className }) => {
