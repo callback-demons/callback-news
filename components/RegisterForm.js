@@ -66,7 +66,7 @@ const RegisterForm = ({ handleLogin = null }) => {
     }
     
     if(!comparePasswords(password, passwordConfirmation)) {
-      setMessage('Passwords dont match.')
+      setMessage("Passwords don't match.")
       toggleNotification()
       return
     }
@@ -86,11 +86,10 @@ const RegisterForm = ({ handleLogin = null }) => {
         body: JSON.stringify(bodyObj),
       })
         .then((response) => {
-          if (response.status === 201) throw new Error(response.status)
+          if (response.status !== 201) throw new Error(response.status)
           return response.json()
         })
         .then((data) => {
-          console.log(data)
           setMessage('User created. Verify your email.')
           toggleNotification()
           setData(defaultData)
@@ -101,7 +100,6 @@ const RegisterForm = ({ handleLogin = null }) => {
           // toggleNotification()
         })
     }
-    
   }
 
   return (
