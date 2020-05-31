@@ -59,6 +59,10 @@ web_modules/
 # Optional npm cache directory
 .npm
 
+# Locking file
+yarn.lock
+package-lock.json
+
 # Optional eslint cache
 .eslintcache
 
@@ -118,10 +122,10 @@ dist
 .vscode-test
 
 # yarn v2
-
 .yarn/cache
 .yarn/unplugged
 .yarn/build-state.yml
 .pnp.*
 
+# vscode
 .vscode
