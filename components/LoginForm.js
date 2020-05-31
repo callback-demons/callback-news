@@ -63,14 +63,14 @@ const LoginForm = ({ handleCreateAccount = null }) => {
         })
         .then((data) => {
           console.log(data)
-          // handle fetch of user
+          window.localStorage.setItem('token', data.token)
+          window.localStorage.setItem('email', username)
         })
         .catch((error) => {
           console.log(error)
         })
 
       // const json = await response.json()
-      // window.localStorage.setItem('token', json.resultado)
       // console.log('handleSubmit -> data', data)
     }
 
