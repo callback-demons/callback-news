@@ -59,13 +59,13 @@ const RegisterForm = ({ handleLogin = null }) => {
       toggleNotification()
       return
     }
-    if(!validateEmail(email)) {
+    if (!validateEmail(email)) {
       setMessage('Invalid Email.')
       toggleNotification()
       return
     }
-    
-    if(!comparePasswords(password, passwordConfirmation)) {
+
+    if (!comparePasswords(password, passwordConfirmation)) {
       setMessage("Passwords don't match.")
       toggleNotification()
       return

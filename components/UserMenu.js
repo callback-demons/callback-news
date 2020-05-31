@@ -6,6 +6,7 @@ import Modal from './Modal'
 import useToggle from '../hooks/useToggle'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
+import { bigBoxShadow } from '../styled/mixins'
 
 const UserMenuContainer = styled.div`
   margin: 0px;
@@ -26,11 +27,11 @@ const CustomAvatar = styled(Avatar)`
 
 const UserName = styled.p`
   color:white;
-  margin: 0px 6px;
   display:none;
+  margin: 0px 6px;
   @media screen and (min-width: 768px) {
-    display:block;
     float:right;
+    display:block;
   }
 `
 
@@ -61,17 +62,16 @@ const LoginButton = styled.p`
 `
 
 const DropdownList = styled.ul`
+  ${bigBoxShadow}
+  right: 0;
   margin: 0px;
   display: none;
   list-style: none;
   text-align: right;
-  padding-right: 16px;
   position: absolute;
   border-radius: 8px;
-  background-color: #c14593;
-  @media screen and (min-width: 768px) {
-    background-color: ${(props) => props.theme.color.secondary};
-  }
+  padding-right: 16px;
+  background-color: white;
   ${UserMenuContainer}:hover &, &:hover&:hover{
     display: block;
   }
@@ -82,10 +82,10 @@ const ListItem = styled.li`
 `
 
 const ItemLink = styled.a`
-  color: white;
+  color: ${(props) => props.theme.color.primary};
   text-decoration: none;
   &:hover{
-    color: white;
+    /* color: ${(props) => props.theme.color.primary};; */
     font-weight: normal;
     text-decoration: underline;
   }

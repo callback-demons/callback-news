@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Avatar from './Avatar'
 import LabelInput from './LabelInput'
@@ -35,6 +36,7 @@ const Form = styled.form`
 `
 
 const UserData = ({ data = [] }) => {
+  const [message, setMessage] = useState('')
   const [isNotifying, toggleNotification] = useToggle(false)
   const [isEditing, toggleEditing] = useToggle(false)
   const [userData, handleChange, handleData] = useForm({
@@ -46,6 +48,7 @@ const UserData = ({ data = [] }) => {
 
   const handleSubmit = (event) => {
     toggleEditing()
+    setMessage('Data saved')
     toggleNotification()
     const finalData = handleData(event)
     console.log('finalData --> ', finalData)
@@ -104,7 +107,7 @@ const UserData = ({ data = [] }) => {
       <Notification
         isNotifying={isNotifying}
         close={toggleNotification}
-        message="Notificando"
+        message={message}
       />
     </MainContainer>
   )
