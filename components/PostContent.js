@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 import Markdown from './Markdown'
 import InfoPost from './InfoPost'
@@ -18,6 +19,7 @@ const Title = styled.h1`
 `
 const Labels = styled.div``
 const Label = styled.div`
+  cursor: pointer;
   border-radius:5px;
   background:${(props) => props.theme.color.primary};
   color:white;
@@ -31,20 +33,23 @@ const Label = styled.div`
 `
 
 const PostContent = ({ post }) => {
+  const { category, content, title, author, likes } = post
   return (
     <Container>
       <Labels>
-        <Label key={post.category.id}>{post.category.name}</Label>
+        <Link href={{ pathname: `/category/${category.id}`, query: { name: category.name } }}>
+          <Label key={category.id}>{category.name}</Label>
+        </Link>
       </Labels>
-      <Title>{post.title}</Title>
+      <Title>{title}</Title>
       <InfoPost post={{
         date: post.date_posted,
-        author: post.author,
-        likes: post.likes,
+        author,
+        likes,
         avatar: null,
       }}
       />
-      <Markdown text={decodeURIComponent(post.content)} />
+      <Markdown text={decodeURIComponent(content)} />
     </Container>
   )
 }
