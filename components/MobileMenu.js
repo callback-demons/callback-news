@@ -11,7 +11,7 @@ const HamburgerWrapper = styled.div`
   justify-items: right;
   width: calc(100% - 25px);
   margin: 0px 6px 0px -6px;
-  @media  screen and (min-width: 720px) {
+  @media screen and (min-width: 720px) {
     /* If isActive should display the menu to close It */
     ${(props) => !props.isActive && 'display:none;'}
   }

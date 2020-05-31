@@ -13,9 +13,10 @@ const Box = styled.div`
   ${(p) => p.withImage && 'padding: 0.8em;'}
   padding-top: 0px;
   position: fixed;
-  border-radius: 15px;
-  background-color: ${(p) => p.color || '#6baff1' || p.theme.color.primaryLight};
+  /* border-radius: 15px; */
+  background-color: ${(p) => p.color || p.theme.color.ultraPink || '#6baff1' || p.theme.color.primaryLight};
   @media screen and (min-width: 480px) {
+    padding-left: 12px;
     top: 15%;
     right: 0.5%;
     bottom: 72%;
@@ -62,13 +63,19 @@ const BoxContent = styled.div`
     top: -6px;
     width: 100%;
   }
+  @media screen and (min-width: 480px) {
+    top: -12px;
+    width: 100%;
+  }
 `
 
 const NotificationMessage = styled.p`
+  color: white;
   margin: 2px 15px;
   font-weight: 600;
   margin-top: -4px;
   font-size: ${(p) => p.theme.mediumSize}px;
+  font-family: ${(props) => props.theme.fontFamilyText};
 `
 
 const Notification = ({ isNotifying, close, color = '', message = '', children }) => {
