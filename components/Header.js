@@ -15,11 +15,14 @@ const Container = styled.header`
   left:0;
   right:0;
   display:grid;
-  grid-template-columns:180px 120px;
+  grid-template-columns:180px 150px;
   align-items: center;
   justify-content: space-between;
   z-index: 9;
   height:36px;
+  @media  screen and (min-width: 720px) {
+    grid-template-columns:180px 120px;
+  }
 `
 
 const Logo = styled.img`

@@ -10,7 +10,8 @@ const Title = styled.h1`
 `
 
 function ProfilePage({ userData = {}, posts = {} }) {
-  const favoriteNews = posts ? [posts[0], posts[1], posts[3], posts[4], posts[18]] : []
+  const { results } = posts
+  const favoriteNews = results ? [results[0], results[1], results[2]] : []
   const [title] = useState('Profile Data')
   return (
     <Layout title={title}>
@@ -25,7 +26,8 @@ export async function getServerSideProps({ query, res }) {
   try {
     const [resUserData, resPosts] = await Promise.all([
       fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/user.json'),
-      fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/news.json'),
+      fetch('https://api.callback-news.com/news/'),
+      // fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/news.json'),
     ])
 
     const userData = await resUserData.json()
