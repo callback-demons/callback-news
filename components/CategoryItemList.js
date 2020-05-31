@@ -11,7 +11,10 @@ const Container = styled.div`
   position: relative;
   white-space: nowrap;
   grid-auto-flow: column;
-  /* width:calc(100% - 40px); */
+  padding-top: ${(p) => p.theme.space * 3.5}px;
+  @media screen and (min-width: 720px) {
+    padding-top: 10px;
+  }
 `
 
 const CategoryItemList = (props) => {
