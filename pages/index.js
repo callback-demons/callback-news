@@ -16,7 +16,7 @@ const Title = styled.h1`
 
 function HomePage({ categories, posts }) {
   const { results } = posts
-  const heroNews = results ? [results[0], results[1], results[2]] : []
+  const heroNews = results ? [results[1], results[2], results[3]] : []
   const [title] = useState('Callback News - The daily technology newsletter')
   return (
     <Layout title={title}>

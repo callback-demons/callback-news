@@ -30,7 +30,7 @@ const PostItemList = ({ posts, title, maxWidth, className }) => {
       <Title>{title}</Title>
       <Main maxWidth={maxWidth}>
         {
-          posts.map((post) => <PostItem post={post} />)
+          posts.map((post) => <PostItem post={post} key={post.id} />)
         }
       </Main>
     </Container>

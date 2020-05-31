@@ -42,8 +42,6 @@ const LoginForm = ({ handleCreateAccount = null }) => {
   const handleSubmit = async (event) => {
     const formData = handleLogin(event)
     const { email: username, password } = formData
-    console.log('handleSubmit -> password', password)
-    console.log('handleSubmit -> username', username)
 
     if (username && password) {
       fetch('https://api.callback-news.com/api/auth', {
