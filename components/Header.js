@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 import MobileMenu from './MobileMenu'
 import UserMenu from './UserMenu'
+import useUserContext from '../hooks/useUserContext'
 
 const Container = styled.header`
   z-index: 9;
@@ -33,10 +34,13 @@ const Right = styled.div`
 `
 
 const Header = ({ title = '' }) => {
-  const [email, setEmail] = useState(null)
+  const [user, setUser] = useUserContext()
   useEffect(() => {
     console.log()
-    setEmail(window.localStorage.getItem('email'))
+    setUser({
+      ...user,
+      email: window.localStorage.getItem('email'),
+    })
   }, [null])
 
   return (
@@ -47,7 +51,7 @@ const Header = ({ title = '' }) => {
         </a>
       </Link>
       <Right>
-        <UserMenu username={email} />
+        <UserMenu username={user.email} />
         <MobileMenu />
       </Right>
     </Container>
