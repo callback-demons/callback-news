@@ -9,7 +9,7 @@ const Container = styled.header`
   z-index: 9;
   color: #fff;
   background: ${(props) => props.theme.gradient.primary};
-  padding: 15px;
+  padding: 12px 0;
   text-align: center;
   position:fixed;
   left:0;

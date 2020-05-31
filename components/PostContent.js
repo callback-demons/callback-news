@@ -29,7 +29,7 @@ const PostContent = ({ post }) => {
       </Labels>
       <Title>{post.title}</Title>
       <InfoPost post={{
-        date: post.created,
+        date: post.date_posted,
         author: post.author,
         likes: post.likes,
         avatar: null,

@@ -43,7 +43,7 @@ const Image = styled(AsyncImage)`
   object-fit:cover;
   width:100%;
   grid-area:image;
-  max-height:200px;
+  height:200px;
   border-radius:25px 25px 0 0;
 `
 const Label = styled.div`

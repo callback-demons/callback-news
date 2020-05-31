@@ -4,12 +4,15 @@ import ClampLines from 'react-clamp-lines'
 import Link from 'next/link'
 import AsyncImage from './AsyncImage'
 
-const Container = styled.div``
+const Container = styled.div`
+  width:100%;
+`
 const ContentWrapper = styled.div``
 
 const PostOverlay = styled.article`
-  margin:0;
-  position: absolute;
+  margin:0 auto;
+  position: relative;
+  margin-top: 200px;
   z-index:8;
   bottom:0;
   display: grid;

@@ -29,7 +29,7 @@ const Hero = ({ className, posts = [] }) => {
       <Carousel
         widgets={[CarouselButtons, IndicatorDots]}
         className={className}
-        auto
+        // auto
         loop
       >
         {posts.map(
