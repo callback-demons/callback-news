@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 import Avatar from './Avatar'
 import Modal from './Modal'
 import useToggle from '../hooks/useToggle'
@@ -80,7 +81,7 @@ const UserMenu = (props) => {
           !username ?
             <LoginButton onClick={() => { setIsLogging(true); toggleModal() }}>Login</LoginButton> :
             <>
-              <CustomAvatar size="30px" withBorder src={`https://robohash.org/callback-${Math.floor(Math.random() * 1000)}`} />
+              <CustomAvatar size="30px" withBorder />
               <UserName>{username}</UserName>
             </>
         }
@@ -88,7 +89,7 @@ const UserMenu = (props) => {
       {
         username &&
         <DropdownList>
-          <ListItem><ItemLink>Profile</ItemLink></ListItem>
+          <Link href="/profile"><ListItem><ItemLink>Profile</ItemLink></ListItem></Link>
           <ListItem><ItemLink>Logout</ItemLink></ListItem>
         </DropdownList>
       }
