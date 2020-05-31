@@ -14,7 +14,7 @@ const Card = styled.div`
   box-sizing:border-box;
   padding:${(props) => props.theme.space}px 30px;
   max-width:1100px;
-  margin-top: -30px;
+  margin-top: -50px;
   @media screen and (min-width:1100px) {
     margin-top: -100px;
     padding-left:70px;

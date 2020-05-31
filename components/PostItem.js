@@ -73,6 +73,9 @@ const LabelElement = styled.div(
 const Header = styled.div`
   width:100%;
   grid-area:header;
+  &:hover>a>div>h3{
+    color: ${(props) => props.theme.color.secondary};
+  }
 `
 
 const Description = styled(ClampLines)`
@@ -87,7 +90,7 @@ const Title = styled(ClampLines)`
   margin:0;
   & h3 {
     margin:0;
-    /* color: ${(props) => props.theme.color.secondary}; */
+    color: ${(props) => props.theme.color.primary};
     margin-bottom:${(props) => props.theme.space * 2}px;
     font-size:1.5rem;
     padding:0 ${(props) => props.theme.space * 2}px;

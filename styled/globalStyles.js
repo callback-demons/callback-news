@@ -83,6 +83,14 @@ const globalStyles = createGlobalStyle`
     border: 0px none #ffffff;
     box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   }
+
+  @media screen and (max-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
+      background: transparent;
+    }
+  }
 `
 
 export default globalStyles

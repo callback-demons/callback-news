@@ -16,9 +16,9 @@ const InputContainer = styled.div`
 `
 
 const Search = styled.input`
-  font-size:34px;
   width:100%;
   border: none;
+  font-size:32px;
   margin-top: 1px;
   margin-right: 8px;
   border-bottom: ${(props) => props.theme.color.ultraGray} solid 2px;

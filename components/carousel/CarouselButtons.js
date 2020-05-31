@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   text-align: center;
   background:red;
   display:none;
-  @media screen and(min-width:720px) {
+  @media screen and (min-width:720px) {
     display:block;
   }
 `
@@ -24,7 +24,7 @@ const button = `
   top: -300px;
   font: 16px/30px sans-serif;
   color: rgba(255,255,255,0.8);
-  background:rgba(0,0,0,.5);
+  // background:rgba(0,0,0,.5);
   padding:10px;
   z-index:3;
 `

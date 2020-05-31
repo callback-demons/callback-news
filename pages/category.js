@@ -7,13 +7,20 @@ import PostItemList from '../components/PostItemList'
 import SearchBar from '../components/SearchBar'
 
 const Title = styled.h1`
-  margin: 20px;
-  margin-bottom: 0px;
+  padding-top: 0px;
+  margin: 20px 20px;
+  /* margin-bottom: 0px; */
+  @media screen and (min-width: 768px) {
+    margin: 16px 20px;
+    width: 50%;
+  }
 `
 
 const SearchContainer = styled.div`
   width:80%;
   padding: 20px;
+  padding-top: 0px;
+  /* padding-top: ${(p) => p.theme.space * 3}px; */
   @media screen and (min-width: 768px) {
     width: 50%;
   }
@@ -27,10 +34,10 @@ function CategoryPage({ posts = [] }) {
   // }
   return (
     <Layout title={`${router.query.name || 'Category'} | Callback News`}>
+      <Title>{router.query.name || 'Category Not Found'}</Title>
       <SearchContainer>
         <SearchBar />
       </SearchContainer>
-      <Title>{router.query.name || 'Category Not Found'}</Title>
       <DottedLine />
       <PostItemList posts={posts} />
     </Layout>

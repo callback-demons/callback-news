@@ -25,8 +25,8 @@ const Item = styled.div`
     padding: 7px;
   }
   @media screen and (min-width: 1024px) {
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
     padding: 8px;
   }
 `
@@ -44,8 +44,8 @@ const Image = styled.img`
     height: 150px;
   }
   @media screen and (min-width: 1024px) {
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
   }
 `
 
@@ -61,7 +61,7 @@ const CategoryTitle = styled.h2`
     font-size: ${(p) => p.theme.titleSize}px;
   }
   @media screen and (min-width: 1024px) {
-    max-width: 180px;
+    max-width: 170px;
   }
 `
 
