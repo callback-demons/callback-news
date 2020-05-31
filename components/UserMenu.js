@@ -6,6 +6,7 @@ import Modal from './Modal'
 import useToggle from '../hooks/useToggle'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
+import { bigBoxShadow } from '../styled/mixins'
 import useUserContext from '../hooks/useUserContext'
 
 const UserMenuContainer = styled.div`
@@ -27,31 +28,51 @@ const CustomAvatar = styled(Avatar)`
 
 const UserName = styled.p`
   color:white;
-  margin: 0px 6px;
   display:none;
+  margin: 0px 6px;
   @media screen and (min-width: 768px) {
-    display:block;
     float:right;
+    display:block;
   }
+`
+
+const LoginButtonContainer = styled.div`
+  width: 100%;
 `
 
 const LoginButton = styled.p`
   color: white;
   margin: 0px 12px;
+  position: relative;
+  &:before{
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    content: "";
+    width: 100%;
+    position: absolute;
+    background-color: white;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.4s ease-in-out 0s;
+  }
+  &:hover:before{
+    visibility: visible;
+    transform: scaleX(1);
+  }
 `
 
 const DropdownList = styled.ul`
+  ${bigBoxShadow}
+  right: 0;
   margin: 0px;
   display: none;
   list-style: none;
   text-align: right;
-  padding-right: 16px;
   position: absolute;
   border-radius: 8px;
-  background-color: #c14593;
-  @media screen and (min-width: 768px) {
-    background-color: ${(props) => props.theme.color.secondary};
-  }
+  padding-right: 16px;
+  background-color: white;
   ${UserMenuContainer}:hover &, &:hover&:hover{
     display: block;
   }
@@ -62,10 +83,10 @@ const ListItem = styled.li`
 `
 
 const ItemLink = styled.a`
-  color: white;
+  color: ${(props) => props.theme.color.primary};
   text-decoration: none;
   &:hover{
-    color: white;
+    /* color: ${(props) => props.theme.color.primary};; */
     font-weight: normal;
     text-decoration: underline;
   }
@@ -98,7 +119,9 @@ const UserMenu = (props) => {
       <MenuContainer>
         {
           !username ?
-            <LoginButton onClick={() => { setIsLogging(true); toggleModal() }}>Login</LoginButton> :
+            <LoginButtonContainer>
+              <LoginButton onClick={() => { setIsLogging(true); toggleModal() }}>Login</LoginButton>
+            </LoginButtonContainer> :
             <>
               <CustomAvatar size="30px" withBorder />
               <UserName>{username}</UserName>

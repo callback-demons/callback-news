@@ -9,7 +9,7 @@ import UserContext from '../utils/UserContext'
 
 const Main = styled.main`
   display:block;
-  padding-top:60px;
+  padding-top:66px;
   min-height: calc(100vh - 130px);
   width:100%;
   margin-bottom: ${(props) => props.theme.space * 2}px;

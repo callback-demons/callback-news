@@ -12,7 +12,7 @@ const SkeletonContainer = styled.div`
     padding: 7px;
   }
   @media screen and (min-width: 1024px) {
-    width: 180px;
+    width: 170px;
     padding: 8px;
   }
 `
@@ -27,8 +27,8 @@ const SkeletonInnerContainer = styled.div`
     height: 150px;
   }
   @media screen and (min-width: 1024px) {
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
   }
 `
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { parse, format } from 'date-fns'
 import styled from 'styled-components'
 
 import Heart from './Heart'
@@ -13,9 +12,7 @@ const Info = styled.div`
   grid-template-columns:40px 1fr 20px;
   grid-gap:${(props) => props.theme.space}px;
   ${(props) => props.width > 600 && `
-    padding:${props.theme.space * 0.5}px ${props.theme.space}px;
-    margin-bottom:${props.theme.space * 2}px;
-    display:flex;
+    width: 230px;
   `}
 `
 const Meta = styled.div`

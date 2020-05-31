@@ -6,12 +6,16 @@ const Container = styled.div`
   z-index: 2;
   display: grid;
   grid-gap: 25px;
-  overflow: auto;
+  overflow: scroll;
   padding: 10px 20px;
   position: relative;
   white-space: nowrap;
   grid-auto-flow: column;
-  /* width:calc(100% - 40px); */
+  padding-top: ${(p) => p.theme.space * 3.5}px;
+  @media screen and (min-width: 768px) {
+    overflow: auto;
+    padding-top: 10px;
+  }
 `
 
 const CategoryItemList = (props) => {
