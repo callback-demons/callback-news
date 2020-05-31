@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-    width: 100%;
+    width: 30px;
     height: 100%;
     transition: all 0.3s ease-in-out;
     display: block;
