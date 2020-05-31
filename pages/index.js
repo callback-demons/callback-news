@@ -3,7 +3,7 @@ import { useState } from 'react'
 import fetch from 'node-fetch'
 import PostItemList from '../components/PostItemList'
 import Layout from '../components/Layout'
-import Hero from '../components/Hero'
+import Hero from '../components/carousel/Hero'
 import CategoryItemList from '../components/CategoryItemList'
 
 const Title = styled.h1`

@@ -3,9 +3,9 @@ import Carousel from 're-carousel'
 import styled from 'styled-components'
 import HeroElement from './HeroElement'
 import HeroElementSkeleton from './HeroElementSkeleton'
-import IndicatorDots from './carousel/IndicatorDots'
-import CarouselButtons from './carousel/CarouselButtons'
-import useLoading from '../hooks/useLoading'
+import IndicatorDots from './IndicatorDots'
+import CarouselButtons from './CarouselButtons'
+import useLoading from '../../hooks/useLoading'
 
 const CustomHeroElement = styled(HeroElement)`
   height:500px;

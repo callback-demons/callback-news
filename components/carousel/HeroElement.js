@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ClampLines from 'react-clamp-lines'
 import Link from 'next/link'
-import AsyncImage from './AsyncImage'
+import AsyncImage from '../AsyncImage'
 
 const Container = styled.div`
   width:100%;
@@ -21,7 +21,7 @@ const PostOverlay = styled.article`
   grid-gap:${(props) => props.theme.space * 2}px;
   align-content: space-between;
   height: 300px;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.6);
   color: white;
   padding: 0 ${(props) => props.theme.space * 2}px;
   padding-bottom:${(props) => props.theme.space * 4}px;
@@ -29,7 +29,6 @@ const PostOverlay = styled.article`
     padding:${(props) => props.theme.space}px ${(props) => props.theme.space * 3}px;
     padding-bottom:${(props) => props.theme.space * 4}px;
     padding:0 10%;
-
   }
 `
 const Title = styled(ClampLines)``

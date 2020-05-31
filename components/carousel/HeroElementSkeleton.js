@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import ClampLines from 'react-clamp-lines'
-import Link from 'next/link'
-import SkeletonParagraph from './SkeletonParagraph'
-import { skeletonGradient } from '../styled/mixins'
+import SkeletonParagraph from '../SkeletonParagraph'
+import { skeletonGradient } from '../../styled/mixins'
 
 const Container = styled.div`
   ${(p) => skeletonGradient(p.theme.skeleton.baseColorDark, p.theme.skeleton.shineColor, '2s', '-200px')};
