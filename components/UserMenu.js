@@ -34,9 +34,30 @@ const UserName = styled.p`
   }
 `
 
+const LoginButtonContainer = styled.div`
+  width: 100%;
+`
+
 const LoginButton = styled.p`
   color: white;
   margin: 0px 12px;
+  position: relative;
+  &:before{
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    content: "";
+    width: 100%;
+    position: absolute;
+    background-color: white;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.4s ease-in-out 0s;
+  }
+  &:hover:before{
+    visibility: visible;
+    transform: scaleX(1);
+  }
 `
 
 const DropdownList = styled.ul`
@@ -84,7 +105,9 @@ const UserMenu = (props) => {
       <MenuContainer>
         {
           !username ?
-            <LoginButton onClick={() => { setIsLogging(true); toggleModal() }}>Login</LoginButton> :
+            <LoginButtonContainer>
+              <LoginButton onClick={() => { setIsLogging(true); toggleModal() }}>Login</LoginButton>
+            </LoginButtonContainer> :
             <>
               <CustomAvatar size="30px" withBorder />
               <UserName>{username}</UserName>
