@@ -9,9 +9,8 @@ import RegisterForm from './RegisterForm'
 
 const UserMenuContainer = styled.div`
   margin: 0px;
-  padding-right: 40px;
-  @media  screen and (min-width: 720px) {
-    padding-right: 0px;
+  @media screen and (min-width: 768px) {
+    margin: 0px 16px;
   }
 `
 
@@ -43,11 +42,8 @@ const DropdownList = styled.ul`
   padding-right: 16px;
   position: absolute;
   border-radius: 8px;
-  background-color: #be4693;
-  @media  screen and (min-width: 720px) {
-    background-color: #c14593;
-  }
-  @media  screen and (min-width: 768px) {
+  background-color: #c14593;
+  @media screen and (min-width: 768px) {
     background-color: ${(props) => props.theme.color.secondary};
   }
   ${UserMenuContainer}:hover &, &:hover&:hover{
@@ -83,7 +79,7 @@ const UserMenu = (props) => {
       <MenuContainer>
         {
           !username ?
-            <LoginButton onClick={toggleModal}>Login</LoginButton> :
+            <LoginButton onClick={() => { setIsLogging(true); toggleModal() }}>Login</LoginButton> :
             <>
               <CustomAvatar size="30px" withBorder />
               <UserName>{username}</UserName>

@@ -24,7 +24,7 @@ const Box = styled.div`
   position: absolute;
   border-radius: 15px;
   background-color: white;
-  @media  screen and (min-width: 568px) {
+  @media screen and (min-width: 568px) {
     top: 10%;
     right: 10%;
     bottom: 10%;

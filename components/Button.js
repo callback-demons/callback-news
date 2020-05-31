@@ -6,6 +6,7 @@ const MainButton = styled.button`
   ${transitions}
   color: white;
   border: none;
+  outline: none;
   cursor: pointer;
   font-weight: 600;
   padding: 8px 30px;
