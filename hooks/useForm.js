@@ -12,7 +12,7 @@ const useForm = (data = {}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log('Data -->', state)
+    // console.log('Data -->', state)
     return state
   }
 
