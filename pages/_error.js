@@ -37,7 +37,8 @@ const Paragraph = styled.p`
 `
 
 const Error = ({ categories, posts, statusCode }) => {
-  const heroNews = posts ? [posts[1], posts[2], posts[3]] : []
+  const { results } = posts
+  const heroNews = results ? [results[0], results[1], results[2]] : []
   const errors = [
     {
       code: 404,
@@ -51,6 +52,9 @@ const Error = ({ categories, posts, statusCode }) => {
       code: 503,
       description: 'We are having troubles now.',
       message: 'Please try again later',
+      displayPosts: false,
+      displayHome: false,
+      displaySearch: false,
     },
   ]
   const error = errors
@@ -113,7 +117,7 @@ export async function getStaticProps({ query, res, err }) {
 
   try {
     const [resPosts] = await Promise.all([
-      fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/news.json'),
+      fetch('https://api.callback-news.com/news/'),
     ])
 
     const posts = await resPosts.json()
