@@ -11,7 +11,7 @@ const MainContainer = styled.div`
   align-items: center;
   justify-items: center;
   grid-template-columns: 1fr;
-  @media  screen and (min-width: 568px) {
+  @media screen and (min-width: 568px) {
     padding: 30px 0px;
     grid-template-columns: 1fr 2fr;
   }

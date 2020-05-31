@@ -42,7 +42,7 @@ const DropdownList = styled.ul`
   position: absolute;
   border-radius: 8px;
   background-color: #c14593;
-  @media  screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     background-color: ${(props) => props.theme.color.secondary};
   }
   ${UserMenuContainer}:hover &, &:hover&:hover{

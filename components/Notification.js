@@ -15,19 +15,19 @@ const Box = styled.div`
   position: fixed;
   border-radius: 15px;
   background-color: ${(p) => p.color || '#6baff1' || p.theme.color.primaryLight};
-  @media  screen and (min-width: 480px) {
+  @media screen and (min-width: 480px) {
     top: 15%;
     right: 0.5%;
     bottom: 72%;
     left: 70%;
   }
-  @media  screen and (min-width: 568px) {
+  @media screen and (min-width: 568px) {
     left: 75%;
   }
-  @media  screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     left: 80%;
   }
-  @media  screen and (min-width: 1124px) {
+  @media screen and (min-width: 1124px) {
     top: 15%;
     right: 0.5%;
     bottom: 75%;
@@ -58,7 +58,7 @@ const BoxContent = styled.div`
   overflow: hidden;
   position: relative;
   max-height: 100%;
-  @media  screen and (min-width: 480px) {
+  @media screen and (min-width: 480px) {
     top: -6px;
     width: 100%;
   }

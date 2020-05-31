@@ -14,7 +14,7 @@ const MainContainer = styled.div`
   align-items: center;
   justify-items: center;
   grid-template-columns: 1fr;
-  @media  screen and (min-width: 568px) {
+  @media screen and (min-width: 568px) {
     grid-template-columns: 1fr 2fr;
   }
 `
@@ -27,7 +27,7 @@ const Form = styled.form`
   grid-gap: 20px 40px;
   grid-template-columns: 1fr;
   justify-items: center;
-  @media  screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     justify-items: right;
     justify-self: flex-start;
     grid-template-columns: 1fr 1fr;
