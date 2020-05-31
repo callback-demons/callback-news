@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import fetch from 'node-fetch'
 import Layout from '../components/Layout'
@@ -20,17 +21,17 @@ const SearchContainer = styled.div`
 `
 
 function CategoryPage({ posts = [] }) {
-  const [title] = useState('Robotic | Callback News')
+  const router = useRouter()
   // const handleSubmit = (event) => {
   //   event.preventDefault()
   //   console.log('Searching news...')
   // }
   return (
-    <Layout title={title}>
+    <Layout title={`${router.query.name || 'Category'} | Callback News`}>
       <SearchContainer>
         <SearchBar />
       </SearchContainer>
-      <Title>{title}</Title>
+      <Title>{router.query.name || 'Category Not Found'}</Title>
       <DottedLine />
       <PostItemList posts={posts} />
     </Layout>

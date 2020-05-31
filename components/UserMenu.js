@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 import Avatar from './Avatar'
 import Modal from './Modal'
 import useToggle from '../hooks/useToggle'
@@ -8,8 +9,9 @@ import RegisterForm from './RegisterForm'
 
 const UserMenuContainer = styled.div`
   margin: 0px;
-  @media  screen and (min-width: 768px) {
-    margin: 0px 16px;
+  padding-right: 40px;
+  @media  screen and (min-width: 720px) {
+    padding-right: 0px;
   }
 `
 
@@ -41,7 +43,10 @@ const DropdownList = styled.ul`
   padding-right: 16px;
   position: absolute;
   border-radius: 8px;
-  background-color: #c14593;
+  background-color: #be4693;
+  @media  screen and (min-width: 720px) {
+    background-color: #c14593;
+  }
   @media  screen and (min-width: 768px) {
     background-color: ${(props) => props.theme.color.secondary};
   }
@@ -80,7 +85,7 @@ const UserMenu = (props) => {
           !username ?
             <LoginButton onClick={toggleModal}>Login</LoginButton> :
             <>
-              <CustomAvatar size="30px" withBorder src={`https://robohash.org/callback-${Math.floor(Math.random() * 1000)}`} />
+              <CustomAvatar size="30px" withBorder />
               <UserName>{username}</UserName>
             </>
         }
@@ -88,7 +93,7 @@ const UserMenu = (props) => {
       {
         username &&
         <DropdownList>
-          <ListItem><ItemLink>Profile</ItemLink></ListItem>
+          <Link href="/profile"><ListItem><ItemLink>Profile</ItemLink></ListItem></Link>
           <ListItem><ItemLink>Logout</ItemLink></ListItem>
         </DropdownList>
       }

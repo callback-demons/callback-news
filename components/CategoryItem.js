@@ -67,7 +67,6 @@ const CategoryTitle = styled.h2`
 
 const CategoryItem = (props) => {
   const { title, srcImage = '', categoryColor = '#428CD4', isLoading, className, id = '1' } = props
-
   if (isLoading || srcImage === '') {
     return (
       <Container className={className}>
@@ -77,7 +76,7 @@ const CategoryItem = (props) => {
   }
 
   return (
-    <Link href={`/category/${id}`}>
+    <Link href={{ pathname: `/category/${id}`, query: { name: title } }}>
       <Container>
         <Item color={categoryColor}>
           <Image src={srcImage} />
