@@ -45,7 +45,8 @@ const PostContent = ({ post }) => {
       <InfoPost post={{
         date: post.date_posted,
         author,
-        likes,
+        likes: likes.count,
+        isLiked: likes.liked,
         avatar: null,
       }}
       />

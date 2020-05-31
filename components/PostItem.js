@@ -160,7 +160,8 @@ const PostItem = ({ post = {}, className }) => {
           <InfoPost post={{
             date: post.date_posted,
             author: post.author,
-            likes: post.likes,
+            likes: post.likes.count,
+            isLiked: post.likes.liked,
             avatar: null,
           }}
           />
