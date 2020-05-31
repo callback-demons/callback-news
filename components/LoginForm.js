@@ -5,6 +5,7 @@ import Avatar from './Avatar'
 import LabelInput from './LabelInput'
 import Button from './Button'
 import useForm from '../hooks/useForm'
+import useUserContext from '../hooks/useUserContext'
 
 const MainContainer = styled.div`
   width: 100%;
@@ -33,7 +34,11 @@ const LinkText = styled.a`
   }
 `
 
-const LoginForm = ({ handleCreateAccount = null }) => {
+const LoginForm = ({
+  handleCreateAccount = null,
+  toggleModal = null,
+}) => {
+  const [user, setUser] = useUserContext()
   const [data, handleChange, handleLogin] = useForm({
     email: '',
     password: '',
@@ -63,6 +68,12 @@ const LoginForm = ({ handleCreateAccount = null }) => {
           console.log(data)
           window.localStorage.setItem('token', data.token)
           window.localStorage.setItem('email', username)
+          setUser({
+            ...user,
+            email: username,
+            token: data.token,
+          })
+          toggleModal()
         })
         .catch((error) => {
           console.log(error)

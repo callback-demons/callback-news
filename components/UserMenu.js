@@ -6,6 +6,7 @@ import Modal from './Modal'
 import useToggle from '../hooks/useToggle'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
+import useUserContext from '../hooks/useUserContext'
 
 const UserMenuContainer = styled.div`
   margin: 0px;
@@ -71,6 +72,19 @@ const ItemLink = styled.a`
 `
 
 const UserMenu = (props) => {
+  const [_, setUser] = useUserContext()
+
+  const handleLogout = (event) => {
+    event.preventDefault()
+    window.localStorage.removeItem('token')
+    window.localStorage.removeItem('email')
+    setUser({
+      email: null,
+      token: null,
+    })
+
+  }
+
   const { username = '' } = props
   const [isOpen, toggleModal] = useToggle(false)
   const [isLogging, setIsLogging] = useState(true)
@@ -95,7 +109,7 @@ const UserMenu = (props) => {
         username &&
         <DropdownList>
           <Link href="/profile"><ListItem><ItemLink>Profile</ItemLink></ListItem></Link>
-          <ListItem><ItemLink>Logout</ItemLink></ListItem>
+          <ListItem><ItemLink onClick={handleLogout}>Logout</ItemLink></ListItem>
         </DropdownList>
       }
       <Modal
@@ -108,6 +122,7 @@ const UserMenu = (props) => {
           isLogging ?
             <LoginForm
               handleCreateAccount={toggleForm}
+              toggleModal={toggleModal}
             /> :
             <RegisterForm
               handleLogin={toggleForm}
