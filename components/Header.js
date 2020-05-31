@@ -19,6 +19,7 @@ const Container = styled.header`
   align-items: center;
   justify-content: space-between;
   z-index: 9;
+  height:36px;
 `
 
 const Logo = styled.img`
