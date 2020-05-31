@@ -14,11 +14,13 @@ const Container = styled.div`
   height:500px;
   z-index:1;
   position: relative;
+  & div div {
+    z-index:1;
+  }
 `
 
 const Hero = ({ className, posts = [] }) => {
   const [isLoading, setIsLoading] = useLoading()
-
   if (isLoading) {
     return <HeroElementSkeleton />
   }
@@ -27,7 +29,7 @@ const Hero = ({ className, posts = [] }) => {
       <Carousel
         widgets={[CarouselButtons, IndicatorDots]}
         className={className}
-        auto
+        // auto
         loop
       >
         {posts.map(

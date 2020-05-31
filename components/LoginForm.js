@@ -34,10 +34,47 @@ const LinkText = styled.a`
 `
 
 const LoginForm = ({ handleCreateAccount = null }) => {
-  const [data, handleChange, handleSubmit] = useForm({
+  const [data, handleChange, handleLogin] = useForm({
     email: '',
     password: '',
   })
+
+  const handleSubmit = async (event) => {
+    const formData = handleLogin(event)
+    const { email: username, password } = formData
+
+    if (username && password) {
+      fetch('https://api.callback-news.com/api/auth', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          'username': username,
+          'password': `${password}`,
+        }),
+      })
+        .then((response) => {
+          if (response.status !== 200) throw new Error(response.status)
+          return response.json()
+        })
+        .then((data) => {
+          console.log(data)
+          window.localStorage.setItem('token', data.token)
+          window.localStorage.setItem('email', username)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+
+      // const json = await response.json()
+      // console.log('handleSubmit -> data', data)
+    }
+
+    console.log('formData --> ', formData)
+  }
+
   return (
     <MainContainer>
       <Avatar withBorder size="100px" />
@@ -63,7 +100,7 @@ const LoginForm = ({ handleCreateAccount = null }) => {
           <LinkText>Did you forget your password?</LinkText>
         </Link>
         <Button text="Login" onClick={handleSubmit} />
-        <LinkText onClick={handleCreateAccount}>Don't have an account? Create one</LinkText>
+        <LinkText onClick={handleCreateAccount}>Don&#39;t have an account? Create one</LinkText>
       </Form>
     </MainContainer>
   )

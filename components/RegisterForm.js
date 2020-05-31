@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Avatar from './Avatar'
 import LabelInput from './LabelInput'
 import Button from './Button'
+import Notification from './Notification'
 import useForm from '../hooks/useForm'
+import useToggle from '../hooks/useToggle'
+import { validateEmail, comparePasswords } from '../utils/validations'
 
 const MainContainer = styled.div`
   width: 100%;
@@ -33,26 +36,86 @@ const LinkText = styled.p`
 `
 
 const RegisterForm = ({ handleLogin = null }) => {
-  const [data, handleChange, handleSubmit] = useForm({
+  const defaultData = {
     name: '',
     email: '',
     password: '',
     passwordConfirmation: '',
-  })
+  }
+  const [message, setMessage] = useState('')
+  const [isNotifying, toggleNotification, setIsNotifying] = useToggle(false)
+  const [data, handleChange, handleData, setData] = useForm(defaultData)
+
+  const customHandleChange = (event) => {
+    setIsNotifying(false)
+    handleChange(event)
+  }
+
+  const handleSubmit = (event) => {
+    const formData = handleData(event)
+    const { name, email, password, passwordConfirmation } = formData
+    if (!name) {
+      setMessage('Invalid Name.')
+      toggleNotification()
+      return
+    }
+    if(!validateEmail(email)) {
+      setMessage('Invalid Email.')
+      toggleNotification()
+      return
+    }
+    
+    if(!comparePasswords(password, passwordConfirmation)) {
+      setMessage("Passwords don't match.")
+      toggleNotification()
+      return
+    }
+
+    const bodyObj = {
+      email,
+      password,
+    }
+
+    if (name && email && password && passwordConfirmation) {
+      fetch('https://api.callback-news.com/account/register', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bodyObj),
+      })
+        .then((response) => {
+          if (response.status !== 201) throw new Error(response.status)
+          return response.json()
+        })
+        .then((data) => {
+          setMessage('User created. Verify your email.')
+          toggleNotification()
+          setData(defaultData)
+        })
+        .catch((error) => {
+          console.log(error)
+          // setMessage(`Error->${error}`)
+          // toggleNotification()
+        })
+    }
+  }
+
   return (
     <MainContainer>
       <Avatar withBorder size="60px" />
       <Form onSubmit={handleSubmit}>
         <LabelInput
           value={data.name}
-          onChange={handleChange}
+          onChange={customHandleChange}
           id="name"
           label="Full Name"
           required
         />
         <LabelInput
           value={data.email}
-          onChange={handleChange}
+          onChange={customHandleChange}
           id="email"
           label="Email"
           type="email"
@@ -61,7 +124,7 @@ const RegisterForm = ({ handleLogin = null }) => {
         />
         <LabelInput
           value={data.password}
-          onChange={handleChange}
+          onChange={customHandleChange}
           id="password"
           label="Password"
           type="password"
@@ -69,7 +132,7 @@ const RegisterForm = ({ handleLogin = null }) => {
         />
         <LabelInput
           value={data.passwordConfirmation}
-          onChange={handleChange}
+          onChange={customHandleChange}
           id="passwordConfirmation"
           label="Confirm Password"
           type="password"
@@ -77,6 +140,11 @@ const RegisterForm = ({ handleLogin = null }) => {
         />
         <Button text="Create Account" onClick={handleSubmit} />
         <LinkText onClick={handleLogin}>Do you have an account? Login</LinkText>
+        <Notification
+          isNotifying={isNotifying}
+          close={toggleNotification}
+          message={message}
+        />
       </Form>
     </MainContainer>
   )

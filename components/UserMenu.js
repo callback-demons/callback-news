@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 import Avatar from './Avatar'
 import Modal from './Modal'
 import useToggle from '../hooks/useToggle'
@@ -8,7 +9,7 @@ import RegisterForm from './RegisterForm'
 
 const UserMenuContainer = styled.div`
   margin: 0px;
-  @media  screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     margin: 0px 16px;
   }
 `
@@ -24,8 +25,13 @@ const CustomAvatar = styled(Avatar)`
 `
 
 const UserName = styled.p`
-  color: white;
+  color:white;
   margin: 0px 6px;
+  display:none;
+  @media screen and (min-width: 768px) {
+    display:block;
+    float:right;
+  }
 `
 
 const LoginButton = styled.p`
@@ -42,7 +48,7 @@ const DropdownList = styled.ul`
   position: absolute;
   border-radius: 8px;
   background-color: #c14593;
-  @media  screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     background-color: ${(props) => props.theme.color.secondary};
   }
   ${UserMenuContainer}:hover &, &:hover&:hover{
@@ -69,16 +75,6 @@ const UserMenu = (props) => {
   const [isOpen, toggleModal] = useToggle(false)
   const [isLogging, setIsLogging] = useState(true)
 
-  const handleLogin = (event) => {
-    event.preventDefault()
-    console.log('Login')
-  }
-
-  const handleRegister = (event) => {
-    event.preventDefault()
-    console.log('Register')
-  }
-
   const toggleForm = () => {
     setIsLogging(!isLogging)
   }
@@ -88,9 +84,9 @@ const UserMenu = (props) => {
       <MenuContainer>
         {
           !username ?
-            <LoginButton onClick={toggleModal}>Login</LoginButton> :
+            <LoginButton onClick={() => { setIsLogging(true); toggleModal() }}>Login</LoginButton> :
             <>
-              <CustomAvatar size="30px" withBorder src={`https://robohash.org/callback-${Math.floor(Math.random() * 1000)}`} />
+              <CustomAvatar size="30px" withBorder />
               <UserName>{username}</UserName>
             </>
         }
@@ -98,7 +94,7 @@ const UserMenu = (props) => {
       {
         username &&
         <DropdownList>
-          <ListItem><ItemLink>Profile</ItemLink></ListItem>
+          <Link href="/profile"><ListItem><ItemLink>Profile</ItemLink></ListItem></Link>
           <ListItem><ItemLink>Logout</ItemLink></ListItem>
         </DropdownList>
       }

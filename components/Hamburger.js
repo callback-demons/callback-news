@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-    width: 25px;
-    height: 25px;
-    display: none;
+    width: 30px;
+    height: 100%;
     transition: all 0.3s ease-in-out;
     display: block;
     cursor: pointer;
@@ -18,16 +17,18 @@ const Wrapper = styled.div`
     & span{
         display: block;
         cursor: pointer;
+        &:nth-child(2){
+          opacity:${(props) => (props.isActive ? '0' : '1')};
+        }
+        &:nth-child(1){
+          transform:${(props) => (props.isActive ? 'translateY(8px) rotate(45deg)' : '')};
+        }
+        &:nth-child(3){
+          transform:${(props) => (props.isActive ? 'translateY(-8px) rotate(-45deg)' : '')};
+        }
     }
-    & span:nth-child(2){
-        opacity:${(props) => (props.isActive ? '0' : '1')};
-    }
-    & span:nth-child(1){
-        transform:${(props) => (props.isActive ? 'translateY(8px) rotate(45deg)' : '')};
-    }
-    & span:nth-child(3){
-        transform:${(props) => (props.isActive ? 'translateY(-8px) rotate(-45deg)' : '')};
-    }
+
+
 `
 const Line = styled.span``
 

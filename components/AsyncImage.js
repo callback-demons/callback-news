@@ -11,7 +11,7 @@ const AsyncImage = (props) => {
       ref={(element) => {
         if (!element) { return }
         const img = element
-        img.onload = () => onLoaded && onLoaded()
+        // img.onload = () => onLoaded && onLoaded()
         if (img.complete && onLoaded) onLoaded()
       }}
     />

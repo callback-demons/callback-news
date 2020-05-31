@@ -25,14 +25,15 @@ export default class MyDocument extends Document {
       sheet.seal()
     }
   }
-  
-  render(){
+
+  render() {
     return (
       <Html>
         <Head />
         <body>
           <Main />
           <div id="modal" />
+          <div id="notification" />
           <NextScript />
         </body>
       </Html>

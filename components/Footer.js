@@ -11,6 +11,10 @@ const Container = styled.footer`
   bottom: 0;
   position: relative;
   box-sizing: border-box;
+  font-size: .8em;
+  @media screen and (min-width:720px) {
+    font-size:1em;
+  }
 }
 `
 

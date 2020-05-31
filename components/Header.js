@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 import MobileMenu from './MobileMenu'
@@ -19,6 +19,9 @@ const Container = styled.header`
   align-items: center;
   justify-content: space-between;
   z-index: 9;
+  @media screen and (min-width: 768px) {
+    grid-template-columns:180px auto;
+  }
 `
 
 const Logo = styled.img`
@@ -30,16 +33,22 @@ const Right = styled.div`
 `
 
 const Header = ({ title = '' }) => {
+  const [email, setEmail] = useState(null)
+  useEffect(() => {
+    console.log()
+    setEmail(window.localStorage.getItem('email'))
+  }, [null])
+
   return (
     <Container>
       <Link href="/">
         <a>
-          <Logo src="https://storage.cloud.google.com/cbn-public/callback-news-logo-white.svg" />
+          <Logo src="https://storage.googleapis.com/cbn-public/callback-news-logo-white-2.svg" />
         </a>
       </Link>
       <Right>
+        <UserMenu username={email} />
         <MobileMenu />
-        <UserMenu />
       </Right>
     </Container>
   )

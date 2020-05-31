@@ -1,10 +1,10 @@
-import { useState } from 'react'
 import styled from 'styled-components'
 import Avatar from './Avatar'
 import LabelInput from './LabelInput'
 import Button from './Button'
-import useToggle from '../hooks/useToggle'
+import Notification from './Notification'
 import useForm from '../hooks/useForm'
+import useToggle from '../hooks/useToggle'
 
 const MainContainer = styled.div`
   width: 100%;
@@ -14,7 +14,7 @@ const MainContainer = styled.div`
   align-items: center;
   justify-items: center;
   grid-template-columns: 1fr;
-  @media  screen and (min-width: 568px) {
+  @media screen and (min-width: 568px) {
     grid-template-columns: 1fr 2fr;
   }
 `
@@ -27,7 +27,7 @@ const Form = styled.form`
   grid-gap: 20px 40px;
   grid-template-columns: 1fr;
   justify-items: center;
-  @media  screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     justify-items: right;
     justify-self: flex-start;
     grid-template-columns: 1fr 1fr;
@@ -35,6 +35,7 @@ const Form = styled.form`
 `
 
 const UserData = ({ data = [] }) => {
+  const [isNotifying, toggleNotification] = useToggle(false)
   const [isEditing, toggleEditing] = useToggle(false)
   const [userData, handleChange, handleData] = useForm({
     ...data,
@@ -45,6 +46,7 @@ const UserData = ({ data = [] }) => {
 
   const handleSubmit = (event) => {
     toggleEditing()
+    toggleNotification()
     const finalData = handleData(event)
     console.log('finalData --> ', finalData)
   }
@@ -99,6 +101,11 @@ const UserData = ({ data = [] }) => {
             <Button text="Edit" onClick={toggleEditing} />
         }
       </Form>
+      <Notification
+        isNotifying={isNotifying}
+        close={toggleNotification}
+        message="Notificando"
+      />
     </MainContainer>
   )
 }

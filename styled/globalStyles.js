@@ -14,6 +14,12 @@ const globalStyles = createGlobalStyle`
   h1,h2,h3,h4 {
     font-family: ${(props) => props.theme.fontFamilyTitle};
   }
+  h1 {
+    padding-top:${(props) => props.theme.space * 2}px;
+  }
+  h2 {
+    padding-top:${(props) => props.theme.space * 2}px;
+  }
   img {
     max-width:100%;
   }
@@ -50,6 +56,32 @@ const globalStyles = createGlobalStyle`
     & img {
     display:block;
     }
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${(props) => props.theme.color.primaryLight};
+    border-radius: 10px;
+    border: 0px none #ffffff;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    -moz-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+}
+  ::-webkit-scrollbar-track {
+    background: ${(props) => props.theme.skeleton.baseColorDark};
+    border-radius: 10px;
+    border: 0px none #ffffff;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   }
 `
 

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   position: absolute;
+  z-index:20;
   width: 100%;
   z-index: 7;
   bottom: 0;
@@ -25,6 +26,7 @@ const button = `
   color: rgba(255,255,255,0.8);
   background:rgba(0,0,0,.5);
   padding:10px;
+  z-index:3;
 `
 const PrevButton = styled.div`
   ${button}

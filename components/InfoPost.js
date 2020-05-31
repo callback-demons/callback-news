@@ -31,7 +31,9 @@ const Author = styled.p`
   margin:0;
   padding:0;
 `
-const LikeContainer = styled.div``
+const LikeContainer = styled.div`
+  margin-top: 4px;
+`
 const Likes = styled.div`
   font-family:${(props) => props.theme.fontFamilyTitle};
   font-size:10px;
