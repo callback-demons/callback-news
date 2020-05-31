@@ -6,7 +6,16 @@ import InfoPost from './InfoPost'
 const Container = styled.div`
   padding-top: ${(props) => props.theme.space * 2}px;
 `
-const Title = styled.h1``
+const Title = styled.h1`
+  font-size: 1.7em;
+  margin: 10px 0px;
+  padding-top: 0px;
+  @media screen and (min-width: 768px) {
+    font-size: 2em;
+    margin: 24px 0px;
+    padding-top: 16px;
+  }
+`
 const Labels = styled.div``
 const Label = styled.div`
   border-radius:5px;
