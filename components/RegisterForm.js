@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import Avatar from './Avatar'
 import LabelInput from './LabelInput'
 import Button from './Button'
+import Notification from './Notification'
 import useForm from '../hooks/useForm'
+import useToggle from '../hooks/useToggle'
 
 const MainContainer = styled.div`
   width: 100%;
@@ -33,12 +35,20 @@ const LinkText = styled.p`
 `
 
 const RegisterForm = ({ handleLogin = null }) => {
-  const [data, handleChange, handleSubmit] = useForm({
+  const [isNotifying, toggleNotification] = useToggle(false)
+  const [data, handleChange, handleData] = useForm({
     name: '',
     email: '',
     password: '',
     passwordConfirmation: '',
   })
+
+  const handleSubmit = (event) => {
+    const finalData = handleData(event)
+    toggleNotification()
+    console.log('finalData --> ', finalData)
+  }
+
   return (
     <MainContainer>
       <Avatar withBorder size="60px" />
@@ -77,6 +87,11 @@ const RegisterForm = ({ handleLogin = null }) => {
         />
         <Button text="Create Account" onClick={handleSubmit} />
         <LinkText onClick={handleLogin}>Do you have an account? Login</LinkText>
+        <Notification
+          isNotifying={isNotifying}
+          close={toggleNotification}
+          message="Usuario creado. Verifica tu correo electrónico"
+        />
       </Form>
     </MainContainer>
   )

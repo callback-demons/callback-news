@@ -8,7 +8,7 @@ import RegisterForm from './RegisterForm'
 
 const UserMenuContainer = styled.div`
   margin: 0px;
-  @media  screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     margin: 0px 16px;
   }
 `
@@ -78,7 +78,7 @@ const UserMenu = (props) => {
       <MenuContainer>
         {
           !username ?
-            <LoginButton onClick={toggleModal}>Login</LoginButton> :
+            <LoginButton onClick={() => { setIsLogging(true); toggleModal() }}>Login</LoginButton> :
             <>
               <CustomAvatar size="30px" withBorder src={`https://robohash.org/callback-${Math.floor(Math.random() * 1000)}`} />
               <UserName>{username}</UserName>
