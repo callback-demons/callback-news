@@ -8,10 +8,10 @@ import CategoryItemList from '../components/CategoryItemList'
 
 const Title = styled.h1`
   display:none;
+  margin: 20px;
   @media screen and (min-width:720px) {
     display:block;
   }
-  margin: 20px;
 `
 
 function HomePage({ categories, posts }) {
