@@ -59,11 +59,14 @@ const BoxContent = styled.div`
   overflow: hidden;
   position: relative;
   max-height: 100%;
+  @media screen and (min-width: 440px) {
+    top: 16px;
+  }
   @media screen and (min-width: 480px) {
     top: -6px;
     width: 100%;
   }
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 768px) {
     top: -12px;
     width: 100%;
   }
