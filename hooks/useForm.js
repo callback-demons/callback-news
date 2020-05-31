@@ -20,6 +20,7 @@ const useForm = (data = {}) => {
     state,
     handleChange,
     handleSubmit,
+    setState
   ]
 }
 

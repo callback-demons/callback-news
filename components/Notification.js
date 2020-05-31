@@ -76,7 +76,7 @@ const NotificationMessage = styled.p`
   color: white;
   margin: 2px 15px;
   font-weight: 600;
-  margin-top: -4px;
+  margin-top: -2px;
   font-size: ${(p) => p.theme.mediumSize}px;
   font-family: ${(props) => props.theme.fontFamilyText};
 `
