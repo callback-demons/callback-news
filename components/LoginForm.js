@@ -34,10 +34,49 @@ const LinkText = styled.a`
 `
 
 const LoginForm = ({ handleCreateAccount = null }) => {
-  const [data, handleChange, handleSubmit] = useForm({
+  const [data, handleChange, handleLogin] = useForm({
     email: '',
     password: '',
   })
+
+  const handleSubmit = async (event) => {
+    const formData = handleLogin(event)
+    const { email: username, password } = formData
+    console.log('handleSubmit -> password', password)
+    console.log('handleSubmit -> username', username)
+
+    if (username && password) {
+      fetch('https://api.callback-news.com/api/auth', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          'username': username,
+          'password': `${password}`,
+        }),
+      })
+        .then((response) => {
+          if (response.status !== 200) throw new Error(response.status)
+          return response.json()
+        })
+        .then((data) => {
+          console.log(data)
+          // handle fetch of user
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+
+      // const json = await response.json()
+      // window.localStorage.setItem('token', json.resultado)
+      // console.log('handleSubmit -> data', data)
+    }
+
+    console.log('formData --> ', formData)
+  }
+
   return (
     <MainContainer>
       <Avatar withBorder size="100px" />
