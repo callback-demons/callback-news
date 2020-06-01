@@ -1,3 +1,10 @@
+export const validateUsername = (username) => {
+  if (username) {
+    return !(username.indexOf(' ') !== -1)
+  }
+  return false
+}
+
 export const validateEmail = (email) => {
   const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/
   return email.match(mailFormat)
