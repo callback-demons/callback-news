@@ -66,6 +66,8 @@ const LabelElement = styled.div(
       margin:${space}px 0;
       text-align:center;
       min-width:140px;
+      margin: 170px 0;
+      position:absolute;
     `
   },
 )
