@@ -43,7 +43,6 @@ function CommentsSection({ comments = [], postId = 0 }) {
         return response.json()
       })
       .then((data) => {
-        console.log(data)
         setAllComments([
           ...allComments,
           {
