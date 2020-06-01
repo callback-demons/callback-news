@@ -67,6 +67,7 @@ const LoginForm = ({ handleCreateAccount = null, toggleModal = null }) => {
         })
         .then((data) => {
           window.localStorage.setItem('token', data.token)
+          window.localStorage.setItem('id', data.id)
           window.localStorage.setItem('email', username)
           setUser({
             ...user,

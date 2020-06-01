@@ -23,17 +23,23 @@ function HomePage({
   const [postsState, setPostsState] = useState({ ...posts } || {})
   useEffect(() => {
     const fetchData = async () => {
-      const token = window.localStorage.getItem('token') || ''
-      const resPosts = await fetch('https://api.callback-news.com/news/', {
-        method: 'get',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Authorization': token ? `Token ${token || ''}` : '',
-        },
-      })
-      const data = await resPosts.json()
-      setPostsState(data)
+
+      try {
+        const token = window.localStorage.getItem('token') || ''
+        const resPosts = await fetch('https://api.callback-news.com/news/', {
+          method: 'get',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': token ? `Token ${token || ''}` : '',
+          },
+        })
+        const data = await resPosts.json()
+        setPostsState(data)
+      } catch (error) {
+        console.log(error)
+      }
+
     }
     fetchData()
   }, [null])
