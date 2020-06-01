@@ -20,9 +20,9 @@ function HomePage({
 }) {
 
   const [postsState, setPostsState] = useState({ ...posts } || {})
+  const [popularPostsState, setPopularPostsState] = useState({ ...popularPosts } || {})
   useEffect(() => {
     const fetchData = async () => {
-
       try {
         const token = window.localStorage.getItem('token') || ''
         const resPosts = await fetch('https://api.callback-news.com/news/', {
@@ -43,6 +43,28 @@ function HomePage({
     fetchData()
   }, [null])
 
+  useEffect(() => {
+    const fetchPopularData = async () => {
+      try {
+        const token = window.localStorage.getItem('token') || ''
+        const resPopularPosts = await fetch('https://api.callback-news.com/news-popular/', {
+          method: 'get',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': token ? `Token ${token || ''}` : '',
+          },
+        })
+        const popularData = await resPopularPosts.json()
+        setPopularPostsState(popularData)
+      } catch (error) {
+        console.log(error)
+      }
+
+    }
+    fetchPopularData()
+  }, [null])
+
   const { results } = postsState
 
   const heroNews = results ? [results[1], results[2], results[3]] : []
@@ -56,7 +78,7 @@ function HomePage({
       <Title>{title}</Title>
       <CategoryItemList data={categories} />
       <PostItemList title="Recent news" posts={results} />
-      <PostItemList title="Popular news" posts={popularPosts} />
+      <PostItemList title="Popular news" posts={popularPostsState} />
     </Layout>
   )
 }
