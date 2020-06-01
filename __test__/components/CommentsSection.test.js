@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import CommentsSection from './CommentsSection'
-import Layout from './Layout'
+import CommentsSection from '../../components/CommentsSection'
+import Layout from '../../components/Layout'
 
 describe('<CommentsSection />', () => {
   const commentsSection = mount(

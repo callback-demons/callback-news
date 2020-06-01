@@ -20,7 +20,7 @@ const Container = styled.div`
 `
 
 const Layout = ({ title, children }) => {
-  const [state, setState] = useState({ email: 'david@123.com', token: null })
+  const [state, setState] = useState({ email: null, token: null })
   return (
     <ThemeProvider theme={lightTheme}>
       <UserContext.Provider value={[state, setState]}>
