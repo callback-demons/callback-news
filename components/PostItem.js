@@ -158,10 +158,11 @@ const PostItem = ({ post = {}, className }) => {
         </Content>
         <Footer>
           <InfoPost post={{
+            postId: post.id,
             date: post.date_posted,
             author: post.author,
             likes: post.likes.count,
-            isLiked: post.likes.liked,
+            liked: post.likes.liked,
             avatar: null,
           }}
           />
