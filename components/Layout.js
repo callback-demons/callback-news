@@ -19,8 +19,9 @@ const Container = styled.div`
   min-height:100vh;
 `
 
+
 const Layout = ({ title, children, description }) => {
-  const [state, setState] = useState({ email: 'david@123.com', token: null })
+  const [state, setState] = useState({ email: null, token: null })
   return (
     <ThemeProvider theme={lightTheme}>
       <UserContext.Provider value={[state, setState]}>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import Button from './Button'
+import Button from '../../components/Button'
 
 describe('<Button />', () => {
   it('Should load the Button component', () => {

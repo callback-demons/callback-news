@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import CircleSkeleton from './CircleSkeleton'
-import Layout from './Layout'
+import CircleSkeleton from '../../components/CircleSkeleton'
+import Layout from '../../components/Layout'
 
 describe('<CircleSkeleton />', () => {
   const circleSkeleton = mount(
