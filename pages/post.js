@@ -10,15 +10,14 @@ const Image = styled.img`
   object-fit: cover;
 `
 
-function PostPage({ post = {}, mockPost = {} }) {
-
+function PostPage({ post = {}, comments = [] }) {
   const media = post.media[0] ? post.media : [{}]
   const { url = 'https://storage.googleapis.com/cbn-public/default-backgroud.jpg', title = 'Callback news image' } = media[0]
   return (
     <Layout>
       <Image src={url} alt={title} />
       <PostCard post={post} />
-      <CommentsSection />
+      <CommentsSection postId={post.id} comments={comments} />
     </Layout>
   )
 }
@@ -26,13 +25,13 @@ function PostPage({ post = {}, mockPost = {} }) {
 export async function getServerSideProps({ query, res }) {
   const { id } = query
   try {
-    const [resMockPost, resPost] = await Promise.all([
-      fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/new.json'),
+    const [resPost, resComments] = await Promise.all([
       fetch(`https://api.callback-news.com/news/${id}/`),
+      fetch(`https://api.callback-news.com/news/${id}/comments/`),
     ])
     const post = await resPost.json()
     const { status: postStatus } = resPost
-    const mockPost = await resMockPost.json()
+    const comments = await resComments.json()
     if (postStatus === 404) {
       res.statusCode = postStatus
       return { props: { statusCode: res.statusCode } }
@@ -42,7 +41,7 @@ export async function getServerSideProps({ query, res }) {
       return { props: { statusCode: res.statusCode } }
     }
     res.statusCode = 200
-    return { props: { post, mockPost, statusCode: res.statusCode } }
+    return { props: { post, comments, statusCode: res.statusCode } }
   } catch (error) {
     res.statusCode = 503
     return { props: { statusCode: res.statusCode } }

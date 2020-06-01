@@ -74,6 +74,7 @@ const RegisterForm = ({ handleLogin = null }) => {
     const bodyObj = {
       email,
       password,
+      username: name,
     }
 
     if (name && email && password && passwordConfirmation) {
@@ -96,8 +97,8 @@ const RegisterForm = ({ handleLogin = null }) => {
         })
         .catch((error) => {
           console.log(error)
-          // setMessage(`Error->${error}`)
-          // toggleNotification()
+          setMessage('Failed to register the user.')
+          toggleNotification()
         })
     }
   }
