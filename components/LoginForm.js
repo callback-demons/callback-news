@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import Avatar from './Avatar'
 import LabelInput from './LabelInput'
 import Button from './Button'
+import Notification from './Notification'
 import useForm from '../hooks/useForm'
+import useToggle from '../hooks/useToggle'
 import useUserContext from '../hooks/useUserContext'
 
 const MainContainer = styled.div`
@@ -34,10 +36,9 @@ const LinkText = styled.a`
   }
 `
 
-const LoginForm = ({
-  handleCreateAccount = null,
-  toggleModal = null,
-}) => {
+const LoginForm = ({ handleCreateAccount = null, toggleModal = null }) => {
+  const [message, setMessage] = useState('')
+  const [isNotifying, toggleNotification] = useToggle(false)
   const [user, setUser] = useUserContext()
   const [data, handleChange, handleLogin] = useForm({
     email: '',
@@ -76,6 +77,8 @@ const LoginForm = ({
         })
         .catch((error) => {
           console.log(error)
+          setMessage('Failed to login.')
+          toggleNotification()
         })
     }
   }
@@ -106,6 +109,11 @@ const LoginForm = ({
         </Link>
         <Button text="Login" onClick={handleSubmit} />
         <LinkText onClick={handleCreateAccount}>Don&#39;t have an account? Create one</LinkText>
+        <Notification
+          isNotifying={isNotifying}
+          close={toggleNotification}
+          message={message}
+        />
       </Form>
     </MainContainer>
   )

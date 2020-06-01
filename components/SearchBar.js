@@ -46,7 +46,7 @@ const SearchBar = () => {
   const handleSearch = (event) => {
     event.preventDefault()
     if (!query) return
-    console.log(query)
+    // console.log(query)
   }
   return (
     <Container onSubmit={handleSearch}>

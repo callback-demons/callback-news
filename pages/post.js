@@ -26,7 +26,6 @@ function PostPage({ post = {}, comments = [], id = null }) {
       })
       const data = await resPost.json()
       setPostState(data)
-      console.log(data)
     }
     fetchData()
   }, [null])
