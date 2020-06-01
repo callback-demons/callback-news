@@ -53,12 +53,10 @@ const Cta = styled.a`
   }
 `
 const HeroElement = ({ className, post = {}, onLoaded = null }) => {
-
   const {
     id,
     title,
     description,
-    created_at: date,
     media,
   } = post
   return (
@@ -91,9 +89,7 @@ const HeroElement = ({ className, post = {}, onLoaded = null }) => {
           </Link>
         </ContentWrapper>
         <Footer>
-          Posted:
-          {' '}
-          {date}
+          {`Posted: ${post.date_posted}`}
         </Footer>
       </PostOverlay>
     </Container>

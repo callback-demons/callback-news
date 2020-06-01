@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { useRouter } from 'next/router'
 import SearchIcon from './SearchIcon'
 
 const Container = styled.form`
@@ -39,6 +40,7 @@ const CustomSearchIcon = styled(SearchIcon)`
 `
 
 const SearchBar = () => {
+  const router = useRouter()
   const [query, setQuery] = useState(null)
   const handleChange = (event) => {
     setQuery(event.target.value)
@@ -46,6 +48,7 @@ const SearchBar = () => {
   const handleSearch = (event) => {
     event.preventDefault()
     if (!query) return
+    router.push(`/search?title=${query}`)
     // console.log(query)
   }
   return (

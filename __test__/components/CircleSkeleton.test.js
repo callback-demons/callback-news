@@ -1,13 +1,14 @@
 import React from 'react'
 import { mount } from 'enzyme'
+import { ThemeProvider } from 'styled-components'
 import CircleSkeleton from '../../components/CircleSkeleton'
-import Layout from '../../components/Layout'
+import lightTheme from '../../styled/themes/light'
 
 describe('<CircleSkeleton />', () => {
   const circleSkeleton = mount(
-    <Layout>
+    <ThemeProvider theme={lightTheme}>
       <CircleSkeleton />
-    </Layout>,
+    </ThemeProvider>,
   )
   it('Should load the CircleSkeleton component', () => {
     expect(circleSkeleton.length).toEqual(1)
