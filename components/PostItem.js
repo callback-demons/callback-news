@@ -23,7 +23,7 @@ const Container = styled.div`
   border-radius: 25px;
   display: grid;
   grid-template-columns:1fr;
-  grid-template-rows:260px 96px 45px;
+  grid-template-rows:215px 96px 45px;
   grid-template-areas:"header"
                       "content"
                       "footer";
@@ -89,6 +89,8 @@ const Description = styled(ClampLines)`
   }
 `
 const Title = styled(ClampLines)`
+  max-height: 60px;
+  overflow: hidden;
   grid-area:title;
   margin:0;
   & h3 {
