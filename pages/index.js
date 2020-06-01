@@ -18,6 +18,9 @@ function HomePage({ categories, posts }) {
   const { results } = posts
   const heroNews = results ? [results[1], results[2], results[3]] : []
   const [title] = useState('Callback News - The daily technology newsletter')
+  if (typeof (window) !== 'undefined') {
+    window.localStorage.setItem('categories', JSON.stringify(categories))
+  }
   return (
     <Layout title={title}>
       <Hero posts={heroNews} />
