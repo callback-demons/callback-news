@@ -18,9 +18,8 @@ function HomePage({
   categories,
   posts,
 }) {
-
   const [postsState, setPostsState] = useState({ ...posts } || {})
-  const [popularPostsState, setPopularPostsState] = useState({ ...popularPosts } || {})
+  const [popularPostsState, setPopularPostsState] = useState(popularPosts || [])
   useEffect(() => {
     const fetchData = async () => {
       try {

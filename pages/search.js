@@ -33,7 +33,7 @@ function SearchPage({ posts = [] }) {
   //   console.log('Searching news...')
   // }
   return (
-    <Layout title={`${router.query.title || 'Category'} | Callback News`}>
+    <Layout title={`${router.query.title || 'Search'} | Callback News`}>
       <Title>{`Searching: ${router.query.title}` || 'No query search provided'}</Title>
       <SearchContainer>
         <SearchBar />
@@ -47,7 +47,7 @@ function SearchPage({ posts = [] }) {
 export async function getServerSideProps({ query, res }) {
   const { title } = query
   try {
-    const resPosts = await fetch('https://api.callback-news.com/news/?title=This')
+    const resPosts = await fetch(`https://api.callback-news.com/news/?title=${title}`)
     const data = await resPosts.json()
     const posts = data.results
     res.statusCode = 200
