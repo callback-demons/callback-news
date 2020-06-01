@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import CategoryItem from './CategoryItem'
-import Layout from './Layout'
+import CategoryItem from '../../components/CategoryItem'
+import Layout from '../../components/Layout'
 
 describe('<CategoryItem />', () => {
   const categoryItem = mount(

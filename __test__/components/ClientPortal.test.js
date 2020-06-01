@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import ClientPortal from './ClientPortal'
-import Layout from './Layout'
+import ClientPortal from '../../components/ClientPortal'
+import Layout from '../../components/Layout'
 
 describe('<ClientPortal />', () => {
   const clientPortal = shallow(

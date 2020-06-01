@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import Heart from './Heart'
 import Avatar from './Avatar'
+import Notification from './Notification'
 
 import useWidth from '../hooks/useWidth'
+import useToggle from '../hooks/useToggle'
 
 const Info = styled.div`
   display:grid;
@@ -38,30 +40,77 @@ const Likes = styled.div`
 `
 
 const InfoPost = ({ post, className }) => {
-  const { date, author, likes, avatar } = post
+  const { postId, date, author, likes: tempLikes, liked, avatar } = post
+  // console.log(liked)
   const { containerRef, width } = useWidth()
-  const [isLiked, setIsLiked] = useState(false)
-  const handleLike = (event) => {
-    setIsLiked(!isLiked)
+  const [isLiked, setIsLiked] = useState(liked)
+  const [likes, setLikes] = useState(tempLikes)
+  const [message, setMessage] = useState('')
+  const [isNotifying, toggleNotification] = useToggle(false)
+
+  useEffect(() => {
+    setIsLiked(liked)
+    setLikes(setLikes)
+  }, [liked])
+
+  const url = `https://api.callback-news.com/news/${postId}/like`
+
+  const likeRequest = (token = '') => {
+    fetch(url, {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Token ${token}`,
+      },
+    })
+      .then((response) => {
+        if (response.status !== 200) throw new Error(response.status)
+        return response.json()
+      })
+      .then((data) => {
+        console.log(data.message)
+        setLikes(!isLiked ? likes + 1 : likes - 1)
+        setIsLiked(!isLiked)
+      })
+      .catch((error) => {
+        console.log(error)
+        setMessage('Error')
+        toggleNotification()
+      })
   }
-  // Fri, 08 May 2020 10:05:49 GMT
-  // const date = parse(post.pubDate, 'EEE, dd MMM yyyy HH:mm:ss', new Date())
+  const handleLike = (event) => {
+    //Check if logged or show notification
+    if (typeof (window) !== 'undefined') {
+      const token = window.localStorage.getItem('token') || ''
+      if (token) likeRequest(token)
+      else {
+        setMessage('You must login to like the news.')
+        toggleNotification()
+      }
+    }
+  }
   return (
     <Info className={className} ref={containerRef} width={width}>
       <Avatar src={avatar} withBorder />
       <Meta>
         <Author>{author}</Author>
-        {/* <span>20 min read</span> */}
         <span>
-          Posted:
-          {' '}
-          {date}
+          {`Posted: ${date}`}
         </span>
       </Meta>
       <LikeContainer>
         <Heart onClick={handleLike} isLiked={isLiked} />
-        <Likes>{likes + isLiked}</Likes>
+        <Likes>{likes}</Likes>
       </LikeContainer>
+      {
+        isNotifying &&
+        <Notification
+          isNotifying={isNotifying}
+          close={toggleNotification}
+          message={message}
+        />
+      }
     </Info>
   )
 }
