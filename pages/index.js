@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import fetch from 'node-fetch'
 import PostItemList from '../components/PostItemList'
 import Layout from '../components/Layout'
@@ -14,8 +14,32 @@ const Title = styled.h1`
   }
 `
 
-function HomePage({ categories, posts }) {
-  const { results } = posts
+function HomePage({
+  categories,
+  posts,
+}) {
+
+  const [postsState, setPostsState] = useState({ ...posts } || {})
+  useEffect(() => {
+    const fetchData = async () => {
+      const token = window.localStorage.getItem('token') || ''
+      console.log('token', token)
+      const resPosts = await fetch('https://api.callback-news.com/news/', {
+        method: 'get',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Token ${token || ''}`,
+        },
+      })
+      const data = await resPosts.json()
+      setPostsState(data)
+      console.log(data)
+    }
+    fetchData()
+  }, [null])
+
+  const { results } = postsState
   const heroNews = results ? [results[1], results[2], results[3]] : []
   const [title] = useState('Callback News - The daily technology newsletter')
   return (
@@ -34,8 +58,6 @@ export async function getServerSideProps({ query, res }) {
   try {
     const [resCategories, resPosts] = await Promise.all([
       fetch('https://api.callback-news.com/categories/'),
-      // fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/categories.json'),
-      // fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/news.json'),
       fetch('https://api.callback-news.com/news/'),
     ])
 
