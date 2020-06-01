@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 import Hamburger from './Hamburger'
 
@@ -43,11 +44,19 @@ const MenuElement = styled.li`
 `
 
 export default function MobileMenu() {
+  const [categories, setCategories] = useState([])
   const [isActive, setIsActive] = useState(false)
   const handleHamburgerClick = (event) => {
     event.preventDefault()
     setIsActive(!isActive)
   }
+  useEffect(() => {
+    if (typeof (window) !== 'undefined') {
+      const data = (window.localStorage.getItem('categories') || '')
+      setCategories(JSON.parse(data))
+    }
+  }, [null])
+
   return (
     <>
       <HamburgerWrapper isActive={isActive}>
@@ -59,14 +68,18 @@ export default function MobileMenu() {
       </HamburgerWrapper>
       <Menu isActive={isActive}>
         <MenuList>
-          <MenuElement>Programación</MenuElement>
-          <MenuElement>Inteligencia Artificial</MenuElement>
-          <MenuElement>User Experience</MenuElement>
-          <MenuElement>Internet</MenuElement>
-          <MenuElement>Robótica</MenuElement>
-          <MenuElement>Gamer</MenuElement>
-          <MenuElement>Sistemas</MenuElement>
-          <MenuElement>Devops</MenuElement>
+          {
+            categories.length > 0 &&
+              categories.map(
+                (category) => {
+                  return (
+                    <Link href={{ pathname: `/category/${category.id}`, query: { name: category.name } }} key={category.id}>
+                      <MenuElement>{category.name}</MenuElement>
+                    </Link>
+                  )
+                },
+              )
+          }
         </MenuList>
       </Menu>
     </>
