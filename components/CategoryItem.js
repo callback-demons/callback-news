@@ -76,7 +76,10 @@ const CategoryItem = (props) => {
   }
 
   return (
-    <Link href={{ pathname: `/category/${id}`, query: { name: title } }}>
+    <Link
+      prefetch={false}
+      href={{ pathname: `/category/${id}`, query: { name: title } }}
+    >
       <Container>
         <Item color={categoryColor}>
           <Image src={srcImage} />
