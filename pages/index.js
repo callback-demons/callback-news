@@ -37,7 +37,6 @@ function HomePage({
       } catch (error) {
         console.log(error)
       }
-
     }
     fetchData()
   }, [null])
@@ -59,7 +58,6 @@ function HomePage({
       } catch (error) {
         console.log(error)
       }
-
     }
     fetchPopularData()
   }, [null])

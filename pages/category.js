@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import fetch from 'node-fetch'
@@ -28,10 +29,28 @@ const SearchContainer = styled.div`
 
 function CategoryPage({ posts = [] }) {
   const router = useRouter()
-  // const handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   console.log('Searching news...')
-  // }
+  const [postsState, setPostsState] = useState(posts)
+  useEffect(() => {
+    const fetchPostData = async () => {
+      try {
+        const token = window.localStorage.getItem('token') || ''
+        const resPosts = await fetch(`https://api.callback-news.com/categories/${router.query.id}/news/`, {
+          method: 'get',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': token ? `Token ${token || ''}` : '',
+          },
+        })
+        const postData = await resPosts.json()
+        setPostsState(postData)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchPostData()
+  }, [null])
+
   return (
     <Layout title={`${router.query.name || 'Category'} | Callback News`}>
       <Title>{router.query.name || 'Category Not Found'}</Title>
@@ -39,7 +58,7 @@ function CategoryPage({ posts = [] }) {
         <SearchBar />
       </SearchContainer>
       <DottedLine />
-      <PostItemList posts={posts} />
+      <PostItemList posts={postsState} />
     </Layout>
   )
 }
@@ -48,7 +67,6 @@ export async function getServerSideProps({ query, res }) {
   try {
     const [resPosts] = await Promise.all([
       fetch(`https://api.callback-news.com/categories/${query.id}/news/`),
-      // fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/news.json'),
     ])
 
     const posts = await resPosts.json()

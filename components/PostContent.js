@@ -51,7 +51,7 @@ const PostContent = ({ post }) => {
         avatar: null,
       }}
       />
-      <Markdown text={decodeURIComponent(content)} />
+      <Markdown text={content} />
     </Container>
   )
 }
