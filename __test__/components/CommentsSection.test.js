@@ -1,13 +1,14 @@
 import React from 'react'
 import { mount } from 'enzyme'
+import { ThemeProvider } from 'styled-components'
 import CommentsSection from '../../components/CommentsSection'
-import Layout from '../../components/Layout'
+import lightTheme from '../../styled/themes/light'
 
 describe('<CommentsSection />', () => {
   const commentsSection = mount(
-    <Layout>
+    <ThemeProvider theme={lightTheme}>
       <CommentsSection />
-    </Layout>,
+    </ThemeProvider>,
   )
   it('Should load the CommentsSection component', () => {
     expect(commentsSection.length).toEqual(1)

@@ -1,16 +1,18 @@
 import React from 'react'
 import { mount } from 'enzyme'
+import { ThemeProvider } from 'styled-components'
 import CategoryItemList from '../../components/CategoryItemList'
 import categories from '../../mocks/categories.json'
 import CategoryItem from '../../components/CategoryItem'
 import Layout from '../../components/Layout'
+import lightTheme from '../../styled/themes/light'
 
 describe('<CategoryItemList />', () => {
 
   const categoryItemList = mount(
-    <Layout>
+    <ThemeProvider theme={lightTheme}>
       <CategoryItemList data={categories} />
-    </Layout>,
+    </ThemeProvider>,
   )
 
   it('Should load the CategoryItemList component', () => {

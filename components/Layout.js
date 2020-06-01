@@ -19,8 +19,7 @@ const Container = styled.div`
   min-height:100vh;
 `
 
-
-const Layout = ({ title, children, description }) => {
+const Layout = ({ title = '', children, description = '' }) => {
   const [state, setState] = useState({ email: null, token: null })
   return (
     <ThemeProvider theme={lightTheme}>
@@ -34,7 +33,7 @@ const Layout = ({ title, children, description }) => {
           <link rel="icon" type="image/svg+xml" href="https://storage.cloud.google.com/cbn-public/favicon.svg" sizes="any" />
           <meta
             name="description"
-            content={description || "Callback-News is an Online Technology Newspaper updated daily by other tech sites so you do not miss your dose of tech!"}
+            content={description || 'Callback-News is an Online Technology Newspaper updated daily by other tech sites so you do not miss your dose of tech!'}
           />
         </Head>
         <Container>

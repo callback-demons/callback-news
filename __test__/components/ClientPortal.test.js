@@ -1,13 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { ThemeProvider } from 'styled-components'
 import ClientPortal from '../../components/ClientPortal'
 import Layout from '../../components/Layout'
+import lightTheme from '../../styled/themes/light'
 
 describe('<ClientPortal />', () => {
   const clientPortal = shallow(
-    <Layout>
+    <ThemeProvider theme={lightTheme}>
       <ClientPortal />
-    </Layout>,
+    </ThemeProvider>,
   )
 
   it('Should load the ClientPortal component', () => {

@@ -85,7 +85,6 @@ const CategoryItem = (props) => {
     >
       <Container>
         <Item color={categoryColor}>
-          <Image src={srcImage} />
           <Image
             onLoaded={() => { setIsLoading(false) }}
             alt={title || 'defaultImage'}
