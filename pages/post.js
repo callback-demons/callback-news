@@ -21,13 +21,11 @@ function PostPage({ post = {}, comments = [], id = null }) {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': `Token ${token || ''}`,
+          'Authorization': token ? `Token ${token || ''}` : '',
         },
       })
       const data = await resPost.json()
       setPostState(data)
-      console.log(data)
-
     }
     fetchData()
   }, [null])

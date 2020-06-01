@@ -6,7 +6,7 @@ import Button from './Button'
 import Notification from './Notification'
 import useForm from '../hooks/useForm'
 import useToggle from '../hooks/useToggle'
-import { validateEmail, comparePasswords } from '../utils/validations'
+import { validateUsername, validateEmail, comparePasswords } from '../utils/validations'
 
 const MainContainer = styled.div`
   width: 100%;
@@ -37,7 +37,7 @@ const LinkText = styled.p`
 
 const RegisterForm = ({ handleLogin = null }) => {
   const defaultData = {
-    name: '',
+    username: '',
     email: '',
     password: '',
     passwordConfirmation: '',
@@ -53,9 +53,9 @@ const RegisterForm = ({ handleLogin = null }) => {
 
   const handleSubmit = (event) => {
     const formData = handleData(event)
-    const { name, email, password, passwordConfirmation } = formData
-    if (!name) {
-      setMessage('Invalid Name.')
+    const { username, email, password, passwordConfirmation } = formData
+    if (!validateUsername(username)) {
+      setMessage("Invalid Username. Don't use blank space!")
       toggleNotification()
       return
     }
@@ -74,10 +74,10 @@ const RegisterForm = ({ handleLogin = null }) => {
     const bodyObj = {
       email,
       password,
-      username: name,
+      username,
     }
 
-    if (name && email && password && passwordConfirmation) {
+    if (username && email && password && passwordConfirmation) {
       fetch('https://api.callback-news.com/account/register', {
         method: 'post',
         headers: {
@@ -108,10 +108,10 @@ const RegisterForm = ({ handleLogin = null }) => {
       <Avatar withBorder size="60px" />
       <Form onSubmit={handleSubmit}>
         <LabelInput
-          value={data.name}
+          value={data.username}
           onChange={customHandleChange}
-          id="name"
-          label="Full Name"
+          id="username"
+          label="Username"
           required
         />
         <LabelInput
