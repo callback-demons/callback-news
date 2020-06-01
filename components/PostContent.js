@@ -33,7 +33,7 @@ const Label = styled.div`
 `
 
 const PostContent = ({ post }) => {
-  const { category, content, title, author, likes } = post
+  const { id, category, content, title, author, likes } = post
   return (
     <Container>
       <Labels>
@@ -43,9 +43,11 @@ const PostContent = ({ post }) => {
       </Labels>
       <Title>{title}</Title>
       <InfoPost post={{
+        postId: id,
         date: post.date_posted,
         author,
-        likes,
+        likes: likes.count,
+        liked: likes.liked,
         avatar: null,
       }}
       />
