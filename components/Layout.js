@@ -19,7 +19,7 @@ const Container = styled.div`
   min-height:100vh;
 `
 
-const Layout = ({ title, children }) => {
+const Layout = ({ title, children, description }) => {
   const [state, setState] = useState({ email: 'david@123.com', token: null })
   return (
     <ThemeProvider theme={lightTheme}>
@@ -31,7 +31,10 @@ const Layout = ({ title, children }) => {
           <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;600;900&display=swap" rel="stylesheet" />
           <link rel="icon" type="image/svg+xml" href="https://storage.cloud.google.com/cbn-public/favicon.svg" sizes="any" />
-
+          <meta
+            name="description"
+            content={description || "Callback-News is an Online Technology Newspaper updated daily by other tech sites so you do not miss your dose of tech!"}
+          />
         </Head>
         <Container>
           <Header />

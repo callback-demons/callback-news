@@ -131,9 +131,10 @@ const TextSkeleton = styled.div`
 `
 
 const Comment = (props) => {
-  const { text = '', author = 'William Velázquez', postedDate = 'Fri, 08 May 2020 10:05:49', isLoading, className } = props
+  const { comment = {} } = props
+  const { content = '', user = {}, isLoading, className } = comment
 
-  if (isLoading || text === '') {
+  if (isLoading || content === '') {
     return (
       <CommentContainer className={className}>
         <SkeletonContainer>
@@ -151,20 +152,18 @@ const Comment = (props) => {
     )
   }
 
-  const date = parse(postedDate, 'EEE, dd MMM yyyy HH:mm:ss', new Date())
-
   return (
     <CommentContainer className={className}>
       <CustomAvatar withBorder />
       <CommentBox>
         <DataContainer>
-          <Author>{author}</Author>
+          <Author>{user.username || 'Privat User'}</Author>
           <PublicationDate>
-            {`Posted: ${format(date, 'MM/dd/yyyy')}`}
+            {`Posted: ${comment.date_posted || 'Date not available'}`}
           </PublicationDate>
         </DataContainer>
         <CommentText>
-          {text}
+          {content}
         </CommentText>
       </CommentBox>
     </CommentContainer>
