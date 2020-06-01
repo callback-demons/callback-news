@@ -1,9 +1,14 @@
 export const validateEmail = (email) => {
-    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/
-    return email.match(mailformat)
+  const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/
+  return email.match(mailFormat)
 }
 
 export const comparePasswords = (password, confirmation) => {
-    if (password.length>0) return password === confirmation
-    return false
+  if (password.length > 0) return password === confirmation
+  return false
+}
+
+export const cleanText = (text) => {
+  const stringFormat = /[^\w\s ]/gi
+  return text.replace(stringFormat, '')
 }

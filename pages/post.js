@@ -11,9 +11,8 @@ const Image = styled.img`
   object-fit: cover;
 `
 
-function PostPage({ post = {}, id = null }) {
+function PostPage({ post = {}, comments = [], id = null }) {
   const [postState, setPostState] = useState({ ...post } || {})
-  // const { token = null } = user
   useEffect(() => {
     const fetchData = async () => {
       const token = window.localStorage.getItem('token') || ''
@@ -38,7 +37,7 @@ function PostPage({ post = {}, id = null }) {
     <Layout>
       <Image src={url} alt={title} />
       <PostCard post={postState} />
-      <CommentsSection />
+      <CommentsSection postId={post.id} comments={comments} />
     </Layout>
   )
 }
@@ -46,19 +45,13 @@ function PostPage({ post = {}, id = null }) {
 export async function getServerSideProps({ query, res }) {
   const { id } = query
   try {
-    const [resPost] = await Promise.all([
-      fetch(`https://api.callback-news.com/news/${id}/`, {
-        method: 'get',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          // 'Authorization': `Token ${token}`,
-        },
-      }),
+    const [resPost, resComments] = await Promise.all([
+      fetch(`https://api.callback-news.com/news/${id}/`),
+      fetch(`https://api.callback-news.com/news/${id}/comments/`),
     ])
     const post = await resPost.json()
     const { status: postStatus } = resPost
-
+    const comments = await resComments.json()
     if (postStatus === 404) {
       res.statusCode = postStatus
       return { props: { statusCode: res.statusCode } }
@@ -68,7 +61,7 @@ export async function getServerSideProps({ query, res }) {
       return { props: { statusCode: res.statusCode } }
     }
     res.statusCode = 200
-    return { props: { post, statusCode: res.statusCode, id } }
+    return { props: { post, comments, statusCode: res.statusCode, id } }
   } catch (error) {
     res.statusCode = 503
     return { props: { statusCode: res.statusCode } }
