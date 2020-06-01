@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import Heart from './Heart'
@@ -40,11 +40,18 @@ const Likes = styled.div`
 `
 
 const InfoPost = ({ post, className }) => {
-  const { postId, date, author, likes, liked, avatar } = post
+  const { postId, date, author, likes: tempLikes, liked, avatar } = post
+  // console.log(liked)
   const { containerRef, width } = useWidth()
   const [isLiked, setIsLiked] = useState(liked)
+  const [likes, setLikes] = useState(tempLikes)
   const [message, setMessage] = useState('')
   const [isNotifying, toggleNotification] = useToggle(false)
+
+  useEffect(() => {
+    setIsLiked(liked)
+    setLikes(setLikes)
+  }, [liked])
 
   const url = `https://api.callback-news.com/news/${postId}/like`
 
@@ -63,6 +70,7 @@ const InfoPost = ({ post, className }) => {
       })
       .then((data) => {
         console.log(data.message)
+        setLikes(!isLiked ? likes + 1 : likes - 1)
         setIsLiked(!isLiked)
       })
       .catch((error) => {
@@ -93,7 +101,7 @@ const InfoPost = ({ post, className }) => {
       </Meta>
       <LikeContainer>
         <Heart onClick={handleLike} isLiked={isLiked} />
-        <Likes>{likes + isLiked}</Likes>
+        <Likes>{likes}</Likes>
       </LikeContainer>
       {
         isNotifying &&
