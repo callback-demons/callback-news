@@ -14,7 +14,7 @@ const Title = styled.h1`
   }
 `
 
-function HomePage({ categories, posts }) {
+function HomePage({ categories, posts, popularPosts }) {
   const { results } = posts
   const heroNews = results ? [results[1], results[2], results[3]] : []
   const [title] = useState('Callback News - The daily technology newsletter')
@@ -27,7 +27,7 @@ function HomePage({ categories, posts }) {
       <Title>{title}</Title>
       <CategoryItemList data={categories} />
       <PostItemList title="Recent news" posts={results} />
-      <PostItemList title="Popular news" posts={results} />
+      <PostItemList title="Popular news" posts={popularPosts} />
     </Layout>
   )
 }
@@ -35,17 +35,19 @@ function HomePage({ categories, posts }) {
 export async function getServerSideProps({ query, res }) {
 
   try {
-    const [resCategories, resPosts] = await Promise.all([
+    const [resCategories, resPosts, resPopularPosts] = await Promise.all([
       fetch('https://api.callback-news.com/categories/'),
       // fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/categories.json'),
       // fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/news.json'),
       fetch('https://api.callback-news.com/news/'),
+      fetch('https://api.callback-news.com/news-popular/'),
     ])
 
     const categories = await resCategories.json()
     const posts = await resPosts.json()
+    const popularPosts = await resPopularPosts.json()
     res.statusCode = 200
-    return { props: { categories, posts, statusCode: res.statusCode } }
+    return { props: { categories, posts, popularPosts, statusCode: res.statusCode } }
 
   } catch (error) {
     res.statusCode = 503
