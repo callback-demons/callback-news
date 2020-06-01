@@ -1,9 +1,9 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import CategoryItemList from './CategoryItemList'
-import categories from '../mocks/categories.json'
-import CategoryItem from './CategoryItem'
-import Layout from './Layout'
+import CategoryItemList from '../../components/CategoryItemList'
+import categories from '../../mocks/categories.json'
+import CategoryItem from '../../components/CategoryItem'
+import Layout from '../../components/Layout'
 
 describe('<CategoryItemList />', () => {
 

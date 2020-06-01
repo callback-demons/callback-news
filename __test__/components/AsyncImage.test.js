@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import AsyncImage from './AsyncImage'
+import AsyncImage from '../../components/AsyncImage'
 
 describe('<AsyncImage />', () => {
   it('Should load the AsyncImage component', () => {
