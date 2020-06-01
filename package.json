@@ -38,6 +38,7 @@
     "date-fns": "2.14.0",
     "next": "9.3.6",
     "next-routes": "1.4.2",
+    "next-session": "3.2.3",
     "node-fetch": "2.6.0",
     "re-carousel": "2.4.0",
     "react": "16.13.1",
