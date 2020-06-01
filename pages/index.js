@@ -13,9 +13,8 @@ const Title = styled.h1`
     display:block;
   }
 `
-
-
 function HomePage({
+  popularPosts,
   categories,
   posts,
 }) {
