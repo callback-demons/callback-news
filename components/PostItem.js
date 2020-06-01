@@ -131,7 +131,10 @@ const PostItem = ({ post = {}, className }) => {
             } */}
           </Label>
           <>
-            <Link href={`/post/${post.id}`}>
+            <Link
+              href={`/post/${post.id}`}
+              prefetch={false}
+            >
               <a>
                 <Image
                   onLoaded={() => { setIsLoading(false) }}
