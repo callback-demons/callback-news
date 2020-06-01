@@ -17,7 +17,7 @@ function PostPage({ post = {}, comments = [] }) {
     <Layout>
       <Image src={url} alt={title} />
       <PostCard post={post} />
-      <CommentsSection comments={comments} />
+      <CommentsSection postId={post.id} comments={comments} />
     </Layout>
   )
 }
