@@ -51,7 +51,7 @@ const InfoPost = ({ post, className }) => {
   useEffect(() => {
     setIsLiked(liked)
     setLikes(setLikes)
-  }, [null])
+  }, [liked])
 
   const url = `https://api.callback-news.com/news/${postId}/like`
 
