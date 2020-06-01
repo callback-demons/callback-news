@@ -15,17 +15,23 @@ function PostPage({ post = {}, comments = [], id = null }) {
   const [postState, setPostState] = useState({ ...post } || {})
   useEffect(() => {
     const fetchData = async () => {
-      const token = window.localStorage.getItem('token') || ''
-      const resPost = await fetch(`https://api.callback-news.com/news/${id}/`, {
-        method: 'get',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Authorization': token ? `Token ${token || ''}` : '',
-        },
-      })
-      const data = await resPost.json()
-      setPostState(data)
+
+      try {
+        const token = window.localStorage.getItem('token') || ''
+        const resPost = await fetch(`https://api.callback-news.com/news/${id}/`, {
+          method: 'get',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': token ? `Token ${token || ''}` : '',
+          },
+        })
+        const data = await resPost.json()
+        setPostState(data)
+      } catch (error) {
+        console.log(error)
+      }
+
     }
     fetchData()
   }, [null])
