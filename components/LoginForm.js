@@ -65,7 +65,6 @@ const LoginForm = ({
           return response.json()
         })
         .then((data) => {
-          console.log(data)
           window.localStorage.setItem('token', data.token)
           window.localStorage.setItem('email', username)
           setUser({
@@ -78,12 +77,7 @@ const LoginForm = ({
         .catch((error) => {
           console.log(error)
         })
-
-      // const json = await response.json()
-      // console.log('handleSubmit -> data', data)
     }
-
-    console.log('formData --> ', formData)
   }
 
   return (

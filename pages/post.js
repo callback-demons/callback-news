@@ -41,7 +41,6 @@ export async function getServerSideProps({ query, res }) {
       return { props: { statusCode: res.statusCode } }
     }
     res.statusCode = 200
-    console.log(comments)
     return { props: { post, comments, statusCode: res.statusCode } }
   } catch (error) {
     res.statusCode = 503

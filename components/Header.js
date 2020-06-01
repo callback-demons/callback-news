@@ -36,7 +36,6 @@ const Right = styled.div`
 const Header = ({ title = '' }) => {
   const [user, setUser] = useUserContext()
   useEffect(() => {
-    console.log()
     setUser({
       ...user,
       email: window.localStorage.getItem('email'),
