@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import fetch from 'node-fetch'
 import PostItemList from '../components/PostItemList'
 import Layout from '../components/Layout'
@@ -13,18 +13,50 @@ const Title = styled.h1`
     display:block;
   }
 `
+function HomePage({
+  popularPosts,
+  categories,
+  posts,
+}) {
 
-function HomePage({ categories, posts }) {
-  const { results } = posts
+  const [postsState, setPostsState] = useState({ ...posts } || {})
+  useEffect(() => {
+    const fetchData = async () => {
+
+      try {
+        const token = window.localStorage.getItem('token') || ''
+        const resPosts = await fetch('https://api.callback-news.com/news/', {
+          method: 'get',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': token ? `Token ${token || ''}` : '',
+          },
+        })
+        const data = await resPosts.json()
+        setPostsState(data)
+      } catch (error) {
+        console.log(error)
+      }
+
+    }
+    fetchData()
+  }, [null])
+
+  const { results } = postsState
+
   const heroNews = results ? [results[1], results[2], results[3]] : []
   const [title] = useState('Callback News - The daily technology newsletter')
+  if (typeof (window) !== 'undefined') {
+    window.localStorage.setItem('categories', JSON.stringify(categories))
+  }
   return (
     <Layout title={title}>
       <Hero posts={heroNews} />
       <Title>{title}</Title>
       <CategoryItemList data={categories} />
       <PostItemList title="Recent news" posts={results} />
-      <PostItemList title="Popular news" posts={results} />
+      <PostItemList title="Popular news" posts={popularPosts} />
     </Layout>
   )
 }
@@ -32,17 +64,17 @@ function HomePage({ categories, posts }) {
 export async function getServerSideProps({ query, res }) {
 
   try {
-    const [resCategories, resPosts] = await Promise.all([
+    const [resCategories, resPosts, resPopularPosts] = await Promise.all([
       fetch('https://api.callback-news.com/categories/'),
-      // fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/categories.json'),
-      // fetch('https://storage.googleapis.com/cbn-public/mocks/data-json/news.json'),
       fetch('https://api.callback-news.com/news/'),
+      fetch('https://api.callback-news.com/news-popular/'),
     ])
 
     const categories = await resCategories.json()
     const posts = await resPosts.json()
+    const popularPosts = await resPopularPosts.json()
     res.statusCode = 200
-    return { props: { categories, posts, statusCode: res.statusCode } }
+    return { props: { categories, posts, popularPosts, statusCode: res.statusCode } }
 
   } catch (error) {
     res.statusCode = 503

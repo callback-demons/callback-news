@@ -3,6 +3,8 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { circle, circleGradientAnimation } from '../styled/mixins'
 import CategoryItemSkeleton from './CategoryItemSkeleton'
+import useLoading from '../hooks/useLoading'
+import AsyncImage from './AsyncImage'
 
 const Container = styled.a`
   display: grid;
@@ -31,7 +33,7 @@ const Item = styled.div`
   }
 `
 
-const Image = styled.img`
+const Image = styled(AsyncImage)`
   ${circle};
   width: 100px;
   height: 100px;
@@ -66,7 +68,8 @@ const CategoryTitle = styled.h2`
 `
 
 const CategoryItem = (props) => {
-  const { title, srcImage = '', categoryColor = '#428CD4', isLoading, className, id = '1' } = props
+  const [isLoading, setIsLoading] = useLoading()
+  const { title, srcImage = '', categoryColor = '#428CD4', className, id = '1' } = props
   if (isLoading || srcImage === '') {
     return (
       <Container className={className}>
@@ -76,10 +79,18 @@ const CategoryItem = (props) => {
   }
 
   return (
-    <Link href={{ pathname: `/category/${id}`, query: { name: title } }}>
+    <Link
+      prefetch={false}
+      href={{ pathname: `/category/${id}`, query: { name: title } }}
+    >
       <Container>
         <Item color={categoryColor}>
           <Image src={srcImage} />
+          <Image
+            onLoaded={() => { setIsLoading(false) }}
+            alt={title || 'defaultImage'}
+            src={srcImage || 'https://storage.googleapis.com/cbn-public/default-backgroud.jpg'}
+          />
         </Item>
         { title && <CategoryTitle>{title}</CategoryTitle>}
       </Container>

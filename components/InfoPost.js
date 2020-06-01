@@ -41,7 +41,6 @@ const Likes = styled.div`
 
 const InfoPost = ({ post, className }) => {
   const { postId, date, author, likes: tempLikes, liked, avatar } = post
-  // console.log(liked)
   const { containerRef, width } = useWidth()
   const [isLiked, setIsLiked] = useState(liked)
   const [likes, setLikes] = useState(tempLikes)
@@ -69,7 +68,7 @@ const InfoPost = ({ post, className }) => {
         return response.json()
       })
       .then((data) => {
-        console.log(data.message)
+        // console.log(data.message)
         setLikes(!isLiked ? likes + 1 : likes - 1)
         setIsLiked(!isLiked)
       })

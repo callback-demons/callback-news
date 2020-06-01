@@ -66,6 +66,9 @@ const LabelElement = styled.div(
       margin:${space}px 0;
       text-align:center;
       min-width:140px;
+      margin: 170px 0;
+      position:absolute;
+      cursor: pointer;
     `
   },
 )
@@ -123,13 +126,18 @@ const PostItem = ({ post = {}, className }) => {
       <Container className={className} ref={containerRef} width={width}>
         <Header>
           <Label>
-            <LabelElement>{post.category.name || ''}</LabelElement>
+            <Link href={{ pathname: `/category/${post.category.id}`, query: { name: post.category.name } }}>
+              <LabelElement>{post.category.name || ''}</LabelElement>
+            </Link>
             {/* {
               post.categories.map((category) => <LabelElement>{category.name || ''}</LabelElement>)
             } */}
           </Label>
           <>
-            <Link href={`/post/${post.id}`}>
+            <Link
+              href={`/post/${post.id}`}
+              prefetch={false}
+            >
               <a>
                 <Image
                   onLoaded={() => { setIsLoading(false) }}

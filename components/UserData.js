@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Avatar from './Avatar'
 import LabelInput from './LabelInput'
@@ -39,19 +39,23 @@ const UserData = ({ data = [] }) => {
   const [message, setMessage] = useState('')
   const [isNotifying, toggleNotification] = useToggle(false)
   const [isEditing, toggleEditing] = useToggle(false)
-  const [userData, handleChange, handleData] = useForm({
+  const [userData, handleChange, handleData, setUserData] = useForm({
     ...data,
     password: '',
     newPassword: '',
     newPasswordConfirmation: '',
   })
 
+  useEffect(() => {
+    setUserData({ ...data })
+  }, [data])
+
   const handleSubmit = (event) => {
     toggleEditing()
     setMessage('Data saved')
     toggleNotification()
     const finalData = handleData(event)
-    console.log('finalData --> ', finalData)
+    // console.log('finalData --> ', finalData)
   }
 
   return (
@@ -59,9 +63,9 @@ const UserData = ({ data = [] }) => {
       <Avatar withBorder size="140px" />
       <Form onSubmit={handleSubmit}>
         <LabelInput
-          id="name"
-          label="Full Name"
-          value={userData.name}
+          id="username"
+          label="Username"
+          value={userData.username}
           disabled={!isEditing}
           onChange={handleChange}
         />
@@ -99,9 +103,9 @@ const UserData = ({ data = [] }) => {
           onChange={handleChange}
         />
         {
-          isEditing ?
-            <Button text="Save" onClick={handleSubmit} /> :
-            <Button text="Edit" onClick={toggleEditing} />
+          // isEditing ?
+          //   <Button text="Save" onClick={handleSubmit} /> :
+          //   <Button text="Edit" onClick={toggleEditing} />
         }
       </Form>
       <Notification
