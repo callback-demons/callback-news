@@ -16,6 +16,25 @@ const Title = styled.h1`
   }
 `
 
+const ResultsCount = styled.p`
+  margin: 20px 20px;
+  font-size: ${(p) => p.theme.tabletSize}px;
+  @media screen and (min-width: 768px) {
+    margin: 16px 20px;
+    font-size: ${(p) => p.theme.titleSize}px;
+  }
+`
+
+const NotFoundMessage = styled.p`
+  margin: 20px 20px;
+  font-size: ${(p) => p.theme.tabletSize}px;
+  @media screen and (min-width: 768px) {
+    margin: 16px 20px;
+    font-size: ${(p) => p.theme.titleSize}px;
+  }
+`
+const Query = styled.strong``
+
 const SearchContainer = styled.div`
   width:80%;
   padding: 20px;
@@ -39,7 +58,16 @@ function SearchPage({ posts = [] }) {
         <SearchBar />
       </SearchContainer>
       <DottedLine />
+      <ResultsCount>{`Showing ${posts.length} results`}</ResultsCount>
       <PostItemList posts={posts} />
+      {
+        posts.length === 0 &&
+        <NotFoundMessage>
+          Sorry, we couldn&#39;t find any results matching
+          <Query>{` ${router.query.title}`}</Query>
+          .
+        </NotFoundMessage>
+      }
     </Layout>
   )
 }
