@@ -152,14 +152,15 @@ const Comment = (props) => {
     )
   }
 
+  const username = user.username.split('@')[0]
   return (
     <CommentContainer className={className}>
       <CustomAvatar withBorder />
       <CommentBox>
         <DataContainer>
-          <Author>{user.username || 'Privat User'}</Author>
+          <Author>{username || 'Private User'}</Author>
           <PublicationDate>
-            {`Posted: ${comment.date_posted || 'Date not available'}`}
+            {`Posted: ${comment.created || 'Date not available'}`}
           </PublicationDate>
         </DataContainer>
         <CommentText>
