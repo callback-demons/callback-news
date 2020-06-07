@@ -11,7 +11,7 @@ The newspaper is managed by an admin panel in Python, gets the news automaticall
 ### 🚀 Links
 
  * **Website:** https://callback-news.com/
- * **Documentation:** https://www.notion.so/Callback-News-8f7835b5467b4ca89efe35607d9abad7
+ * **Documentation:** https://www.notion.so/behistoteles/Callback-News-Public-Documentation-bc0f09feb6b64b14be335322f716b08b
  * **Mockup:** https://www.notion.so/451f01a6fbfb4e8f97c409c18a3e746f?v=41755accde324bcb8bddc5942051ebc9
 
 ### 🛠 Installation
